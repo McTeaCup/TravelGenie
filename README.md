@@ -3,7 +3,7 @@
 ## Branch structure
 For easy workflow each developer *(Frontend/Backend/DevOps)* will have their own branch to fork from. This is so that each developer can test their features in a safe envioremnt. Here are the branches accessable:
 
-![image if branch structure](media/branch-structure.png)
+![image if branch structure](github-media/branch-structure.png)
 
 - main
    This branch should be avoided to interact with and should only be used as the latest stable edition of the product. There will be a workflow that auto-merge the dev branch at the end of the week just before the retrospective so the group as a colective can try out the latest version.
