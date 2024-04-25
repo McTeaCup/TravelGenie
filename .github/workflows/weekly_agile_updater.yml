@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: gh issues list
+      - run: gh issue list
       - run: gh pr list
       - run: gh release list
 
