@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: gh issue list 
+      - run: gh issues list
       - run: gh pr list
       - run: gh release list
 
     env: 
       GH_TOKEN: ${{ github.token }}
-    
+      GH_REPO: ${{ github.repository }}
