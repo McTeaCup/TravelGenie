@@ -8,7 +8,7 @@ jobs:
   echo-information:
     runs-on: ubuntu-22.04
     steps:
-      - run: touch issues_info.json >> gh issue status --json
+      - run: gh issue --json >> issues.json
       - run: cat issues_info.json
     env: 
       GH_TOKEN: ${{ github.token }}
