@@ -8,11 +8,8 @@ jobs:
   echo-information:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - run: gh issue list
-      - run: gh pr list
-      - run: gh release list
-
+      - run: touch issues_info.json >> gh issue status --json
+      - run: cat issues_info.json
     env: 
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
