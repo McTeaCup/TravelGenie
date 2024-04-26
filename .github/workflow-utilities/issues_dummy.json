@@ -1,1 +1,58 @@
-[{"assignees":[{"id":"MDQ6VXNlcjY5ODU5NDQ1","login":"McTeaCup","name":"Daniel Redelius"}],"author":{"login":"McTeaCup"},"body":"Create a workflow that can send a mail or create a text file that consists of the current state of the repository and how things are currently going. It should return the following:\r\n\r\n- Current issues\r\n- Current PRs (both opened and closed for the sprint/milestone)\r\n- Current progress of the milestone\r\n- How many branches that are currently open and unmerged\r\n\r\nComment on this issue if there is anything else we could need for the sprint planning/retro.","closedAt":null,"createdAt":"2024-04-25T10:52:25Z","id":"I_kwDOLyjdsM6G5u4c","labels":[{"id":"LA_kwDOLyjdsM8AAAABmTkaHg","name":"DevOps","description":"This issue is DevOps-related","color":"fcc326"}],"state":"OPEN","title":"Create a workflow that summaries repo state","url":"https://github.com/McTeaCup/TravelGenie/issues/2"}]
+[
+    {
+        "assignees": [
+            {
+                "id": "MDQ6VXNlcjY5ODU5NDQ1",
+                "login": "McTeaCup",
+                "name": "Daniel Redelius"
+            }
+        ],
+        "author": {
+            "login": "McTeaCup"
+        },
+        "body": "Create a workflow that can send a mail or create a text file that consists of the current state of the repository and how things are currently going. It should return the following:\r\n\r\n- Current issues\r\n- Current PRs (both opened and closed for the sprint/milestone)\r\n- Current progress of the milestone\r\n- How many branches that are currently open and unmerged\r\n\r\nComment on this issue if there is anything else we could need for the sprint planning/retro.",
+        "closedAt": null,
+        "createdAt": "2024-04-25T10:52:25Z",
+        "id": "I_kwDOLyjdsM6G5u4c",
+        "labels": [
+            {
+                "id": "LA_kwDOLyjdsM8AAAABmTkaHg",
+                "name": "DevOps",
+                "description": "This issue is DevOps-related",
+                "color": "fcc326"
+            }
+        ],
+        "milestone": null,
+        "state": "OPEN",
+        "title": "Create a workflow that summaries repo state",
+        "url": "https://github.com/McTeaCup/TravelGenie/issues/2"
+    },
+    {
+        "assignees": [
+            {
+                "id": "MDQ6VXNlcjY5ODU5NDQ1",
+                "login": "McTeaCup",
+                "name": "Daniel Redelius"
+            }
+        ],
+        "author": {
+            "login": "McTeaCup"
+        },
+        "body": "Create a workflow that can send a mail or create a text file that consists of the current state of the repository and how things are currently going. It should return the following:\r\n\r\n- Current issues\r\n- Current PRs (both opened and closed for the sprint/milestone)\r\n- Current progress of the milestone\r\n- How many branches that are currently open and unmerged\r\n\r\nComment on this issue if there is anything else we could need for the sprint planning/retro.",
+        "closedAt": null,
+        "createdAt": "2024-05-30T10:52:25Z",
+        "id": "I_kwDOLyjdsM6G5u4c",
+        "labels": [
+            {
+                "id": "LA_kwDOLyjdsM8AAAABmTkaHg",
+                "name": "DevOps",
+                "description": "This issue is DevOps-related",
+                "color": "fcc326"
+            }
+        ],
+        "milestone": null,
+        "state": "CLOSED",
+        "title": "Create a workflow that summaries repo state",
+        "url": "https://github.com/McTeaCup/TravelGenie/issues/2"
+    }
+]
