@@ -1,6 +1,42 @@
 # TravelGenie
 This is the repository for the Chas Challange 2024 for Grupp-5. This is the source code for the Travel Genie, an aplication to help you schedule your vacation.
 
+## Folder structure
+*As of dev-feature-#3 is created the folder now are directed towards specific disiplinces.*
+- `client`
+
+   This is the folder for frontended developers and focus on what should be viewed from the client's side.
+
+- `server`
+
+   This folder is for the backend developers and consists of API related features nessesary to fetch the correct data.
+
+- `github-media`
+   This is simply for items that has things like images directed to markdown-files.
+
+- `.github`
+   This folder contains CI/CD or other devops configurations related to the repository.
+
+```
+TravelGenie
+|
+|-> .github/
+|    |
+|    |-> workflows
+|    |-> ...
+|
+|-> Travel-Ginie-App.server/
+|    |
+|    |-> ...
+|
+|-> chaschallangegrp5.client/
+|   |
+|   |-> ...
+|
+|-> README.md
+|-> Travel-Gine-App.sln
+```
+
 ## Branch structure
 For easy workflow each developer *(Frontend/Backend/DevOps)* will have their own branch to fork from. This is so that each developer can test their features in a safe envioremnt. Here are the branches accessable:
 

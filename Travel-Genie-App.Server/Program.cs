@@ -1,15 +1,11 @@
 
-using Travel_Ginie_App.Server.Services;
-
-namespace Travel_Ginie_App.Server
+namespace Travel_Genie_App.Server
 {
     public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddControllers();
-            builder.Services.AddScoped<ITravelApp, TravelApp>();
 
             // Add services to the container.
 
