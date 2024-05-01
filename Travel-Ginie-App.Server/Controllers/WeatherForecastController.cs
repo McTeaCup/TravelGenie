@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Travel_Genie_App.Server.Controllers
+namespace Travel_Ginie_App.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

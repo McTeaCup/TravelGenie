@@ -1,6 +1,0 @@
-@Travel_Genie_App.Server_HostAddress = http://localhost:5275
-
-GET {{Travel_Genie_App.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

@@ -1,4 +1,4 @@
-namespace Travel_Genie_App.Server
+namespace Travel_Ginie_App.Server
 {
     public class WeatherForecast
     {
