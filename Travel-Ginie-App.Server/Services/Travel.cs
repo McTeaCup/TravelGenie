@@ -79,7 +79,7 @@ namespace Travel_Ginie_App.Server.Services
 
                 string apiUrl = "https://chatgpt-api8.p.rapidapi.com/";
 
-                _httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+                _httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", "1e672dc169mshdcfa766897c5a4ep19f054jsne3cb79de3eb5");
                 _httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", "chatgpt-api8.p.rapidapi.com");
 
 
