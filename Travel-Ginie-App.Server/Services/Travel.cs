@@ -1,6 +1,6 @@
 ﻿namespace Travel_Ginie_App.Server.Services
 {
-    public class Travel
+    public class Travel:ITravel
     {
     }
 }
