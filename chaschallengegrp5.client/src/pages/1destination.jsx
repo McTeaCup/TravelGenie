@@ -16,7 +16,7 @@ function Destination() {
                 <input type="date" name="date" />
             </div>
             <div>
-                {/* <div><Link><button>Back</button></Link></div> */}
+                <div><Link to={'/'}><button>Back</button></Link></div>
                 <div><Link to="/party"><button type="submit">Submit</button></Link></div>
             </div>
         </div>

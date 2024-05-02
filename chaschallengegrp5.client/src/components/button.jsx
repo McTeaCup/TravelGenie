@@ -20,6 +20,7 @@ const Toggle = ({ value, selected, handleSel, handleChoice }) => {
     }
 
     return (
+        //Bootstrap knapp borde kanske ändra 
         <Button variant="primary" style={buttonStyle} onClick={handleClick}>{value} </Button>
     )
 }

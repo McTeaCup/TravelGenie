@@ -32,7 +32,7 @@ function Events() {
             </div>
             <div>
                 <Link to="/food"><button type="button">Back</button></Link>
-                <Link to="/result"><button type="button">Next</button></Link>
+                <Link to="/summary"><button type="button">Next</button></Link>
             </div>
         </div>
     );

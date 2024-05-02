@@ -1,7 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import BootNavbar from './components/BootNavbar';
@@ -12,12 +9,12 @@ import Party from './pages/2party';
 import Activities from './pages/4activites';
 import Food from './pages/5food';
 import Events from './pages/6events';
-import Result from './pages/7result';
+import Summary from './pages/7summary';
 import Signup from './components/signup';
 import Login from './components/login';
-import { AuthProvider } from './components/Auth';
 import Destination from './pages/1destination';
 import Landing from './pages/0landing';
+import ManResult from './pages/result-manual';
 
 
 function App() {
@@ -35,7 +32,8 @@ function App() {
                     <Route path="activites" element={<Activities />} />
                     <Route path='food' element={<Food />} />
                     <Route path='events' element={<Events />} />
-                    <Route path='result' element={<Result />} />
+                    <Route path='summary' element={<Summary />} />
+                    <Route path='manresult' element={<ManResult />} />
                     {/* Måste göra login logout och sign up pages */}
                 </Route>
             </Routes>
