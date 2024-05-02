@@ -31,7 +31,7 @@ function Food() {
                 ))}
             </div>
             <div>
-                <Link to="/activities"><button type="button">Back</button></Link>
+                <Link to="/activites"><button type="button">Back</button></Link>
                 <Link to="/events"><button type="button">Next</button></Link>
             </div>
         </div>
