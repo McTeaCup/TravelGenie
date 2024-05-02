@@ -16,7 +16,7 @@ const Party = () => {
     return (
         <div>
             <div className='progress'>
-                <p>Step 2 of 4</p>
+                <p>Step 2 of 6</p>
                 <div className='line' />
             </div>
             <div className='box'>
@@ -34,7 +34,7 @@ const Party = () => {
                 </div>
             </div>
             <div>
-                <div><Link to="/"><button>Back</button></Link></div>
+                <div><Link to="/destination"><button>Back</button></Link></div>
                 <div><Link to="/budget"><button type="submit">Submit</button></Link></div>
             </div>
         </div>

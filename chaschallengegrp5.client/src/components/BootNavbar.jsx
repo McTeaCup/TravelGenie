@@ -15,7 +15,7 @@ function BootNavbar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-             <Link to="/"><Nav.Link href="#action1" className='text-white'>Home</Nav.Link></Link>
+            <Link to="/"><Nav.Link href="#action1" className='text-white'>Home</Nav.Link></Link>
             <Nav.Link href="#action2" className='text-white'>Link</Nav.Link>
             <Nav.Link href="#" disabled className='text-white'>Link</Nav.Link>
           </Nav>

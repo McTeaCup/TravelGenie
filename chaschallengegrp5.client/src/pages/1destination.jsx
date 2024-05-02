@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-function Landing() {
+function Destination() {
     return (
         <div>
+            <div className='progress'>
+                <p>Step 1 of 6</p>
+                <div className='line' />
+            </div>
             <div>
                 <h1>Välkommen! Hitta dina favorit aktiviteter Sök nedan</h1>
                 <label htmlFor="input" type="input">What City Are You Going To?*</label>
@@ -22,4 +26,4 @@ function Landing() {
     )
 }
 
-export default Landing;
+export default Destination;

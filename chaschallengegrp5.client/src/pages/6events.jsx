@@ -14,6 +14,10 @@ function Events() {
 
     return (
         <div>
+            <div className='progress'>
+                <p>Step 6 of 6</p>
+                <div className='line' />
+            </div>
             <h1>What kind of events are you interested in?</h1>
             <div className='btnContainer'>
                 {['Teather', 'Stand up', 'Sport', 'Everything'].map(choice => (

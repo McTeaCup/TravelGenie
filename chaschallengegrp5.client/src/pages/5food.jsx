@@ -14,6 +14,10 @@ function Food() {
 
     return (
         <div>
+            <div className='progress'>
+                <p>Step 5 of 6</p>
+                <div className='line' />
+            </div>
             <h1>What Kind of Food Do You Want?</h1>
             <div className='btnContainer'>
                 {['Vegan', 'Meat & Fish', 'Pizza', 'i eat everything'].map(choice => (

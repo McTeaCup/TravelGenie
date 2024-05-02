@@ -14,7 +14,10 @@ function Activities() {
 
 
     return (
-        <div>
+        <div><div className='progress'>
+            <p>Step 4 of 6</p>
+            <div className='line' />
+        </div>
             <h1>What Activities Are You Interested In?</h1>
             <div className='btnContainer'>
                 {['Stränder', 'Nattliv', 'Mat', 'Adrenalin Höjare', 'Sevärdigheter', 'Evenemang', 'Nöjesparker'].map(choice => (

@@ -14,7 +14,10 @@ function Budget() {
     const [selectedOption, handleSel] = useSelection();
 
     return (
-        <div>
+        <div><div className='progress'>
+            <p>Step 3 of 6</p>
+            <div className='line' />
+        </div>
             <h1>What Is Your Budget?</h1>
             <div className='btnContainer'>
                 {['Low', 'Medium', 'High', 'None of your buisness'].map(choice => (

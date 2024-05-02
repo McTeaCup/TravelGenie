@@ -7,7 +7,6 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import BootNavbar from './components/BootNavbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Landing from './pages/1Landing';
 import Budget from './pages/3budget';
 import Party from './pages/2party';
 import Activities from './pages/4activites';
@@ -17,6 +16,8 @@ import Result from './pages/7result';
 import Signup from './components/signup';
 import Login from './components/login';
 import { AuthProvider } from './components/Auth';
+import Destination from './pages/1destination';
+import Landing from './pages/0landing';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
 
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Landing />} />
+                    <Route path='destination' element={<Destination />} />
                     <Route path="budget" element={<Budget />} />
                     <Route path="party" element={<Party />} />
                     <Route path="activites" element={<Activities />} />
