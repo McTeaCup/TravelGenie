@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
+import { useChoice } from '../components/landingchoice-logic';
 
 function Result() {
     const { answers } = useAnswers();
+    const { aiHelp } = useChoice();
 
     const categories = [
         { title: 'You plan to travel with...', key: 'party' },
@@ -26,7 +28,9 @@ function Result() {
 
             <div>
                 <div><Link to="/"><button>Exit</button></Link></div>
-                <Link to="/manresult"><button type="button">CTA</button></Link>
+                {aiHelp !== null && (
+                    <Link to={aiHelp ? "/airesult" : "/manresult"}><button>CBA</button></Link>
+                )}
             </div>
         </div>
     );

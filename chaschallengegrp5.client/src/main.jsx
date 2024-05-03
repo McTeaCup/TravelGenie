@@ -5,6 +5,7 @@ import './index.css'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './components/Auth';
 import { AnswerProvider } from './components/AnswerContext.jsx';
+import { ChoiceProvider } from './components/landingchoice-logic.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,7 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <AuthProvider>
         <AnswerProvider>
-          <App />
+          <ChoiceProvider>
+            <App />
+          </ChoiceProvider>
         </AnswerProvider>
       </AuthProvider>
     </Router>

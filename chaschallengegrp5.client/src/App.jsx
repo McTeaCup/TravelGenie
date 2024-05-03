@@ -15,6 +15,7 @@ import Login from './components/login';
 import Destination from './pages/1destination';
 import Landing from './pages/0landing';
 import ManResult from './pages/result-manual';
+import AiResult from './pages/result-ai';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                     <Route path='events' element={<Events />} />
                     <Route path='summary' element={<Summary />} />
                     <Route path='manresult' element={<ManResult />} />
+                    <Route path='airesult' element={<AiResult />} />
                     {/* Måste göra login logout och sign up pages */}
                 </Route>
             </Routes>
