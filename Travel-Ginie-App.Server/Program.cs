@@ -9,7 +9,7 @@ namespace Travel_Ginie_App.Server
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
-            builder.Services.AddScoped<ITravelApp, TravelApp>();
+            builder.Services.AddScoped<ITravel,Travel>();
 
             // Add services to the container.
 
