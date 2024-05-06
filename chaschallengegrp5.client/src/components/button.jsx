@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 
 const useSelection = (initialState = null) => {
     const [selected, setSelected] = useState(initialState);
@@ -21,7 +20,7 @@ const Toggle = ({ value, selected, handleSel, handleChoice }) => {
 
     return (
         //Bootstrap knapp borde kanske ändra 
-        <button type="button" className="btn btn-outline-secondary" style={buttonStyle} onClick={handleClick}>{value} </button>
+        <button type="button" className="" style={buttonStyle} onClick={handleClick}>{value} </button>
     )
 }
 export { useSelection, Toggle };

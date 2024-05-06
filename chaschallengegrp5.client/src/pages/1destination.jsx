@@ -1,29 +1,30 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+import style from '../style.module.css'
 
 function Destination() {
     return (
-        <div>
-            <div className='progress'>
-                <p>Step 1 of 6</p>
-                <div className='line' />
+        <div className={style.boxier}>
+            <div className={style.progressContainer}>
+                <p className={style.progressText}>1 of 6</p>
+                <div className={style.progress}>
+                    <div className={style.line} />
+                </div>
             </div>
-            <div>
-                <h1>Välkommen! Hitta dina favorit aktiviteter Sök nedan</h1>
-                <label htmlFor="input" type="input">What City Are You Going To?*</label>
-                <input placeholder="Select A City"></input><br />
-                <label htmlFor="date">Date:</label>
-                <input type="date" name="date" />
+
+            <h1 className={style.formText}>What city are you going to?</h1>
+            <div className={style.inputs}>
+                <input className={style.input} placeholder="Select a country" />
+                <input className={style.input} placeholder="Select a city" />
+                <input className={style.input} type="date" />
             </div>
-            <div>
-                <div><Link to={'/'}><button>Back</button></Link></div>
-                <div><Link to="/party"><button type="submit">Submit</button></Link></div>
+            <div className={style.btnContainer}>
+                <Link to={'/'}><button className={style.desButton}>Back</button></Link>
+                <Link to="/party"><button className={style.desButton} type="submit">Next</button></Link>
+
             </div>
         </div>
-
-
-
-    )
+    );
 }
 
 export default Destination;
