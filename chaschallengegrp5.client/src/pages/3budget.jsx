@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
+import style from '../style.module.css';
 
 import { useSelection, Toggle } from '../components/button';
 function Budget() {
@@ -14,12 +15,15 @@ function Budget() {
     const [selectedOption, handleSel] = useSelection();
 
     return (
-        <div><div className='progress'>
-            <p>Step 3 of 6</p>
-            <div className='line' />
-        </div>
-            <h1>What Is Your Budget?</h1>
-            <div className='btnContainer'>
+        <div className={style.boxier}>
+            <div className={style.progressContainer}>
+                <p className={style.progressText}>3 of 6</p>
+                <div className={style.progress}>
+                    <div className={style.line3} />
+                </div>
+            </div>
+            <h1 className={style.formText}>What Is Your Budget?</h1>
+            <div className={style.formContainer}>
                 {['Low', 'Medium', 'High', 'None of your buisness'].map(choice => (
                     <Toggle
                         key={choice}
@@ -30,9 +34,9 @@ function Budget() {
                     />
                 ))}
             </div>
-            <div>
-                <Link to="/party"><button type="button">Back</button></Link>
-                <Link to="/activites"><button type="button">Next</button></Link>
+            <div className={style.btnContainer}>
+                <Link to="/party"><button className={style.desButton} type="button">Back</button></Link>
+                <Link to="/activites"><button className={style.desButton} type="button">Next</button></Link>
             </div>
         </div>
     );

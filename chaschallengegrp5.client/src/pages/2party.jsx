@@ -24,7 +24,7 @@ const Party = () => {
             </div>
 
             <h2 className={style.formText}>Who do you plan on traveling with on your next adventure?</h2>
-            <div className={style.partyContainer}>
+            <div className={style.formContainer}>
                 {['Alone', 'Couple', 'Family', 'Friends'].map(choice => (
                     <Toggle
                         key={choice}
@@ -37,8 +37,8 @@ const Party = () => {
             </div>
 
             <div className={style.btnContainer}>
-                <div><Link to="/destination"><button>Back</button></Link></div>
-                <div><Link to="/budget"><button type="submit">Submit</button></Link></div>
+                <div><Link to="/destination"><button className={style.desButton}>Back</button></Link></div>
+                <div><Link to="/budget"><button className={style.desButton} type="submit">Submit</button></Link></div>
             </div>
         </div>
     )

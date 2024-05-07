@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import style from '../style.module.css'
 
 const useSelection = (initialState = null) => {
     const [selected, setSelected] = useState(initialState);
@@ -11,7 +12,7 @@ const useSelection = (initialState = null) => {
 };
 
 const Toggle = ({ value, selected, handleSel, handleChoice }) => {
-    const buttonStyle = selected ? { backgroundColor: 'lightgray', color: 'black', border: 'solid 1px black' } : {};
+    const buttonStyle = selected ? { border: 'solid 1px black' } : {};
 
     const handleClick = () => {
         handleSel(value);
@@ -20,7 +21,7 @@ const Toggle = ({ value, selected, handleSel, handleChoice }) => {
 
     return (
         //Bootstrap knapp borde kanske ändra 
-        <button type="button" className="" style={buttonStyle} onClick={handleClick}>{value} </button>
+        <button type="button" className={style.formButton} style={buttonStyle} onClick={handleClick}>{value} </button>
     )
 }
 export { useSelection, Toggle };

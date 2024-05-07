@@ -34,13 +34,6 @@
     font-size: 1rem;
 }
 
-.formButton {
-    background-color: lightgrey;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    border: solid 1px black;
-}
 
 .footer {
     background-color: darkblue;
@@ -83,6 +76,13 @@
     border-radius: 5px;
 }
 
+.line3 {
+    height: 100%;
+    width: 50%;
+    background-color: #00FF00;
+    border-radius: 5px;
+}
+
 .inputs {
     display: flex;
     flex-direction: column;
@@ -109,19 +109,46 @@ input[type="date"] {
     width: 90%;
 }
 
-.partyContainer {
+.formContainer {
     display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 10px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 10px;
+    /* background-color: #f5f5f5; */
+    border-radius: 15px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: 0 auto;
+    width: 90%;
 }
 
 .desButton {
-    background-color: lightgrey;
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+    background-color: #d2cccc;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-radius: 8px;
     font-size: 0.9rem;
     border: solid 1px black;
+}
+
+.landButton {
+    background-color: #d2cccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    border: solid 1px black;
+}
+
+.formButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #d2cccc;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
