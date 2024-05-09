@@ -266,7 +266,7 @@ fetched_branches = []
 current_path = pathlib.Path().resolve()
 
 unpack_issues('.github/workflow-utilities/issues.json')
-unpack_rp('.github/workflow-utilities/issues.json')
-unpack_branches('.github/workflow-utilities/issues.json')
+unpack_rp('.github/workflow-utilities/pull_request.json')
+unpack_branches('.github/workflow-utilities/branches.txt')
 create_markdown()
 
