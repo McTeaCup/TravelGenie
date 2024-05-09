@@ -262,8 +262,8 @@ fetched_issues = []
 fetched_prs = []
 fetched_branches = []
 
-unpack_issues('issues_dummy.json')
-unpack_rp('pr_dummy.json')
+unpack_issues('issues.json')
+unpack_rp('pull_requests.json')
 unpack_branches('branches.txt')
 create_markdown()
 
