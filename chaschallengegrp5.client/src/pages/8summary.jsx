@@ -12,6 +12,7 @@ function Result() {
         { title: 'Your budget is...', key: 'budget' },
         { title: 'You want to explore...', key: 'activities' },
         { title: 'You want to eat...', key: 'food' },
+        { title: 'aojdfj', key: 'active'},
         { title: 'The events you want to see are...', key: 'events' }
     ];
 

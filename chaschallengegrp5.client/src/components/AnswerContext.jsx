@@ -13,6 +13,7 @@ export const AnswerProvider = ({ children }) => {
         budget: [],
         activities: [],
         food: [],
+        active: [],
         events: []
     });
 
