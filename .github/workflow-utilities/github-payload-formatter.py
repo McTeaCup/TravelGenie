@@ -1,7 +1,8 @@
 import sys
 import json
 import datetime
-
+import os 
+import pathlib
 document_data = str()
 arguments = sys.argv
 
@@ -262,8 +263,10 @@ fetched_issues = []
 fetched_prs = []
 fetched_branches = []
 
-unpack_issues('issues.json')
-unpack_rp('pull_requests.json')
-unpack_branches('branches.txt')
+current_path = pathlib.Path().resolve()
+
+unpack_issues(f'{current_path}/issues.json')
+unpack_rp(f'{current_path}/pull_requests.json')
+unpack_branches(f'{current_path}/branches.txt')
 create_markdown()
 
