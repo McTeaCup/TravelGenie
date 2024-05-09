@@ -42,13 +42,12 @@ class c_pr():
         self.created_at = str()
         self.creation_date = str()
         self.labels = []
+        self.days_open = int()
+        self.assignees = []
         pass
 
     def __eq__(self, value: object) -> bool:
         return self == value
-
-fetched_issues = []
-fetched_prs = []
 
 def unpack_issues(filename):
     '''
@@ -72,7 +71,13 @@ def unpack_issues(filename):
             ticket.days_open = abs(current_date - ticket.creation_date)
             ticket.milestone = issue['milestone']
             ticket.author = issue['author']['login']
-            ticket.assignees = issue['assignees']
+
+            if (issue['assignees'] != None):
+                ticket.assignees = issue['assignees']
+            else:
+                ticket.assignees = "Not assigned yet"
+            
+            
             ticket.lables = issue['labels']
             ticket.url = issue['url']
             ticket.id = issue['id']
@@ -85,77 +90,180 @@ def unpack_rp(filename):
     with open(filename) as data:
         payload = json.load(data)
 
-        for pull_request in payload:
+        for pull_request in payload:       
             pr = c_pr()
+            creation_date_string = str(pull_request['createdAt'])[:10].split('-')
 
-            creation_date_string = pull_request['createdAt']
-
-            pr.author = pull_request['author']
+            pr.creation_date = datetime.datetime(int(creation_date_string[0]), int(creation_date_string[1]), int(creation_date_string[2]))
+            
+            pr.state = pull_request['state']
             pr.title = pull_request['title']
             pr.body = pull_request['body']
-            pr.to_branch = pull_request['baseRefName']
-            pr.from_branch = pull_request['headRefName']
-            pr.mergeable = pull_request['mergable']
-            pr.merged_at = pull_request['mergedAt']
+            pr.author = pull_request['author']['login']
             pr.milestone = pull_request['milestone']
-            pr.state = pull_request['state']
             pr.created_at = pull_request['createdAt']
-            pr.url = pull_request['url']
+            pr.days_open = abs(current_date - pr.creation_date)
+            pr.from_branch = pull_request['headRefName']
+            pr.to_branch = pull_request['baseRefName']
+            
+            for label in pull_request['labels']: 
+                pr.labels.append(label['name'])
+            pr.mergeable = pull_request['mergeable']
+            pr.merged_at = pull_request['mergedAt']
             pr.files = pull_request['files']
-            pr.creation_date = datetime.datetime(int(creation_date_string[0]), int(creation_date_string[1]), int(creation_date_string[2]))
-
+            pr.url = pull_request['url']
+            
             fetched_prs.append(pr)
 
-def print_issues(issues, format):
-    #Get the count of open/closed issues
-    issue_states = [0, 0]
-    for issue in issues:
-        if(issue.state == 'OPEN'):
-            issue_states[0] += 1
-        elif(issue.state == 'CLOSED'):
-            issue_states[1] += 1
+def unpack_branches(filename):
+    with open (filename, 'r') as file:
+        for line in enumerate(file):
+            fetched_branches.append(f'{line[1][8:]}')
 
-    print(f'\nIssues: [Open: {issue_states[0]} | Closed: {issue_states[1]}]\n')
+def create_markdown():
+    with(open('report.md', 'w') as report):
+        #Table of contence
+        report.write("## QUICK STATUS\n")
+        report.write("### Issues\n")
+        report.write(f"|    STATE   |   NAME    | DAYS OPEN | LABELS | AUTHOR |\n")
+        report.write(f"|    :--     |   :--     |   :--     |  :--   |  :--   |\n")
+        for f_issue in fetched_issues:
+            labels = str()
+            if(f_issue.lables != None):
+                for label in f_issue.lables:
+                    labels += f"[{label['name']}] "
 
-    for ticket in issues:
-        days_open = int(str(ticket.creation_date - current_date).split(' ')[0])
-        if(ticket.state == 'OPEN' or days_open <= 7 and ticket.state == 'CLOSED'):
-            if(format[1] == 's'):
-                print(f"--- [{ticket.state}] {ticket.title}\nCreated: {ticket.creation_date} [Open for {ticket.days_open}]\nMilestone: {ticket.milestone}\nAuthor: {ticket.author}\nAssigned: {ticket.assignees[0]['login']}\nURL: {ticket.url}\n")
-            elif(format[1] == 'l'):
-                print(f"--- [{ticket.state}] {ticket.title}\n{ticket.body}\nMilestone: {ticket.milestone}\nCreated: {ticket.creation_date} [Open for {ticket.days_open}]\nLabel(s): {ticket.lables[0]['name']}\nAuthor: {ticket.author}\nAssigned: {ticket.assignees[0]['name']}\nURL: {ticket.url}\n")
+            report.write(f"| {f_issue.state} | [{f_issue.title}]({f_issue.url}) | {str(f_issue.days_open)[0]} days | {labels} | {f_issue.author}\n")
+        
+        #Table of contence
+        report.write("### Pull Requests\n")
+        #report.write("Pull requests that are still open or has been closed for more than 7 days. Read more on \n\n")
+        report.write(f"|    STATE   |   NAME    | DAYS OPEN | LABELS | AUTHOR | AFFECTED BRANCHES |\n")
+        report.write(f"|    :--     |   :--     |   :--     |  :--   |  :--   |         :--       |\n")
+        for f_pr in fetched_prs:
+            labels = str()
+            if(f_pr.labels != None):
+                for label in f_pr.labels:
+                    labels += f"[{label}] "
 
-def print_pr(prs, format):
-    #Get the count of open/closed issues
-    issue_states = [0, 0]
-    for pr in prs:
-        if(pr.state == 'OPEN'):
-            issue_states[0] += 1
-        elif(pr.state == 'CLOSED'):
-            issue_states[1] += 1
+            report.write(f"| {f_pr.state} **({f_pr.mergeable})** | [{f_pr.title}]({f_pr.url}) | {str(f_pr.days_open)[0]} days | {labels} | {f_issue.author} | `{f_pr.from_branch}` -> `{f_pr.to_branch}`\n")
 
-    print(f'\nIssues: [Open: {issue_states[0]} | Closed: {issue_states[1]}]\n')
+        report.write('### Active Branches\n')
+        
+        #Branches
+        frontend_branches = []
+        backend_branches = []
+        devops_branches = []
+        dev_branches = []
+        other_branches = []
 
-    for pr in prs:
-        days_open = int(str(pr.creation_date - current_date).split(' ')[0])
-        if(pr.state == 'OPEN' or days_open <= 7 and pr.state == 'CLOSED'):
-            if(format[1] == 's'):
-                print(f"--- [{pr.state}] {pr.title}\nCreated: {pr.creation_date} [Open for {pr.days_open}]\nMilestone: {pr.milestone}\nAuthor: {pr.author}\nAssigned: {pr.assignees[0]['login']}\nURL: {pr.url}\n")
-            elif(format[1] == 'l'):
-                print(f'''
-                      --- [{pr.state}] {pr.title}\n{pr.body}
-                      Milestone: {pr.milestone}
-                      Created: {pr.created_at} [Open for {pr.days_open}]
-                      Label(s): {pr.lables[0]['name']}
-                      Author: {pr.author}
-                      State: {pr.mergable}\nURL: {pr.url}\n
-                        ''')
+        for branch in fetched_branches:
+            branch_name = (f'- `{str(branch).split()[1][11:]}`')
+            define_name = str(branch).split()[1][11:].lower().split('-')[0]
+            
+            if(define_name == 'frontend'):
+                frontend_branches.append(branch_name)
+            
+            elif(define_name == 'backend'):
+                backend_branches.append(branch_name)
+            
+            elif(define_name == 'devops'):
+                devops_branches.append(branch_name)
+            
+            elif(define_name == 'dev'):
+                dev_branches.append(branch_name)
 
+            else:
+                other_branches.append(branch_name)
+        
+        report.write('#### Frontend\n\n')
+        for f_branch in frontend_branches:
+            report.write(f"{f_branch}\n")
+        
+        report.write('#### Backend\n\n')
+        for b_branch in backend_branches:
+            report.write(f"{b_branch}\n")
 
-print("")
+        report.write('#### Dev-Ops\n\n')
+        for do_branch in devops_branches:
+            report.write(f"{do_branch}\n")
+
+        report.write('#### Dev\n\n')
+        for d_branch in dev_branches:
+            report.write(f"{d_branch}\n")
+
+        report.write('#### Others\n\n')
+        for o_branch in other_branches:
+            report.write(f"{o_branch}\n")
+        
+        report.write("\n---\n")
+
+        #Issues section
+        report.write('## Issues Details\n\n')
+        for issue in fetched_issues:
+            issue_content = [] 
+            issue_content.append(f"### [{issue.state}] [{issue.title}]({issue.url})\n")
+            issue_content.append(f"**Created:** `{str(issue.creation_date)[:10]}` *[Open for {str(issue.days_open).strip(',')[:7]}]*\n\n")
+            issue_content.append(f"```\n{issue.body}\n```\n\n")
+            issue_content.append(f"**Author:** {issue.author}\n\n")
+
+            if(issue.milestone != None):
+                issue_content.append(f"**Milestone:** {issue.milestone['title']}\n\n")
+            else:
+                issue_content.append(f"**Milestone:** {issue.milestone}\n\n")
+
+            assignees = str()
+            for asigned in issue.assignees:
+                assignees += f"{asigned['login']} "
+
+            labels = str()
+            if(issue.lables != None):
+                for label in issue.lables:
+                    labels += f"[{label['name']}] "
+
+            issue_content.append(f"**Labels:** {labels}\n\n")
+            
+            issue_content.append(f"**Assigned:** {assignees}\n\n")
+            issue_content.append(f"---\n\n")
+
+            report.writelines(issue_content)
+            
+        #Pull requests section
+        report.write('## Pull Requests Details\n\n')
+        for pr in fetched_prs:
+            pr_content = [] 
+            pr_content.append(f"### [{pr.state}] [{pr.title}]({pr.url})\n")
+            pr_content.append(f"**Created:** `{str(pr.creation_date)[:10]}` *[Open for {str(pr.days_open)[:7]}]*\n\n")
+            pr_content.append(f"```\n{pr.body}\n```\n\n")
+            pr_content.append(f"`{pr.from_branch}` --> `{pr.to_branch}` ***({pr.mergeable})***\n\n")
+
+            if(pr.milestone != None):
+                pr_content.append(f"**Milestone:** {pr.milestone['title']}\n\n")
+            else:
+                pr_content.append(f"**Milestone:** {pr.milestone}\n\n")
+
+            labels = str()
+            if(pr.labels != None):
+                for label in pr.labels:
+                    labels += f"[{label}] "
+            
+            assignees = str()
+            for asigned in pr.assignees:
+                assignees += f"{asigned['login']} "
+
+            pr_content.append(f"**Labels:** {labels}\n\n")
+            
+            pr_content.append(f"**Assigned:** {assignees}\n\n")
+            pr_content.append(f"---\n\n")
+
+            report.writelines(pr_content)
+
+fetched_issues = []
+fetched_prs = []
+fetched_branches = []
+
 unpack_issues('issues_dummy.json')
-print_issues(fetched_issues, arguments[1])
 unpack_rp('pr_dummy.json')
-print_issues(fetched_prs, arguments[1])
-print("")
+unpack_branches('branches.txt')
+create_markdown()
 

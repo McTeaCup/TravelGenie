@@ -8,8 +8,12 @@ jobs:
   echo-information:
     runs-on: ubuntu-22.04
     steps:
-      - run: gh issue status --json >> issues.json
-      - run: cat issues_info.json
+      - run : gh pr list --json author,baseRefName,body,changedFiles,createdAt,files,headRefName,labels,mergeable,mergedAt,milestone,state,title,url >> issues.json \
+gh issue list --json author,title,body,labels,id,createdAt,closedAt,state,milestone,assignees,url >> pull_requests.json \
+git ls-remote --heads origin >> branches.txt \
+
+      - run: python3 github-payload-formatter.py
+      - run: echo report.md
     env: 
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
