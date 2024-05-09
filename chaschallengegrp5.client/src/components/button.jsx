@@ -12,7 +12,7 @@ const useSelection = (initialState = null) => {
 };
 
 const Toggle = ({ value, selected, handleSel, handleChoice }) => {
-    const buttonStyle = selected ? { border: 'solid 1px black' } : {};
+    const buttonStyle = `${style.formButton} ${selected ? style.selected : ''}`
 
     const handleClick = () => {
         handleSel(value);
@@ -21,7 +21,7 @@ const Toggle = ({ value, selected, handleSel, handleChoice }) => {
 
     return (
         //Bootstrap knapp borde kanske ändra 
-        <button type="button" className={style.formButton} style={buttonStyle} onClick={handleClick}>{value} </button>
+        <button type="button" className={buttonStyle} onClick={handleClick}>{value} </button>
     )
 }
 export { useSelection, Toggle };

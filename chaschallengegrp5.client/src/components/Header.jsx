@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
-import { AuthContext } from './Auth'
+import { AuthContext } from './Auth';
+import style from '../style.module.css';
 
 function Header() {
 
@@ -19,33 +20,35 @@ function Header() {
     }
 
     return (
-        <div>
-            <div className="hamburger">
-                <button onClick={toggleMenu}>
-                    {isOpen ? 'Close' : 'Menu'}
-                </button>
-                {isOpen && (
-                    <ul>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Services</li>
-                        <li>Contact</li>
-                    </ul>
-                )}
-            </div>
-            <img src="" alt="logo" />
-            <div>
-                {!isSignedIn ? (
-                    <Link to="/login"><button onClick={() => console.log('Sign In')}>Sign In</button></Link>
-                ) : (
-                    <div>
+        <div className={style.headerAlign}>
+            <div className={style.header}>
+                <div className="hamburger">
+                    <button onClick={toggleMenu}>
+                        {isOpen ? 'Close' : 'Menu'}
+                    </button>
+                    {isOpen && (
+                        <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Services</li>
+                            <li>Contact</li>
+                        </ul>
+                    )}
+                </div>
+                <Link to="/"><img src="" alt="TravelGenie" /></Link>
+                <div>
+                    {!isSignedIn ? (
+                        <Link to="/login"><button onClick={() => console.log('Sign In')}>Sign In</button></Link>
+                    ) : (
                         <div>
-                            <img src="profile-pic.jpg" alt="Profile" />
-                            <p>Profile</p>
+                            <div>
+                                <img src="profile-pic.jpg" alt="Profile" />
+                                <p>Profile</p>
+                            </div>
+                            <button onClick={signOut}>Sign out</button>
                         </div>
-                        <button onClick={signOut}>Sign out</button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     )

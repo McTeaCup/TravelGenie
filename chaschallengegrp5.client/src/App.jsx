@@ -9,13 +9,14 @@ import Party from './pages/2party';
 import Activities from './pages/4activites';
 import Food from './pages/5food';
 import Events from './pages/6events';
-import Summary from './pages/7summary';
+import Summary from './pages/8summary';
 import Signup from './components/signup';
 import Login from './components/login';
 import Destination from './pages/1destination';
 import Landing from './pages/0landing';
 import ManResult from './pages/result-manual';
 import AiResult from './pages/result-ai';
+import Active from './pages/7howactive';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                     <Route path='summary' element={<Summary />} />
                     <Route path='manresult' element={<ManResult />} />
                     <Route path='airesult' element={<AiResult />} />
+                    <Route path='active' element={<Active />} />
                     {/* Måste göra login logout och sign up pages */}
                 </Route>
             </Routes>
@@ -47,8 +49,8 @@ function App() {
 function Layout() {
     return (
         <>
-            <BootNavbar />
-            {/* <Header /> */}
+            {/* <BootNavbar /> */}
+            <Header />
             <Outlet />
             <Footer />
         </>

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
 import { useSelection, Toggle } from '../components/button';
 
-function Events() {
+function Active() {
     const { answers, setAnswers } = useAnswers();
 
     const handleEventSelect = (choice) => {
-        setAnswers({ ...answers, events: [...answers.events, choice] })
+        setAnswers({ ...answers, active: [...answers.active, choice] })
     };
 
     const [selectedOption, handleSel] = useSelection();
@@ -18,9 +18,9 @@ function Events() {
                 <p>Step 6 of 6</p>
                 <div className='line' />
             </div>
-            <h1>What kind of events are you interested in?</h1>
+            <h1>How many activites do you want?</h1>
             <div className='btnContainer'>
-                {['Teather', 'Stand up', 'Sport', 'Everything'].map(choice => (
+                {['1-2', '2-4', '3-4', '5-6'].map(choice => (
                     <Toggle
                         key={choice}
                         value={choice}
@@ -31,11 +31,11 @@ function Events() {
                 ))}
             </div>
             <div>
-                <Link to="/food"><button type="button">Back</button></Link>
-                <Link to="/active"><button type="button">Next</button></Link>
+                <Link to="/events"><button type="button">Back</button></Link>
+                <Link to="/summary"><button type="button">Next</button></Link>
             </div>
         </div>
     );
 }
 
-export default Events;
+export default Active;

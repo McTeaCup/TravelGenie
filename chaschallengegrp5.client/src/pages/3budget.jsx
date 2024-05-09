@@ -15,7 +15,7 @@ function Budget() {
     const [selectedOption, handleSel] = useSelection();
 
     return (
-        <div className={style.boxier}>
+        <div className={style.box}>
             <div className={style.progressContainer}>
                 <p className={style.progressText}>3 of 6</p>
                 <div className={style.progress}>

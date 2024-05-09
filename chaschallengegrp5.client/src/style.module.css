@@ -5,16 +5,6 @@
 }
 
 .box {
-    margin-top: -10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
-}
-
-
-.boxier {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,6 +28,7 @@
 
 .footer {
     background-color: darkblue;
+    padding: 20px;
 
 }
 
@@ -89,6 +80,13 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+}
+
+.select {
+    padding: 15px;
+    border: none;
+    background-color: #eee;
+    border-radius: 10px;
 }
 
 .input,
@@ -152,4 +150,43 @@ input[type="date"] {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    margin-top: 10px;
+
+}
+
+.headerAlign {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(226, 205, 202);
+    padding-bottom: 5px;
+}
+
+.selected {
+    border: solid black 1.2px;
+    background-color: #aca9a9;
+}
+
+.boxTest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
+    flex-direction: row;
+}
+
+/* Test för bilder över/brevid form */
+/* ignorera */
+@media screen and (min-width: 800px) {
+    .boxTest {
+        flex-direction: column-reverse;
+        /* width: 40vw; */
+    }
 }
