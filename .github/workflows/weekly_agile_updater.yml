@@ -9,12 +9,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run : gh pr list --json author,baseRefName,body,changedFiles,createdAt,files,headRefName,labels,mergeable,mergedAt,milestone,state,title,url >> .github/workflow-utilities/issues.json
-      - run : gh issue list --json author,title,body,labels,id,createdAt,closedAt,state,milestone,assignees,url >> .github/workflow-utilities/pull_requests.json
+      - run : gh issue list --json author,title,body,labels,id,createdAt,closedAt,state,milestone,assignees,url >> .github/workflow-utilities/issues.json
+      - run : gh pr list --json author,baseRefName,body,changedFiles,createdAt,files,headRefName,labels,mergeable,mergedAt,milestone,state,title,url >> .github/workflow-utilities/pull_request.json
       - run : git ls-remote --heads origin >> .github/workflow-utilities/branches.txt
-      - run : ls .github/workflow-utilities
       - run: python3 .github/workflow-utilities/github-payload-formatter.py
-      - run: echo report.md
+      - run: cat report.md
     env: 
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
