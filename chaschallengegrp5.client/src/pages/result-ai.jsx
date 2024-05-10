@@ -1,34 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useAnswers } from '../components/AnswerContext'
+import { useAnswers } from '../components/AnswerContext';
 import style from '../style.module.css';
-
-const Card = ({ title, content }) => (
-    <div className={style.card}>
-        <h3>{title}</h3>
-        <p>{content}</p>
-    </div>
-);
-
-const Dropdown = ({ label, children }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleDropdown = () => setIsOpen(!isOpen);
-
-    return (
-        <div className={style.dropdown}>
-            <button onClick={toggleDropdown} className={style.button}>
-                {label}
-            </button>
-            {isOpen && <div className={style.content}>{children}</div>}
-        </div>
-    );
-};
+import Accordion from '../components/Accordion'; // Importing the Accordion component
 
 function AiResult() {
     const { answers } = useAnswers();
     const [tripPlan, setTripPlan] = useState([]);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true); // State to track loading status
 
     const {
         city,
@@ -47,30 +27,42 @@ function AiResult() {
         const fetchTripPlan = async () => {
             try {
                 const response = await axios.post('/api/TravelApp/AItripplan?prompt=' + encodeURIComponent(prompt));
-                setTripPlan(response.data.text);
+                setTripPlan(response.data.plan);
                 setError('');
+                setLoading(false); // Update loading state after fetching data
             } catch (err) {
                 setError('Error retrieving trip plan: ' + err.message);
+                setLoading(false); // Update loading state in case of error
             }
         };
 
         fetchTripPlan();
-    }, [city, date, party, budget, activities, food, active, events]);
+    }, [city, date, party, budget, activities, food, active, events, prompt]);
 
     return (
         <div>
-            {error && <p className={style.error}>{error}</p>}
-            {tripPlan.length === 0 ? (
-                <p className={style.loading}>Loading trip plan...</p>
-            ) : (
-                tripPlan.map((dropdown, index) => (
-                    <Dropdown key={index} label={dropdown.label}>
-                        {dropdown.cards.map((card, idx) => (
-                            <Card key={idx} title={card.title} content={card.content} />
-                        ))}
-                    </Dropdown>
-                ))
+            {/* Display loading message if loading */}
+            {loading && (
+                <Accordion items={[{ id: 1, title: 'Loading...', content: 'Loading...' }]} />
             )}
+            
+            {/* Display error message if there's an error */}
+            {error && <p className={style.error}>{error}</p>}
+            
+            {/* Render Accordion component with trip plan data */}
+            <Accordion
+                items={tripPlan.map((item) => ({
+                    id: item.day,
+                    title: loading ? 'Loading...' : `Day ${item.day}`,
+                    content: loading ? 'Loading...' : item.activities
+                }))}
+            />
+
+            {/* Additional Accordions */}   
+            <Accordion items={[
+                { id: 1, title: 'Accordion 1', content: 'Content 1' },
+                { id: 2, title: 'Accordion 2', content: 'Content 2' }
+            ]} />
         </div>
     );
 }

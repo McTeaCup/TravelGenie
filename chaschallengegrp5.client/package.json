@@ -16,6 +16,7 @@
     "react-bootstrap": "^2.10.2",
     "react-composer": "^5.0.3",
     "react-dom": "^18.2.0",
+    "react-icons": "4.6.0",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
@@ -26,6 +27,6 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.9"
+    "vite": "^5.2.11"
   }
 }

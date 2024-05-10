@@ -190,3 +190,28 @@ input[type="date"] {
         /* width: 40vw; */
     }
 }
+
+/* style.module.css */
+
+.accordionItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(249, 249, 249);
+
+    border-top: solid 1px rgb(184, 184, 184);
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.accordionContent{
+    border-top: solid 1px rgb(184, 184, 184);
+    padding: 20px;
+}
+  
+
+  
