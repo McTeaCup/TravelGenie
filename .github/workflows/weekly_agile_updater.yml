@@ -1,9 +1,6 @@
 name: Get Repo Information
 
-permissions: 
-  issues: write
-  pull-requests: read
-  statuses: read
+permissions: write-all
 
 on: 
   workflow_dispatch:
