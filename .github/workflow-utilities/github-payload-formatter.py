@@ -122,7 +122,7 @@ def unpack_branches(filename):
             fetched_branches.append(f'{line[1][8:]}')
 
 def create_markdown():
-    with(open('report.md', 'w') as report):
+    with(open(f'report-{str(current_date)[:10]}.md', 'w') as report):
         #Table of contence
         report.write("## QUICK STATUS\n")
         report.write("### Issues\n")
@@ -237,6 +237,7 @@ def create_markdown():
             pr_content.append(f"**Created:** `{str(pr.creation_date)[:10]}` *[Open for {str(pr.days_open)[:7]}]*\n\n")
             pr_content.append(f"```\n{pr.body}\n```\n\n")
             pr_content.append(f"`{pr.from_branch}` --> `{pr.to_branch}` ***({pr.mergeable})***\n\n")
+            pr_content.append(f"**Author:** {pr.author}\n\n")
 
             if(pr.milestone != None):
                 pr_content.append(f"**Milestone:** {pr.milestone['title']}\n\n")
@@ -266,7 +267,8 @@ fetched_branches = []
 current_path = pathlib.Path().resolve()
 
 unpack_issues(f'{current_path}/issues.json')
-unpack_rp(f'{current_path}/pull_requests.json')
+unpack_rp(f'{current_path}/pull_request.json')
 unpack_branches(f'{current_path}/branches.txt')
+
 create_markdown()
 
