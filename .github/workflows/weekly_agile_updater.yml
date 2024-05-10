@@ -2,18 +2,27 @@ name: Get Repo Information
 
 permissions: read-all
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * 5"
 
 jobs:
   echo-information:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+      
+      # Create payload
       - run : gh issue list --json author,title,body,labels,id,createdAt,closedAt,state,milestone,assignees,url >> .github/workflow-utilities/issues.json
       - run : gh pr list --json author,baseRefName,body,changedFiles,createdAt,files,headRefName,labels,mergeable,mergedAt,milestone,state,title,url >> .github/workflow-utilities/pull_request.json
       - run : git ls-remote --heads origin >> .github/workflow-utilities/branches.txt
+      
+      # Generate report
       - run: python3 .github/workflow-utilities/github-payload-formatter.py
-      - run: cat report.md
+      
+      # Send report to issues
+      - run : gh issue create --title="Report 2024-05-10" --body=$"`cat report-2024-05-10.md`" --label="REPORT"
     env: 
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
