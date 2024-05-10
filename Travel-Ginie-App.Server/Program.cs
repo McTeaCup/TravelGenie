@@ -1,4 +1,3 @@
-
 using Travel_Ginie_App.Server.Services;
 
 namespace Travel_Ginie_App.Server
@@ -8,12 +7,14 @@ namespace Travel_Ginie_App.Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddControllers();
-            builder.Services.AddScoped<ITravel,Travel>();
+
+            // Register HttpClient service
+            builder.Services.AddHttpClient();
 
             // Add services to the container.
-
             builder.Services.AddControllers();
+            builder.Services.AddScoped<ITravel, Travel>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -33,7 +34,6 @@ namespace Travel_Ginie_App.Server
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
