@@ -1,7 +1,7 @@
 name: Get Repo Information
 
 permissions: 
-  issues: read | write
+  issues: write
   pull-requests: read
   statuses: read
 
