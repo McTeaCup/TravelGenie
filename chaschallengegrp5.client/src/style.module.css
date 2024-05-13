@@ -12,11 +12,22 @@
     margin-top: 50px;
 }
 
-.imgBox {
+.imgBox, .textBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 370px;
     height: 229px;
     border-radius: 8px;
+}
+
+.imgBox {
     background-color: #F3E6E6;
+}
+
+.textBox {
+    padding: 0 22.5px 0 22.5px;
+    font-size: 32px;
 }
 
 .box {
@@ -189,7 +200,7 @@ input[type="date"] {
     font-size: 16px;
     background-color: #ffffff;
     color: #000000;
-    border: none;
+    border: solid white 2px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;

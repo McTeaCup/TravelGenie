@@ -71,7 +71,9 @@ function Destination() {
 
     return (
         <div className={style.mainContainer}>
-            <div className={style.imgBox}></div>
+            <div className={style.textBox}>
+                <h1>Lets start with some questions to help you find your best<br /> activites just for your trip!</h1>
+            </div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
                     <p className={style.progressText}>1 of 7</p>
