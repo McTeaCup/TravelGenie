@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from './Auth';
-
+import style from '../style.module.css'
 
 
 
@@ -17,17 +17,18 @@ function Login() {
 
 
     return (
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <h3>Sign In</h3>
-                    <label htmlFor="email">Email</label>
-                    <input id="email" name='email' type='text' />
-                    <label htmlFor="password">Password</label>
-                    <input type="text" name='password' id='password' />
-                    <button type='submit'>Submit</button>
-                    <Link to="/signup">Don't have an account? Sign up here</Link>
-                </form>
-            </div>
+        <div className={style.AccAlign}>
+            <form onSubmit={handleSubmit} className={style.AccForm}>
+                <h3>Sign In</h3>
+                <input className={style.accountInputs} id="email" name='email' type='text' placeholder='Email' />
+                <input className={style.accountInputs} type="text" name='password' id='password' placeholder='Password' />
+                <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot your password?</a>
+                <div className={style.accountContainer}>
+                    <button className={style.accountBtn} type='submit'>Submit</button>
+                    <Link to="/signup">Already have an account? </Link>
+                </div>
+            </form>
+        </div>
     )
 }
 
