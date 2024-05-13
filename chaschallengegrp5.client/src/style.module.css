@@ -108,6 +108,16 @@ input[type="date"] {
     width: 90%;
 }
 
+.landingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    gap: 15px;
+    width: 80%;
+}
+
 .formContainer {
     display: flex;
     flex-direction: row;
@@ -134,9 +144,10 @@ input[type="date"] {
 
 .landButton {
     background-color: #d2cccc;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
     border: solid 1px black;
 }
 
@@ -179,14 +190,51 @@ input[type="date"] {
     justify-content: center;
     width: 100vw;
     height: 80vh;
-    flex-direction: row;
+    flex-direction: column-reverse;
+}
+
+.stepContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stepRev {
+    /*Step Reverse */
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.stepTitle {
+    text-align: center;
 }
 
 /* Test för bilder över/brevid form */
 /* ignorera */
 @media screen and (min-width: 800px) {
     .boxTest {
-        flex-direction: column-reverse;
+        flex-direction: row;
         /* width: 40vw; */
+    }
+
+
+    .btnContainer {
+        width: 40%;
+    }
+
+    .step,
+    .stepRev {
+        flex-direction: row;
     }
 }
