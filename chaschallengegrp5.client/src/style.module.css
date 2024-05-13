@@ -4,13 +4,30 @@
     gap: 20px;
 }
 
+.mainContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 12px;
+    margin-top: 50px;
+}
+
+.imgBox {
+    width: 370px;
+    height: 229px;
+    border-radius: 8px;
+    background-color: #F3E6E6;
+}
+
 .box {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 80vh;
+    width: 370px;
+    height: 413px;
+    border-radius: 8px;
     flex-direction: column;
+    background-color: #B6D9F0;
 }
 
 .formTitle {
@@ -48,7 +65,7 @@
 .progress {
     width: 100%;
     height: 6px;
-    background-color: #d6d6d6;
+    background-color: #ffffff;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -146,13 +163,16 @@ input[type="date"] {
 }
 
 .desButton {
-    background-color: #d2cccc;
+    background-color: #1E2341;
     padding: 5px;
     padding-left: 25px;
     padding-right: 25px;
     border-radius: 8px;
     font-size: 0.9rem;
+    width: 97px;
+    height: 45px;
     border: solid 1px black;
+    color: #ffffff;
 }
 
 .landButton {
@@ -167,9 +187,8 @@ input[type="date"] {
 .formButton {
     padding: 10px 20px;
     font-size: 16px;
-    color: #fff;
-    background-color: #d2cccc;
-    color: black;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -193,8 +212,8 @@ input[type="date"] {
 }
 
 .selected {
-    border: solid black 1.2px;
-    background-color: #aca9a9;
+    border: solid black 2px;
+    background-color: #F29F8D;
 }
 
 .boxTest {

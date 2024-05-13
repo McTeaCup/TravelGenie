@@ -14,28 +14,31 @@ function Food() {
     const [selectedOption, handleSel] = useSelection();
 
     return (
-        <div className={style.box}>
-            <div className={style.progressContainer}>
-            <p className={style.progressText}>5 of 7</p>
-                <div className={style.progress}>
-                    <div className={style.line5} />
+        <div className={style.mainContainer}>
+            <div className={style.imgBox}></div>
+            <div className={style.box}>
+                <div className={style.progressContainer}>
+                <p className={style.progressText}>5 of 7</p>
+                    <div className={style.progress}>
+                        <div className={style.line5} />
+                    </div>
                 </div>
-            </div>
-            <h1 className={style.formText}>What Kind of Food Do You Want?</h1>
-            <div className={style.formContainer}>
-                {['Vegan', 'Meat & Fish', 'Pizza', 'i eat everything'].map(choice => (
-                    <Toggle
-                        key={choice}
-                        value={choice}
-                        selected={selectedOption === choice}
-                        handleSel={handleSel}
-                        handleChoice={handleFoodSelect}
-                    />
-                ))}
-            </div>
-            <div className={style.btnContainer}>
-                <Link to="/activites"><button className={style.desButton} type="button">Back</button></Link>
-                <Link to="/events"><button className={style.desButton} type="button">Next</button></Link>
+                <h1 className={style.formText}>What Kind of Food Do You Want?</h1>
+                <div className={style.formContainer}>
+                    {['Vegan', 'Meat & Fish', 'Pizza', 'i eat everything'].map(choice => (
+                        <Toggle
+                            key={choice}
+                            value={choice}
+                            selected={selectedOption === choice}
+                            handleSel={handleSel}
+                            handleChoice={handleFoodSelect}
+                        />
+                    ))}
+                </div>
+                <div className={style.btnContainer}>
+                    <Link to="/activites"><button className={style.desButton} type="button">Back</button></Link>
+                    <Link to="/events"><button className={style.desButton} type="button">Next</button></Link>
+                </div>
             </div>
         </div>
     );
