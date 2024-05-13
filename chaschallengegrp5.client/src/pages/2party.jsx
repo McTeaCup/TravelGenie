@@ -17,7 +17,7 @@ const Party = () => {
     return (
         <div className={style.box}>
             <div className={style.progressContainer}>
-                <p className={style.progressText}>2 of 6</p>
+                <p className={style.progressText}>2 of 7</p>
                 <div className={style.progress}>
                     <div className={style.line2} />
                 </div>

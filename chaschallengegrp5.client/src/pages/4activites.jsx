@@ -17,9 +17,9 @@ function Activities() {
     return (
         <div className={style.box}>
             <div className={style.progressContainer}>
-                <p className={style.progressText}>3 of 6</p>
+                <p className={style.progressText}>4 of 7</p>
                 <div className={style.progress}>
-                    <div className={style.line3} />
+                    <div className={style.line4} />
                 </div>
             </div>
             <h1 className={style.formText}>What Activities Are You Interested In?</h1>

@@ -72,9 +72,9 @@ function Destination() {
     return (
         <div className={style.box}>
             <div className={style.progressContainer}>
-                <p className={style.progressText}>1 of 6</p>
+                <p className={style.progressText}>1 of 7</p>
                 <div className={style.progress}>
-                    <div className={style.line} />
+                    <div className={style.line1} />
                 </div>
             </div>
 

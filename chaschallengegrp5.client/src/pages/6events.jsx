@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
 import { useSelection, Toggle } from '../components/button';
+import style from '../style.module.css';
 
 function Events() {
     const { answers, setAnswers } = useAnswers();
@@ -13,13 +14,15 @@ function Events() {
     const [selectedOption, handleSel] = useSelection();
 
     return (
-        <div>
-            <div className='progress'>
-                <p>Step 6 of 6</p>
-                <div className='line' />
+        <div className={style.box}>
+            <div className={style.progressContainer}>
+                <p className={style.progressText}>6 of 7</p>
+                <div className={style.progress}>
+                    <div className={style.line6} />
+                </div>
             </div>
-            <h1>What kind of events are you interested in?</h1>
-            <div className='btnContainer'>
+            <h1 className={style.formText}>What kind of events are you interested in?</h1>
+            <div className={style.formContainer}>
                 {['Teather', 'Stand up', 'Sport', 'Everything'].map(choice => (
                     <Toggle
                         key={choice}
@@ -30,9 +33,9 @@ function Events() {
                     />
                 ))}
             </div>
-            <div>
-                <Link to="/food"><button type="button">Back</button></Link>
-                <Link to="/active"><button type="button">Next</button></Link>
+            <div className={style.btnContainer}>
+                <Link to="/food"><button className={style.desButton} type="button">Back</button></Link>
+                <Link to="/active"><button className={style.desButton} type="button">Next</button></Link>
             </div>
         </div>
     );
