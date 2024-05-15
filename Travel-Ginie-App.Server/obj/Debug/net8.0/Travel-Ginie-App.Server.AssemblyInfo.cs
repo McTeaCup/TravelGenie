@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Travel-Ginie-App.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87d34a70632ee3c806e1c2c7f5e0a9e8c6c728c0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98a6e90fd7a22b5ce8fecd1012f16789304ff050")]
 [assembly: System.Reflection.AssemblyProductAttribute("Travel-Ginie-App.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Travel-Ginie-App.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
