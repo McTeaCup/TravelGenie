@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Travel-Ginie-App.Server/bin/Debug/net8.0/appsettings.json
+/Travel-Ginie-App.Server/bin/Debug/net8.0
+/.vs
+/Travel-Ginie-App.Server/obj
+/Travel-Ginie-App.Server/appsettings.json
+/travel-ginie-app.client/obj/Debug
