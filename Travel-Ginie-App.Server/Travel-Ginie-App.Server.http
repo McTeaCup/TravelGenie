@@ -1,6 +1,13 @@
+@Travel-Ginie-App.Server_HostAddress = https://localhost:7256
 @Travel_Ginie_App.Server_HostAddress = http://localhost:5028
+@token = 1FhAwXZ4sFefFQ5vt6MvFSoFviE5Tutbud5xcCbeDxQEellRCkW4DMLmXeMDdZxtKdoo_3ppMPXlJnYJ_i8n-IIi5PBv8XmRneexneXlpvXgejNVNCVMvoEyUCo7ZnYx
 
-GET {{Travel_Ginie_App.Server_HostAddress}}/weatherforecast/
-Accept: application/json
+
+GET {{Travel-Ginie-App.Server_HostAddress}}/api/travelapp/HotelByBudget?location=stockholm&checkIn=2024-05-20&checkOut=2024-05-25&currencyCode=SEK&maxBudget=3000
+
+
+###
+
+GET {{Travel-Ginie-App.Server_HostAddress}}/api/travelapp/RestaurantByCityAndBudget?location=stockholm&searchTerm=&price=1&numberResultPage=20
 
 ###
