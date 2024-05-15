@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj": {}
+    "c:\\Users\\charl\\Foldering2\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj": {
+    "c:\\Users\\charl\\Foldering2\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
+        "projectUniqueName": "c:\\Users\\charl\\Foldering2\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
         "projectName": "Travel-Ginie-App.Server",
-        "projectPath": "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\obj\\",
+        "projectPath": "c:\\Users\\charl\\Foldering2\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
+        "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\charl\\Foldering2\\TravelGenie\\Travel-Ginie-App.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -43,9 +43,33 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.SpaProxy": {
               "target": "Package",
               "version": "[8.*-*, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -54,6 +78,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Swashbuckle.Examples": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             }
           },
           "imports": [

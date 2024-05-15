@@ -354,6 +354,11 @@ input[type="date"] {
         flex-direction: row;
         /* width: 40vw; */
     }
+
+    .step,
+    .stepRev {
+        flex-direction: row;
+    }
 }
 
 .btnContainer {

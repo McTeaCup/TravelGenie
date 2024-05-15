@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import style from '../style.module.css'
+import { Link, useNavigate } from 'react-router-dom';
 
-function Destination() {
+
+const Destination = () => {
+    const navigate = useNavigate();
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
     const [cities, setCities] = useState([]);
     const [selectedCity, setSelectedCity] = useState("");
     const [arrivalDate, setArrivalDate] = useState("");
-    const [departureDate, SetDepatureDate] = useState("");
-    const [numberOfDays, setNumberOfDays] = useState(0);
+    const [departureDate, setDepartureDate] = useState("");
+    const [numberOfDays, setNumberOfDays] = useState(0); // State to hold the number of days
 
     useEffect(() => {
         async function fetchCountries() {
@@ -18,9 +19,10 @@ function Destination() {
                 const data = await response.json();
                 setCountries(data);
             } catch (error) {
-                console.error("error fetching countries", error);
+                console.error('Error fetching countries:', error);
             }
         }
+        fetchCountries();
     }, []);
 
     useEffect(() => {
@@ -31,7 +33,7 @@ function Destination() {
                     const data = await response.json();
                     setCities(data);
                 } catch (error) {
-                    console.error("Error fetching cities", error);
+                    console.error('Error fetching cities:', error);
                 }
             }
         }
@@ -51,7 +53,7 @@ function Destination() {
         if (event.target.name === 'start') {
             setArrivalDate(event.target.value);
         } else if (event.target.name === 'end') {
-            SetDepatureDate(event.target.value);
+            setDepartureDate(event.target.value);
         }
     };
 
@@ -67,56 +69,54 @@ function Destination() {
         }
     };
 
-
-
     return (
-        <div className={style.mainContainer}>
-            <div className={style.textBox}>
-                <h1>Lets start with some questions to help you find your best<br /> activites just for your trip!</h1>
-            </div>
-            <div className={style.box}>
-                <div className={style.progressContainer}>
-                    <p className={style.progressText}>1 of 7</p>
-                    <div className={style.progress}>
-                        <div className={style.line1} />
-                    </div>
+        <section className='Page'>
+            <section className='wrapper'>
+                <div className='toptext'>
+                    <h1>Welcome to the AI planner</h1>
                 </div>
 
-                <div className={style.inputs}>
-                    <label htmlFor="country">Select a country:</label>
-                    <select className={style.select} id="country" value={selectedCountry} onChange={handleCountryChange}>
-                        <option value="">Select a country</option>
-                        {countries.map((country, index) => (
-                            <option key={index} value={country}>
-                                {country}
-                            </option>
-                        ))}
-                    </select>
-
-                    <label htmlFor="city">Select a city:</label>
-                    <select className={style.select} id="city" value={selectedCity} onChange={handleCityChange}>
-                        <option value="">Select a city</option>
-                        {cities.map((city, index) => (
-                            <option key={index} value={city}>
-                                {city}
-                            </option>
-                        ))}
-                    </select>
+                <div className='top-question'>
+                    <p>Where and when do you wish to travel?</p>
                 </div>
-                <div className={style.inputs}>
-                    <label htmlFor="start">Arrival Date:</label>
-                    <input type="date" id="start" name="start" onChange={handleDateChange} />
 
-                    <label htmlFor="end">Departure Date:</label>
-                    <input type="date" id="end" name="end" onChange={handleDateChange} />
-                </div>
-                <div className={style.btnContainer}>
-                    <Link to={'/'}><button className={style.desButton}>Back</button></Link>
-                    <Link to="/party"><button className={style.desButton} type="submit">Next</button></Link>
+                <section className='form-wrapper'>
+                    <form>
+                        <label htmlFor="country">Select a country:</label>
+                        <select id="country" value={selectedCountry} onChange={handleCountryChange}>
+                            <option value="">Select a country</option>
+                            {countries.map((country, index) => (
+                                <option key={index} value={country}>
+                                    {country}
+                                </option>
+                            ))}
+                        </select>
 
-                </div>
-            </div>
-        </div>
+                        <label htmlFor="city">Select a city:</label>
+                        <select id="city" value={selectedCity} onChange={handleCityChange}>
+                            <option value="">Select a city</option>
+                            {cities.map((city, index) => (
+                                <option key={index} value={city}>
+                                    {city}
+                                </option>
+                            ))}
+                        </select>
+                    </form>
+                </section>
+
+                <section className='date-selector'>
+                    <form>
+                        <label htmlFor="start">Arrival Date:</label>
+                        <input type="date" id="start" name="start" onChange={handleDateChange} />
+
+                        <label htmlFor="end">Departure Date:</label>
+                        <input type="date" id="end" name="end" onChange={handleDateChange} />
+                        <button onClick={handleNextButtonClick} className='btn'>Next</button>
+                    </form>
+                </section>
+            </section>
+
+        </section>
     );
 }
 

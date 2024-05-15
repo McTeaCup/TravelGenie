@@ -2,6 +2,10 @@
 {
     public class CountryDto
     {
+   
         public string cname { get; set; }
+     
+
+      
     }
 }
