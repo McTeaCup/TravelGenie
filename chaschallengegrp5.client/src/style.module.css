@@ -354,14 +354,35 @@ input[type="date"] {
         flex-direction: row;
         /* width: 40vw; */
     }
+}
 
+.btnContainer {
+    width: 40%;
+}
 
-    .btnContainer {
-        width: 40%;
-    }
+.step,
+.stepRev {
+    flex-direction: row;
+}
 
-    .step,
-    .stepRev {
-        flex-direction: row;
-    }
+/* style.module.css */
+
+.accordionItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(249, 249, 249);
+
+    border-top: solid 1px rgb(184, 184, 184);
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.accordionContent {
+    border-top: solid 1px rgb(184, 184, 184);
+    padding: 20px;
 }

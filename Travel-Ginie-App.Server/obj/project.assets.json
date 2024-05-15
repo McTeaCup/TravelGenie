@@ -503,32 +503,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dino\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dino\\Source\\Repos\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
+      "projectUniqueName": "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
       "projectName": "Travel-Ginie-App.Server",
-      "projectPath": "C:\\Users\\dino\\Source\\Repos\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
-      "packagesPath": "C:\\Users\\dino\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dino\\Source\\Repos\\TravelGenie\\Travel-Ginie-App.Server\\obj\\",
+      "projectPath": "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\Travel-Ginie-App.Server.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Admin\\Desktop\\REACT\\TravelGenie\\Travel-Ginie-App.Server\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dino\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
