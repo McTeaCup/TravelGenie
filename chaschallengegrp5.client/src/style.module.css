@@ -275,6 +275,40 @@ input[type="date"] {
     align-items: center;
 }
 
+
+/* Dåligt sätt att fixa layout men det var enkelt */
+.article {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.art {
+    width: 90vw;
+}
+
+.overlay {
+    position: fixed;
+    top: 72px;
+    right: 0;
+    width: auto;
+    height: auto;
+
+    z-index: 1000;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.overlayContent {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
 .accountContainer {
     display: flex;
     flex-direction: column;

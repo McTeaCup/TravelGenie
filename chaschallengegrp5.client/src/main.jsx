@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './components/Auth';
 import { AnswerProvider } from './components/AnswerContext.jsx';
 import { ChoiceProvider } from './components/landingchoice-logic.jsx';
+import { OverlayProvider } from './components/overlay.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <AnswerProvider>
           <ChoiceProvider>
-            <App />
+            <OverlayProvider>
+              <App />
+            </OverlayProvider>
           </ChoiceProvider>
         </AnswerProvider>
       </AuthProvider>

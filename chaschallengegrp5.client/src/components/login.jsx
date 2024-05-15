@@ -25,7 +25,7 @@ function Login() {
                 <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot your password?</a>
                 <div className={style.accountContainer}>
                     <button className={style.accountBtn} type='submit'>Submit</button>
-                    <Link to="/signup">Already have an account? </Link>
+                    <Link to="/signup">Dont have an account? Sign up here</Link>
                 </div>
             </form>
         </div>

@@ -19,32 +19,34 @@ function Landing() {
                 </div>
                 <div className={style.formImg}><img alt="Snygg bild test" /></div>
             </div>
-            <article>
-                <h1 className={style.stepTitle}>How It Works</h1>
-                <div className={style.stepContainer}>
+            <div className={style.article}>
+                <article className={style.art}>
+                    <h1 className={style.stepTitle}>How It Works</h1>
+                    <div className={style.stepContainer}>
 
-                    <div className={style.step}>
-                        <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
-                        <img src="" alt="How it works image" />
+                        <div className={style.step}>
+                            <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
+                            <img src="" alt="How it works image" />
+                        </div>
+                        <div className={style.stepRev}>
+                            <img src="" alt="How it works image" />
+                            <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
+                        </div>
+                        <div className={style.step}>
+                            <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
+                            <img src="" alt="How it works image" />
+                        </div>
+                        <div className={style.stepRev}>
+                            <img src="" alt="How it works image" />
+                            <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
+                        </div>
+                        <div className={style.landingContainer}>
+                            <Link to={'/destination'}><button disabled className={style.landButton} onClick={() => setAiHelp(false)}>I want to decide for myself</button></Link>
+                            <Link to={'/destination'}><button className={style.landButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
+                        </div>
                     </div>
-                    <div className={style.stepRev}>
-                        <img src="" alt="How it works image" />
-                        <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
-                    </div>
-                    <div className={style.step}>
-                        <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
-                        <img src="" alt="How it works image" />
-                    </div>
-                    <div className={style.stepRev}>
-                        <img src="" alt="How it works image" />
-                        <p>4 simple steps to creare an activity plan on your trips! TravelGenie with us!</p>
-                    </div>
-                    <div className={style.landingContainer}>
-                        <Link to={'/destination'}><button disabled className={style.landButton} onClick={() => setAiHelp(false)}>I want to decide for myself</button></Link>
-                        <Link to={'/destination'}><button className={style.landButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
-                    </div>
-                </div>
-            </article>
+                </article>
+            </div>
         </div>
     )
 }

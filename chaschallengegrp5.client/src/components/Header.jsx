@@ -1,23 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from './Auth';
+import { useOverlay } from './overlay';
 import style from '../style.module.css';
 
 function Header() {
-
-    //För BurgerMenu
     const [isOpen, setIsOpen] = useState(false);
-
-    //För signin conditonal rendering
-    const { isSignedIn, setSignedIn } = useContext(AuthContext);
+    const { openOverlay } = useOverlay();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
-    }
-
-    const signOut = () => {
-        setSignedIn(false);
-    }
+    };
 
     return (
         <div className={style.headerAlign}>
@@ -36,22 +28,13 @@ function Header() {
                     )}
                 </div>
                 <Link to="/"><img src="" alt="TravelGenie" /></Link>
-                <div>
-                    {!isSignedIn ? (
-                        <Link to="/login"><button onClick={() => console.log('Sign In')}>Sign In</button></Link>
-                    ) : (
-                        <div>
-                            <div>
-                                <img src="profile-pic.jpg" alt="Profile" />
-                                <p>Profile</p>
-                            </div>
-                            <button onClick={signOut}>Sign out</button>
-                        </div>
-                    )}
+                <div onClick={openOverlay} style={{ cursor: 'pointer' }}>
+                    <img src="profile-pic.jpg" alt="Profile" className={style.profileImage} />
+                    <p>Profile</p>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Header;
