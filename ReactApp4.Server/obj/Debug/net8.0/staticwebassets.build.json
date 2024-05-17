@@ -1,20 +1,20 @@
 {
   "Version": 1,
-  "Hash": "9qkDPxC69tEXZzz+syjItIl92GUOchq7FLUDeH1NXgc=",
+  "Hash": "VDowGO+wK4XHH4Qd9ctiEYfSpJ3LE196HAwG2P5kd4M=",
   "Source": "ReactApp4.Server",
   "BasePath": "_content/ReactApp4.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\User\\Desktop\\ReactApp4\\reactapp4.client\\reactapp4.client.esproj",
+      "Identity": "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\reactapp4.client\\reactapp4.client.esproj",
       "Version": 2,
       "Source": "reactapp4.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],
