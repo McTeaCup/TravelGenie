@@ -21,6 +21,8 @@ namespace Travel_Ginie_App.Server.Services
 {
     public class TravelApp : ITravelApp
     {
+
+        //displays all events in the selected city
         public async Task<List<object>> GetEvents(string type, string city, int start)
         {
             try
