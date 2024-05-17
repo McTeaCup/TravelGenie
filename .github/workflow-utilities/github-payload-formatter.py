@@ -26,7 +26,7 @@ class c_issue():
         self.closed_at = str()
 
     def __eq__(self, value: object) -> bool:
-        return self == value
+        return self == value8888
 class c_pr():
     def __init__(self) -> None:
         self.author = str()
@@ -148,7 +148,7 @@ def create_markdown():
                 for label in f_pr.labels:
                     labels += f"[{label}] "
 
-            report.write(f"| {f_pr.state} **({f_pr.mergeable})** | [{f_pr.title}]({f_pr.url}) | {str(f_pr.days_open)[0]} days | {labels} | {f_issue.author} | `{f_pr.from_branch}` -> `{f_pr.to_branch}`\n")
+            report.write(f"| {f_pr.state} **({f_pr.mergeable})** | [{f_pr.title}]({f_pr.url}) | {str(f_pr.days_open)[0]} days | {labels} | {f_pr.author} | `{f_pr.from_branch}` -> `{f_pr.to_branch}`\n")
 
         report.write('### Active Branches\n')
         
