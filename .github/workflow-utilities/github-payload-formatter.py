@@ -204,7 +204,7 @@ fetched_branches = []
 
 current_path = pathlib.Path().resolve()
 
-if(sys.argv[1] == '--debug'):
+if(len(sys.argv) > 1 and sys.argv[1] == '--debug'):
     issue_path = 'issues.json'
     pr_path = 'pull_request.json'
     branch_path = 'branches.txt'
