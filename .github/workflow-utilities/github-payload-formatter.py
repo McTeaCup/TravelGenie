@@ -123,7 +123,7 @@ def unpack_branches(filename):
             fetched_branches.append(f'{line[1][8:]}')
 
 def create_markdown():
-    with(open(f'report-{str(current_date)[:10]}.md', 'w') as report):
+    with(open(f'report.md', 'w') as report):
         #Table of contence
         report.write("## QUICK STATUS\n")
         report.write("### Issues\n")
