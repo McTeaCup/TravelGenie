@@ -21,8 +21,9 @@ jobs:
       # Generate report
       - run: python3 .github/workflow-utilities/github-payload-formatter.py
       
-      # Send report to issues
-      - run : gh issue create --title="Report 2024-05-10" --body=$"`cat report-2024-05-10.md`" --label="REPORT"
+      # Update issue 
+      - run : gh issue edit 16 --title="Weekly Report" --body=$"`cat report.md`"
+    
     env: 
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}

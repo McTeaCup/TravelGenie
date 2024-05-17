@@ -64,12 +64,13 @@ def unpack_issues(filename):
             ticket = c_issue()
 
             creation_date_string = str(issue['createdAt'])[:10].split('-')
+            total_time_open = current_date - datetime.datetime( int(creation_date_string[0]), int(creation_date_string[1]), int(creation_date_string[2]))
 
             ticket.creation_date = datetime.datetime(int(creation_date_string[0]), int(creation_date_string[1]), int(creation_date_string[2]))
             ticket.state = issue['state']
             ticket.title = issue['title']
             ticket.body = issue['body']
-            ticket.days_open = abs(current_date - ticket.creation_date)
+            ticket.days_open = f"{str(total_time_open).split(' ')[0]}"
             ticket.milestone = issue['milestone']
             ticket.author = issue['author']['login']
 
@@ -134,7 +135,7 @@ def create_markdown():
                 for label in f_issue.lables:
                     labels += f"[{label['name']}] "
 
-            report.write(f"| {f_issue.state} | [{f_issue.title}]({f_issue.url}) | {str(f_issue.days_open)[0]} days | {labels} | {f_issue.author}\n")
+            report.write(f"| {f_issue.state} | [{f_issue.title}]({f_issue.url}) | {str(f_issue.days_open)} day(s) | {labels} | {f_issue.author}\n")
         
         #Table of contence
         report.write("### Pull Requests\n")
@@ -196,69 +197,6 @@ def create_markdown():
         report.write('#### Others\n\n')
         for o_branch in other_branches:
             report.write(f"{o_branch}\n")
-        
-        report.write("\n---\n")
-
-        #Issues section
-        report.write('## Issues Details\n\n')
-        for issue in fetched_issues:
-            issue_content = [] 
-            issue_content.append(f"### [{issue.state}] [{issue.title}]({issue.url})\n")
-            issue_content.append(f"**Created:** `{str(issue.creation_date)[:10]}` *[Open for {str(issue.days_open).strip(',')[:7]}]*\n\n")
-            issue_content.append(f"```\n{issue.body}\n```\n\n")
-            issue_content.append(f"**Author:** {issue.author}\n\n")
-
-            if(issue.milestone != None):
-                issue_content.append(f"**Milestone:** {issue.milestone['title']}\n\n")
-            else:
-                issue_content.append(f"**Milestone:** {issue.milestone}\n\n")
-
-            assignees = str()
-            for asigned in issue.assignees:
-                assignees += f"{asigned['login']} "
-
-            labels = str()
-            if(issue.lables != None):
-                for label in issue.lables:
-                    labels += f"[{label['name']}] "
-
-            issue_content.append(f"**Labels:** {labels}\n\n")
-            
-            issue_content.append(f"**Assigned:** {assignees}\n\n")
-            issue_content.append(f"---\n\n")
-
-            report.writelines(issue_content)
-            
-        #Pull requests section
-        report.write('## Pull Requests Details\n\n')
-        for pr in fetched_prs:
-            pr_content = [] 
-            pr_content.append(f"### [{pr.state}] [{pr.title}]({pr.url})\n")
-            pr_content.append(f"**Created:** `{str(pr.creation_date)[:10]}` *[Open for {str(pr.days_open)[:7]}]*\n\n")
-            pr_content.append(f"```\n{pr.body}\n```\n\n")
-            pr_content.append(f"`{pr.from_branch}` --> `{pr.to_branch}` ***({pr.mergeable})***\n\n")
-            pr_content.append(f"**Author:** {pr.author}\n\n")
-
-            if(pr.milestone != None):
-                pr_content.append(f"**Milestone:** {pr.milestone['title']}\n\n")
-            else:
-                pr_content.append(f"**Milestone:** {pr.milestone}\n\n")
-
-            labels = str()
-            if(pr.labels != None):
-                for label in pr.labels:
-                    labels += f"[{label}] "
-            
-            assignees = str()
-            for asigned in pr.assignees:
-                assignees += f"{asigned['login']} "
-
-            pr_content.append(f"**Labels:** {labels}\n\n")
-            
-            pr_content.append(f"**Assigned:** {assignees}\n\n")
-            pr_content.append(f"---\n\n")
-
-            report.writelines(pr_content)
 
 fetched_issues = []
 fetched_prs = []
@@ -266,8 +204,19 @@ fetched_branches = []
 
 current_path = pathlib.Path().resolve()
 
-unpack_issues('.github/workflow-utilities/issues.json')
-unpack_rp('.github/workflow-utilities/pull_request.json')
-unpack_branches('.github/workflow-utilities/branches.txt')
+if(sys.argv[1] == '--debug'):
+    issue_path = 'issues.json'
+    pr_path = 'pull_request.json'
+    branch_path = 'branches.txt'
+
+else:
+    issue_path = '.github/workflow-utilities/issues.json'
+    pr_path = '.github/workflow-utilities/pull_request.json'
+    branch_path = '.github/workflow-utilities/branches.txt'
+
+unpack_issues(issue_path)
+unpack_rp(pr_path)
+unpack_branches(branch_path)
+
 create_markdown()
 
