@@ -72,7 +72,7 @@ namespace Travel_Ginie_App.Server.Services
                 {
                     string apiUrl = $"https://world-citiies-api.p.rapidapi.com/cities/country/{country}";
 
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "1e672dc169mshdcfa766897c5a4ep19f054jsne3cb79de3eb5");
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "world-citiies-api.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -102,7 +102,7 @@ namespace Travel_Ginie_App.Server.Services
                 {
                     string apiUrl = $"https://city-list.p.rapidapi.com/api/getCountryList";
 
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "1e672dc169mshdcfa766897c5a4ep19f054jsne3cb79de3eb5");
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "city-list.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -149,15 +149,15 @@ namespace Travel_Ginie_App.Server.Services
                     // Select only the required properties
                     var hotelSummaries = result.data.data.Select(hotel => new HotelDtos.Root
                     {
-                       data=new HotelDtos.Data
-                       {
-                           title=hotel.title,
-                           bubbleRating=hotel.bubbleRating,
-                           priceForDisplay=hotel.priceForDisplay,
-                           primaryInfo=hotel.primaryInfo,
-                           secondaryInfo=hotel.secondaryInfo
+                        data = new HotelDtos.Data
+                        {
+                            title = hotel.title,
+                            bubbleRating = hotel.bubbleRating,
+                            priceForDisplay = hotel.priceForDisplay,
+                            primaryInfo = hotel.primaryInfo,
+                            secondaryInfo = hotel.secondaryInfo
 
-                       }
+                        }
                     }).ToList();
 
                     return hotelSummaries;
@@ -321,60 +321,60 @@ namespace Travel_Ginie_App.Server.Services
             }
         }
 
-      /*  public async Task<TripPlan> GetPlanDetail(string prompt)
-        {
-            try
-            {
-                var conversation = new[]
-                {
-                    new
-                    {
-                        content = $"{prompt}",
-                        role = "user"
-                    }
-                };
+        /*  public async Task<TripPlan> GetPlanDetail(string prompt)
+          {
+              try
+              {
+                  var conversation = new[]
+                  {
+                      new
+                      {
+                          content = $"{prompt}",
+                          role = "user"
+                      }
+                  };
 
-                using (var client = new HttpClient())
-                {
-                    string apiUrl = "https://chatgpt-api8.p.rapidapi.com/";
+                  using (var client = new HttpClient())
+                  {
+                      string apiUrl = "https://chatgpt-api8.p.rapidapi.com/";
 
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "d7e9322450msh50722105539f988p17a776jsn08e2a7b82309");
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "chatgpt-api8.p.rapidapi.com");
+                      client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "d7e9322450msh50722105539f988p17a776jsn08e2a7b82309");
+                      client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "chatgpt-api8.p.rapidapi.com");
 
-                    var jsonContent = JsonConvert.SerializeObject(conversation);
-                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                      var jsonContent = JsonConvert.SerializeObject(conversation);
+                      var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                    using (var response = await client.PostAsync(apiUrl, content))
-                    {
-                        response.EnsureSuccessStatusCode();
+                      using (var response = await client.PostAsync(apiUrl, content))
+                      {
+                          response.EnsureSuccessStatusCode();
 
-                        var jsonResponse = await response.Content.ReadAsStringAsync();
+                          var jsonResponse = await response.Content.ReadAsStringAsync();
 
-                        var responseObject = JsonConvert.DeserializeObject<TripPlan>(jsonResponse);
+                          var responseObject = JsonConvert.DeserializeObject<TripPlan>(jsonResponse);
 
-                        var result = new TripPlan
-                        {
-                           dayPlans = responseObject.dayPlans,
-                            text = responseObject.text,
-                        };
+                          var result = new TripPlan
+                          {
+                             dayPlans = responseObject.dayPlans,
+                              text = responseObject.text,
+                          };
 
 
 
-                        return responseObject;
-                    }
-                }
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP Request Error: {ex.Message}");
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return null;
-            }
-        }*/
+                          return responseObject;
+                      }
+                  }
+              }
+              catch (HttpRequestException ex)
+              {
+                  Console.WriteLine($"HTTP Request Error: {ex.Message}");
+                  return null;
+              }
+              catch (Exception ex)
+              {
+                  Console.WriteLine($"Error: {ex.Message}");
+                  return null;
+              }
+          }*/
 
 
     }
