@@ -12,15 +12,13 @@ import { OverlayProvider } from './components/overlay.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
-      <AuthProvider>
-        <AnswerProvider>
-          <ChoiceProvider>
-            <OverlayProvider>
-              <App />
-            </OverlayProvider>
-          </ChoiceProvider>
-        </AnswerProvider>
-      </AuthProvider>
+      <AnswerProvider>
+        <ChoiceProvider>
+          <OverlayProvider>
+            <App />
+          </OverlayProvider>
+        </ChoiceProvider>
+      </AnswerProvider>
     </Router>
   </React.StrictMode>,
 )

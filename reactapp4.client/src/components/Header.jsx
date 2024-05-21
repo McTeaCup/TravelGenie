@@ -5,10 +5,10 @@ import style from '../style.module.css';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const { openOverlay } = useOverlay();
+    const { toggleOverlay } = useOverlay();
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        setIsOpen(prev => !prev);
     };
 
     return (
@@ -28,7 +28,7 @@ function Header() {
                     )}
                 </div>
                 <Link to="/"><img src="" alt="TravelGenie" /></Link>
-                <div onClick={openOverlay} style={{ cursor: 'pointer' }}>
+                <div onClick={toggleOverlay} style={{ cursor: 'pointer' }}>
                     <img src="profile-pic.jpg" alt="Profile" className={style.profileImage} />
                     <p>Profile</p>
                 </div>
