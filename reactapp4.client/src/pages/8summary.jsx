@@ -2,19 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
 import { useChoice } from '../components/landingchoice-logic';
+import { useSelection } from '../components/button';
 
-function Result() {
+function Summary() {
     const { answers } = useAnswers();
     const { aiHelp } = useChoice();
+    const [selected, handleToggle, reset] = useSelection();
 
     const categories = [
         { title: 'You plan to travel with...', key: 'party' },
         { title: 'Your budget is...', key: 'budget' },
         { title: 'You want to explore...', key: 'activities' },
         { title: 'You want to eat...', key: 'food' },
-        { title: 'aojdfj', key: 'active'},
+        { title: 'Activites per day', key: 'active' },
         { title: 'The events you want to see are...', key: 'events' }
     ];
+
 
     return (
         <div>
@@ -28,7 +31,7 @@ function Result() {
             ))}
 
             <div>
-                <div><Link to="/"><button>Exit</button></Link></div>
+                <div><Link to="/"><button >Exit</button></Link></div>
                 {aiHelp !== null && (
                     <Link to={aiHelp ? "/airesult" : "/manresult"}><button>CBA</button></Link>
                 )}
@@ -37,4 +40,4 @@ function Result() {
     );
 }
 
-export default Result;
+export default Summary;

@@ -11,3 +11,7 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
+
+
+//Kommer tas bort senare
+//Behövs inte längre
