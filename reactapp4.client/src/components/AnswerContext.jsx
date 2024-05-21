@@ -5,7 +5,7 @@ export const AnswerContext = createContext();
 export const useAnswers = () => useContext(AnswerContext);
 
 export const AnswerProvider = ({ children }) => {
-    const [answers, setAnswers] = useState({
+    const initialAnswers = {
         city: '',
         date: '',
         party: [],
@@ -14,10 +14,16 @@ export const AnswerProvider = ({ children }) => {
         food: [],
         active: [],
         events: []
-    });
+    };
+
+    const [answers, setAnswers] = useState(initialAnswers);
+
+    const resetAnswers = () => {
+        setAnswers(initialAnswers);
+    }
 
     return (
-        <AnswerContext.Provider value={{ answers, setAnswers }}>
+        <AnswerContext.Provider value={{ answers, setAnswers, resetAnswers }}>
             {children}
         </AnswerContext.Provider>
     );

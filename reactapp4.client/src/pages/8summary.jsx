@@ -5,7 +5,7 @@ import { useChoice } from '../components/landingchoice-logic';
 import { useSelection } from '../components/button';
 
 function Summary() {
-    const { answers } = useAnswers();
+    const { answers, resetAnswers } = useAnswers();
     const { aiHelp } = useChoice();
     const [selected, handleToggle, reset] = useSelection();
 
@@ -31,9 +31,9 @@ function Summary() {
             ))}
 
             <div>
-                <div><Link to="/"><button >Exit</button></Link></div>
+                <div><Link to="/"><button onClick={resetAnswers} >Exit</button></Link></div>
                 {aiHelp !== null && (
-                    <Link to={aiHelp ? "/airesult" : "/manresult"}><button>CBA</button></Link>
+                    <Link to={aiHelp ? "/airesult" : "/manresult"}><button onClick={resetAnswers}>CBA</button></Link>
                 )}
             </div>
         </div>
