@@ -13,11 +13,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <AnswerProvider>
-        <ChoiceProvider>
-          <OverlayProvider>
-            <App />
-          </OverlayProvider>
-        </ChoiceProvider>
+        <AuthProvider>
+          <ChoiceProvider>
+            <OverlayProvider>
+              <App />
+            </OverlayProvider>
+          </ChoiceProvider>
+        </AuthProvider>
       </AnswerProvider>
     </Router>
   </React.StrictMode>,
