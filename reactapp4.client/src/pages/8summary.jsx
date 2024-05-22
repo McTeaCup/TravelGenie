@@ -10,6 +10,10 @@ function Summary() {
     const [selected, handleToggle, reset] = useSelection();
 
     const categories = [
+        { title: `You want to travel to ${answers.city} in ${answers.country}`, key: 'destination' },
+        { title: 'You wil arrive on...', key: 'arrivalDate' },
+        { title: 'You will leave on...', key: 'departureDate' },
+        { title: 'You plan to stay for...', key: 'numberOfDays' },
         { title: 'You plan to travel with...', key: 'party' },
         { title: 'Your budget is...', key: 'budget' },
         { title: 'You want to explore...', key: 'activities' },
@@ -22,14 +26,16 @@ function Summary() {
     return (
         <div>
             <div>Edit</div>
-
             {categories.map(category => (
-                <div>
+                <div key={category.key}>
                     <h1>{category.title}</h1>
-                    {answers[category.key].map(item => <button key={item}>{item}</button>)}
+                    {Array.isArray(answers[category.key]) ? (
+                        answers[category.key].map(item => <button key={item}>{item}</button>)
+                    ) : (
+                        <p>{answers[category.key]}</p>
+                    )}
                 </div>
             ))}
-
             <div>
                 <div><Link to="/"><button onClick={resetAnswers} >Exit</button></Link></div>
                 {aiHelp !== null && (

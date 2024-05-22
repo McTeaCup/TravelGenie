@@ -6,8 +6,11 @@ export const useAnswers = () => useContext(AnswerContext);
 
 export const AnswerProvider = ({ children }) => {
     const initialAnswers = {
+        country: '',
         city: '',
-        date: '',
+        arrivalDate: '',
+        departureDate: '',
+        numberOfDays: '',
         party: [],
         budget: [],
         activities: [],
