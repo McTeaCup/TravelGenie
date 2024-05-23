@@ -1,5 +1,4 @@
-import React, {createContext, useContext, useState } from 'react';
-import Activities from '../pages/4activites';
+import React, { createContext, useContext, useState } from 'react';
 
 export const AnswerContext = createContext();
 
@@ -14,12 +13,12 @@ export const AnswerProvider = ({ children }) => {
         activities: [],
         food: [],
         active: [],
-        events: []
+        events: [] // This will store the number of days
     });
 
     return (
-        <AnswerContext.Provider value={{answers, setAnswers}}>
+        <AnswerContext.Provider value={{ answers, setAnswers }}>
             {children}
         </AnswerContext.Provider>
     );
-}
+};
