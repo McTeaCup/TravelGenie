@@ -35,7 +35,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 370px;
+    /* width: 370px; */
+    width: 95vw;
     height: 413px;
     border-radius: 8px;
     flex-direction: column;
