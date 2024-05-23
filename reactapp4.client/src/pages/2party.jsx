@@ -29,7 +29,7 @@ const Party = () => {
 
                 <h2 className={style.formText}>Who do you plan on traveling with on your next adventure?</h2>
                 <div className={style.formContainer}>
-                    {['Alone', 'Couple', 'Family', 'Friends'].map(choice => (
+                    {['Alone (1)', 'Couple (2)', 'Family (4)', 'Friends(6+)'].map(choice => (
                         <Toggle
                             key={choice}
                             value={choice}

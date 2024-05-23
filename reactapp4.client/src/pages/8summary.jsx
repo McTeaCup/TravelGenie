@@ -13,7 +13,7 @@ function Summary() {
         { title: `You want to travel to ${answers.city} in ${answers.country}`, key: 'destination' },
         { title: 'You wil arrive on...', key: 'arrivalDate' },
         { title: 'You will leave on...', key: 'departureDate' },
-        { title: 'You plan to stay for...', key: 'numberOfDays' },
+        { title: `You will stay for ${answers.numberOfDays} days`, key: 'numberOfDays' },
         { title: 'You plan to travel with...', key: 'party' },
         { title: 'Your budget is...', key: 'budget' },
         { title: 'You want to explore...', key: 'activities' },
@@ -39,7 +39,7 @@ function Summary() {
             <div>
                 <div><Link to="/"><button onClick={resetAnswers} >Exit</button></Link></div>
                 {aiHelp !== null && (
-                    <Link to={aiHelp ? "/airesult" : "/manresult"}><button onClick={resetAnswers}>CBA</button></Link>
+                    <Link to={aiHelp ? "/airesult" : "/manresult"}><button>CBA</button></Link>
                 )}
             </div>
         </div>

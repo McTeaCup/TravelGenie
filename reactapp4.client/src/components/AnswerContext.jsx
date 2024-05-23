@@ -16,7 +16,7 @@ export const AnswerProvider = ({ children }) => {
         activities: [],
         food: [],
         active: [],
-        events: []
+        events: [],
     };
 
     const [answers, setAnswers] = useState(initialAnswers);
