@@ -39,8 +39,8 @@ const Party = () => {
                 </div>
 
                 <div className={style.btnContainer}>
-                    <div><Link to="/destination"><button className={style.desButton}>Back</button></Link></div>
-                    <div><Link to="/budget"><button className={style.desButton} type="submit">Submit</button></Link></div>
+                    <div><Link to="/destination"><button className={style.desButton1}>Back</button></Link></div>
+                    <div><Link to="/budget"><button className={style.desButton2} type="submit">Next</button></Link></div>
                 </div>
             </div>
         </div>

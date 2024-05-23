@@ -84,7 +84,7 @@ const Destination = () => {
                 </div>
                 <div className={style.inputs}>
                     <label htmlFor="country">Select a country:</label>
-                    <select className={style.select} id="country" value={selectedCountry} onChange={handleCountryChange}>
+                    <select className={style.locationLabel} id="country" value={selectedCountry} onChange={handleCountryChange}>
                         <option value="">Select a country</option>
                         {countries.map((country, index) => (
                             <option key={index} value={country}>
@@ -93,7 +93,7 @@ const Destination = () => {
                         ))}
                     </select>
                     <label htmlFor="city">Select a city:</label>
-                    <select className={style.select} id="city" value={selectedCity} onChange={handleCityChange}>
+                    <select className={style.locationLabel} id="city" value={selectedCity} onChange={handleCityChange}>
                         <option value="">Select a city</option>
                         {cities.map((city, index) => (
                             <option key={index} value={city}>
@@ -102,15 +102,19 @@ const Destination = () => {
                         ))}
                     </select>
                 </div>
-                <div className={style.inputs}>
-                    <label htmlFor="start">Arrival Date:</label>
-                    <input type="date" id="start" name="start" onChange={handleDateChange} />
-                    <label htmlFor="end">Departure Date:</label>
-                    <input type="date" id="end" name="end" onChange={handleDateChange} />
+                <div className={style.inputsDate}>
+                    <div>
+                        <label htmlFor="start">Arrival Date:</label>
+                        <input className={style.arrival} type="date" id="start" name="start" onChange={handleDateChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="end">Departure Date:</label>
+                        <input className={style.departure} type="date" id="end" name="end" onChange={handleDateChange} />
+                    </div>
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to={'/'}><button className={style.desButton}>Back</button></Link>
-                    <Link to="/party"><button className={style.desButton} type="submit">Next</button></Link>
+                    <Link to={'/'}><button className={style.desButton1}>Back</button></Link>
+                    <Link to="/party"><button className={style.desButton2} type="submit">Next</button></Link>
                 </div>
             </div>
         </div>

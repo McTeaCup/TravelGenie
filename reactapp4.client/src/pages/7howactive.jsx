@@ -36,8 +36,8 @@ function Active() {
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/events"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/summary"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/events"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/summary"><button className={style.desButton2} type="button">Submit</button></Link>
                 </div>
             </div>
         </div>
