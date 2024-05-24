@@ -185,13 +185,12 @@ input[type="date"] {
     border-radius: 15px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     position: absolute;
-    top: 150px;
+    top: 125px;
 }
 
 .desButton1, .desButton2 {
-    background-color: #1E2341;
     padding: 5px;
     padding-left: 25px;
     padding-right: 25px;
@@ -200,27 +199,66 @@ input[type="date"] {
     width: 97px;
     height: 45px;
     border: solid 1px black;
-    color: #FFFFFF;
     position: absolute;
     bottom: 15px;
 }
 
 .desButton1 {
     left: 10px;
+    background-color: transparent;
+    color: #000000;
 }
 
 .desButton2 {
     right: 10px;
+    background-color: #1E2341;
+    color: #FFFFFF;
 }
 
-.arrival, .departure {
-    width: 130px;
-    height: 45px;
+.arrivalContainer, .departureContainer {
+    position: relative;
+    display: flex;
+    background-color: #FFFFFF;
+    width: 170px;
+    border-radius: 10px;
 }
+
+.arrivalContainer p, .departureContainer p {
+    padding: 10px 0 0 10px;
+}
+
+
+.datePickerContainer {
+    position: absolute;
+    right: 50px;
+    top: 0;
+}
+
+.hiddenInputStyle {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+}
+
+.calendarIcon {
+    color: #000000;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+}
+
+/* ----------------------------------------------------------------------- */
 
 .inputsDate {
     display: flex;
     flex-direction: row;
+    width: 90vw;
+    column-gap: 20px;
 }
 
 .landButton {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import CustomDate from '../components/CustomDate';
 import style from '../style.module.css'
 
 
@@ -103,13 +104,13 @@ const Destination = () => {
                     </select>
                 </div>
                 <div className={style.inputsDate}>
-                    <div>
-                        <label htmlFor="start">Arrival Date:</label>
-                        <input className={style.arrival} type="date" id="start" name="start" onChange={handleDateChange} />
+                    <div className={style.arrivalContainer}>
+                        <p>Arrival Date</p>
+                        <CustomDate value={arrivalDate} onChange={handleDateChange} />
                     </div>
-                    <div>
-                        <label htmlFor="end">Departure Date:</label>
-                        <input className={style.departure} type="date" id="end" name="end" onChange={handleDateChange} />
+                    <div className={style.departureContainer}>
+                        <p>Departure Date</p>
+                        <CustomDate value={departureDate} onChange={handleDateChange} />
                     </div>
                 </div>
                 <div className={style.btnContainer}>
