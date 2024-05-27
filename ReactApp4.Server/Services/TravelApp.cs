@@ -1,20 +1,13 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Travel_Ginie_App.Server.AIResponseDTO;
+
 using Travel_Ginie_App.Server.Dtos;
-using Travel_Ginie_App.Server.EventDto;
+
 using Travel_Ginie_App.Server.GeoIdDto;
-using Travel_Ginie_App.Server.HotelDtos;
-using Travel_Ginie_App.Server.RestaurantsDto;
-using Travel_Ginie_App.Server.TripPlanDto;
-using JsonException = Newtonsoft.Json.JsonException;
+
+
 
 
 namespace Travel_Ginie_App.Server.Services
