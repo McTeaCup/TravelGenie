@@ -13,15 +13,16 @@ namespace Travel_Ginie_App.Server.Services
         Task<List<string>> GetCities(string country);//done
      
         Task<List<RestaurantsDto.RestaurantsDto>> GetRestaurants(string city);//done
-        Task<List<HotelDtos.Root>> GetHotelDetails(string city, DateTime checkin, DateTime checkout);
+        Task<List<HotelDtos.Data>> GetHotelDetails(string city, DateTime checkin, DateTime checkout);
 
         Task<TripPlanDto.TripPlan> GetTravelPlan(string day, string city, string activities, int numberofppl, decimal budjet, string companions);//done
 
         Task<List<object>> GetEvents(string type, string city, int start);//done
 
-        //Task<TripPlan> GetPlanDetail(string propt);//done
+        Task<TripPlan> GetPlanDetail(string propt);//done
 
-
+      
+    
         Task<int> GetGeoId(string city);//done
 
         Task<string> GetCategories();

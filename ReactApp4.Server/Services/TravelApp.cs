@@ -21,7 +21,15 @@ namespace Travel_Ginie_App.Server.Services
 {
     public class TravelApp : ITravelApp
     {
+        private readonly IConfiguration _configuration;
 
+
+        public TravelApp(IConfiguration configuration)
+        {
+            _configuration = configuration;
+
+
+        }
         //displays all events in the selected city
         public async Task<List<object>> GetEvents(string type, string city, int start)
         {
@@ -31,7 +39,7 @@ namespace Travel_Ginie_App.Server.Services
                 {
                     string apiUrl = $"https://real-time-events-search.p.rapidapi.com/search-events?query={type}%20in%20{city}&start={start}";
 
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+                    client.DefaultRequestHeaders.Add("X - RapidAPI - Key", _configuration["ApiKeys:EventsByCityApiKey"]);
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "real-time-events-search.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -74,7 +82,8 @@ namespace Travel_Ginie_App.Server.Services
                 {
                     string apiUrl = $"https://world-citiies-api.p.rapidapi.com/cities/country/{country}";
 
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _configuration["ApiKeys:CityListApiKey"]);
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "world-citiies-api.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -103,8 +112,7 @@ namespace Travel_Ginie_App.Server.Services
                 using (var client = new HttpClient())
                 {
                     string apiUrl = $"https://city-list.p.rapidapi.com/api/getCountryList";
-
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _configuration["ApiKeys:CountryListApiKey"]);
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "city-list.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -130,7 +138,7 @@ namespace Travel_Ginie_App.Server.Services
 
 
 
-        public async Task<List<HotelDtos.Root>> GetHotelDetails(string city, DateTime checkin, DateTime checkout)
+        public async Task<List<HotelDtos.Data>> GetHotelDetails(string city, DateTime checkin, DateTime checkout)
         {
             try
             {
@@ -139,7 +147,7 @@ namespace Travel_Ginie_App.Server.Services
                 using (var client = new HttpClient())
                 {
                     string apiUrl = $"https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels?geoId={geoId}&checkIn={checkin:yyyy-MM-dd}&checkOut={checkout:yyyy-MM-dd}&pageNumber=1&currencyCode=USD";
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "d7e9322450msh50722105539f988p17a776jsn08e2a7b82309");
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _configuration["ApiKeys:HotelListApiKey"]);
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "tripadvisor16.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -149,19 +157,42 @@ namespace Travel_Ginie_App.Server.Services
                     var result = JsonConvert.DeserializeObject<HotelDtos.Root>(jsonResponse);
 
                     // Select only the required properties
-                    var hotelSummaries = result.data.data.Select(hotel => new HotelDtos.Root
+                    var hotelSummaries = result.data.data.Select(hotel => new HotelDtos.Data
                     {
-                       data=new HotelDtos.Data
-                       {
-                           title=hotel.title,
-                           bubbleRating=hotel.bubbleRating,
-                           priceForDisplay=hotel.priceForDisplay,
-                           primaryInfo=hotel.primaryInfo,
-                           secondaryInfo=hotel.secondaryInfo
+                        sortDisclaimer = hotel.sortDisclaimer,
+                        data = hotel.data,
+                        id = hotel.id,
+                        title = hotel.title,
+                        primaryInfo = hotel.primaryInfo,
+                        secondaryInfo = hotel.secondaryInfo,
+                        badge = hotel.badge,
+                        bubbleRating = hotel.bubbleRating,
+                        isSponsored = hotel.isSponsored,
+                        accentedLabel = hotel.accentedLabel,
+                        provider = hotel.provider,
+                        priceForDisplay = hotel.priceForDisplay,
+                        strikethroughPrice = hotel.strikethroughPrice,
+                        priceDetails = hotel.priceDetails,
+                        priceSummary = hotel.priceSummary,
 
-                       }
+
+                        cardPhotos = hotel.cardPhotos.Select(photo => new HotelDtos.CardPhoto
+                        {
+                            __typename = photo.__typename,
+
+                            sizes = new HotelDtos.Sizes
+                            {
+                                urlTemplate = photo.sizes.urlTemplate,
+                                __typename = photo.sizes.__typename,
+                                maxHeight = photo.sizes.maxHeight,
+                                maxWidth = photo.sizes.maxWidth,
+
+
+                            }
+                        }).ToList(),
+                        commerceInfo = hotel.commerceInfo,
+
                     }).ToList();
-
                     return hotelSummaries;
                 }
             }
@@ -182,7 +213,7 @@ namespace Travel_Ginie_App.Server.Services
                 using (var client = new HttpClient())
                 {
                     string apiUrl = $"https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchRestaurants?locationId={geoId}";
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "d7e9322450msh50722105539f988p17a776jsn08e2a7b82309");
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _configuration["ApiKeys:RestaurantListApiKey"]);
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "tripadvisor16.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -237,7 +268,7 @@ namespace Travel_Ginie_App.Server.Services
                 using (var client = new HttpClient())
                 {
                     string apiUrl = $"https://ai-trip-planner.p.rapidapi.com/?days={day}&destination={city}&activity{activities}&numburofppl{numberofppl}&budjet{budjet}&{companions}";
-                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "d7e9322450msh50722105539f988p17a776jsn08e2a7b82309");
+                    client.DefaultRequestHeaders.Add("X-RapidAPI-Key", _configuration["ApiKeys:AiTripPlannerApiKey"]);
                     client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "ai-trip-planner.p.rapidapi.com");
 
                     var response = await client.GetAsync(apiUrl);
@@ -323,7 +354,7 @@ namespace Travel_Ginie_App.Server.Services
             }
         }
 
-      /*  public async Task<TripPlan> GetPlanDetail(string prompt)
+        public async Task<TripPlan> GetPlanDetail(string prompt)
         {
             try
             {
@@ -376,7 +407,7 @@ namespace Travel_Ginie_App.Server.Services
                 Console.WriteLine($"Error: {ex.Message}");
                 return null;
             }
-        }*/
+        }
 
 
     }
