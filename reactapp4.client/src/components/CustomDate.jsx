@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import style from '../style.module.css'; // Ensure your styles are defined here
 
-const CustomDate = ({ value, onChange }) => {
+const CustomDate = ({ name, value, onChange }) => {
     const hiddenDateInput = useRef(null);
 
     const handleClick = () => {
@@ -17,6 +17,7 @@ const CustomDate = ({ value, onChange }) => {
         <div className={style.datePickerContainer} >
             <FontAwesomeIcon className={style.calendarIcon} icon={faCalendarDays} onClick={handleClick} style={{ zIndex: 0 }} />
             <input
+                name={name}
                 className={style.hiddenInputStyle}
                 ref={hiddenDateInput}
                 type="date"

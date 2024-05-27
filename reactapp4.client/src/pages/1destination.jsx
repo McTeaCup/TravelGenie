@@ -52,10 +52,11 @@ const Destination = () => {
     };
 
     const handleDateChange = (event) => {
-        if (event.target.name === 'start') {
-            setArrivalDate(event.target.value);
-        } else if (event.target.name === 'end') {
-            setDepartureDate(event.target.value);
+        const { name, value } = event.target;
+        if (name === 'arrivalDate') {
+            setArrivalDate(value);
+        } else if (name === 'departureDate') {
+            setDepartureDate(value);
         }
     };
 
@@ -105,12 +106,12 @@ const Destination = () => {
                 </div>
                 <div className={style.inputsDate}>
                     <div className={style.arrivalContainer}>
-                        <p>Arrival Date</p>
-                        <CustomDate value={arrivalDate} onChange={handleDateChange} />
+                        <p>{arrivalDate ? `${arrivalDate}` : 'Arrival Date'}</p>
+                        <CustomDate name="arrivalDate" value={arrivalDate} onChange={handleDateChange} />
                     </div>
                     <div className={style.departureContainer}>
-                        <p>Departure Date</p>
-                        <CustomDate value={departureDate} onChange={handleDateChange} />
+                        <p>{departureDate ? `${departureDate}` : 'Departure Date'}</p>
+                        <CustomDate name="departureDate" value={departureDate} onChange={handleDateChange} />
                     </div>
                 </div>
                 <div className={style.btnContainer}>
