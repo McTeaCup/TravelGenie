@@ -419,3 +419,17 @@ input[type="date"] {
     border-top: solid 1px rgb(184, 184, 184);
     padding: 20px;
 }
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+
+.highlight {
+    font-weight: 800;
+    color: #1E2341;
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
 import { useChoice } from '../components/landingchoice-logic';
 import { useSelection } from '../components/button';
+import style from '../style.module.css';
 
 function Summary() {
     const { answers, resetAnswers } = useAnswers();
@@ -10,10 +11,8 @@ function Summary() {
     const [selected, handleToggle, reset] = useSelection();
 
     const categories = [
-        { title: `You want to travel to ${answers.city} in ${answers.country}`, key: 'destination' },
-        { title: 'You wil arrive on...', key: 'arrivalDate' },
-        { title: 'You will leave on...', key: 'departureDate' },
-        { title: `You will stay for ${answers.numberOfDays} days`, key: 'numberOfDays' },
+        { title: <>You want to travel to <span className={style.highlight}>{answers.city}</span> in <span className={style.highlight}>{answers.country}</span></>, key: 'destination' },
+        { title: <>You will arrive <span className={style.highlight}>{answers.arrivalDate}</span> and leave on <span className={style.highlight}>{answers.departureDate}</span>. And you will stay for <span className={style.highlight}>{answers.numberOfDy}</span> days</>, key: 'numberOfDays' },
         { title: 'You plan to travel with...', key: 'party' },
         { title: 'Your budget is...', key: 'budget' },
         { title: 'You want to explore...', key: 'activities' },
@@ -24,8 +23,7 @@ function Summary() {
 
 
     return (
-        <div>
-            <div>Edit</div>
+        <div className={style.summary}>
             {categories.map(category => (
                 <div key={category.key}>
                     <h1>{category.title}</h1>
