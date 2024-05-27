@@ -53,6 +53,9 @@ function Login() {
 
     return (
         <div className={style.AccAlign}>
+            <button className={style.closeBtn} aria-label="Close">
+                &times;
+            </button>
             <form onSubmit={loginHandler} className={style.AccForm}>
                 <h3>Sign In</h3>
                 <input className={style.accountInputs} id="email" name='email' type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />

@@ -20,11 +20,11 @@ function Signup() {
         }
 
         const dataToSend = {
-            Name: '', 
+            Name: '',
             Email: email,
-            UserName: email, 
-            PasswordHash: password, 
-            confirmPassword:password
+            UserName: email,
+            PasswordHash: password,
+            confirmPassword: password
         };
 
         try {
@@ -52,6 +52,9 @@ function Signup() {
     return (
         <div className={style.AccAlign}>
             <form className={style.AccForm} onSubmit={signupHandler}>
+                <button className={style.closeBtn} aria-label="Close">
+                    &times;
+                </button>
                 <h3>Sign Up</h3>
 
 
