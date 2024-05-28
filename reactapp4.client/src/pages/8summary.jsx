@@ -45,6 +45,7 @@ function Summary() {
 
     function renderContent(key) {
         return (
+
             <div className={style.content}>
                 {Array.isArray(answers[key]) ? (
                     answers[key].map(item => <button key={item} className={style.sumBtn}>{item}</button>)
@@ -52,18 +53,25 @@ function Summary() {
                     <p>{answers[key]}</p>
                 )}
             </div>
+
         );
     }
 
     return (
-        <div className={style.summary}>
-            <Accordion items={categories} containerClass={style.accContainer} itemClass={style.accItem} contentClass={style.accContent} />
-            <div className={style.aiBtn}>
-                {aiHelp !== null && (
-                    <Link to={aiHelp ? "/airesult" : "/manresult"}>
-                        <button className={style.aiButton}>AI generate it for me!</button>
-                    </Link>
-                )}
+        <div className={style.summaryParent}>
+            <div className={style.summaryTop}>
+                <h1 className={style.summaryTitle}>AMAZING!</h1>
+                <h2 className={style.summaryText}>Here is a summary of all your choices</h2>
+            </div>
+            <div className={style.summary}>
+                <Accordion items={categories} containerClass={style.accContainer} itemClass={style.accItem} contentClass={style.accContent} />
+                <div className={style.aiBtn}>
+                    {aiHelp !== null && (
+                        <Link to={aiHelp ? "/airesult" : "/manresult"}>
+                            <button className={style.aiButton}>AI generate it for me!</button>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     );
