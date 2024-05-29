@@ -622,5 +622,5 @@ input[type="date"] {
 .footerSocial {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    gap: 40px;
 }

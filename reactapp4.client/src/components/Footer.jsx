@@ -30,8 +30,8 @@ const Footer = () => {
             </div>
             <div className={style.footerSocial}>
                 <a href="https://www.facebook.com"><img src='/icons/facebook.png' width={60} alt='Facebook' /></a>
-                <a href="https://www.instagram.com"><img /></a>
-                <a href="https://www.twitter.com"><img /></a>
+                <a href="https://www.instagram.com"><img src='/icons/instagram.png' width={60} /></a>
+                <a href="https://www.twitter.com"><img src='/icons/twitter.png' width={60} /></a>
             </div>
         </footer>
     );
