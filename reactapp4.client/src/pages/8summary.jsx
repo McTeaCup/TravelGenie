@@ -13,7 +13,7 @@ function Summary() {
 
     const categories = [
         { id: 1, title: 'You are traveling to...', content: renderTravelTo() },
-        { id: 2, title: 'Your travel dates...', content: renderTravelDates() },
+        { id: 2, title: 'Your trip will be...', content: renderTravelDates() },
         { id: 3, title: 'Activities on a day...', content: renderContent('active') },
         { id: 4, title: 'Who you are traveling with...', content: renderContent('party') },
         { id: 5, title: 'Your budget is...', content: renderContent('budget') },
