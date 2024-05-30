@@ -50,7 +50,7 @@ function AiResult() {
     }, [city, date, party, budget, activities, food, active, events]);
 
     return (
-        <div>
+        <div className={style.result__container}>
             {loading && <p>Loading...</p>}
             {error && <p className={style.error}>{error}</p>}
             {!loading && !error && (
@@ -66,6 +66,10 @@ function AiResult() {
                     }))}
                 />
             )}
+            <div className={style.button__container}>
+                <button className={style.button_r1} >Save the trip!</button>
+                <button className={style.button_r2}>Generate a new one</button>
+            </div>
         </div>
     );
 }
