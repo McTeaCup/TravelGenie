@@ -426,7 +426,7 @@ input[type="date"] {
 .button_r2 {
     margin: 1.2rem 0 0 0;
     color: #333;
-    background-color:rgba(137, 137, 150, 0.76);
+    background-color:rgba(173, 216, 230, 0.856);
     border: solid 2px rgba(245, 245, 245, 0.781);
     width: 27rem;
     height: 3.5rem;
@@ -434,7 +434,7 @@ input[type="date"] {
 }
 
 .button_r2:hover {
-    border-color:rgba(137, 137, 150, 0.76);
+    border-color:rgba(173, 216, 230, 0.856);
     background-color: transparent;
     transition: 600ms ease;
     transform: translateY(-0.5rem);
