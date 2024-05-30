@@ -408,17 +408,17 @@ input[type="date"] {
 }
 
 .button_r1 {
-    background-color:rgb(47, 47, 91);
+    background-color: #f29f8d;
     color: rgba(245, 245, 245, 0.781);
-    border: solid 2px;
+    border: solid 2px rgba(245, 245, 245, 0.781);
     width: 27rem;
     height: 3.5rem;
     border-radius: 10px;
 }
 .button_r1:hover{
-    border-color: rgb(47, 47, 91);
-    background-color: transparent;
-    color: #333;
+    border: 0;
+    background-color: #e68c78;
+    color: rgba(245, 245, 245, 0.781);
     transition: 600ms ease;
     transform: translateY(-0.5rem);
 }
@@ -426,15 +426,15 @@ input[type="date"] {
 .button_r2 {
     margin: 1.2rem 0 0 0;
     color: #333;
-    background-color:rgba(173, 216, 230, 0.856);
-    border: solid 2px rgba(245, 245, 245, 0.781);
+    background-color:transparent;
+    border: solid 2px #33333349;
     width: 27rem;
     height: 3.5rem;
     border-radius: 10px;
 }
 
 .button_r2:hover {
-    border-color:rgba(173, 216, 230, 0.856);
+    border: solid 2px #333;
     background-color: transparent;
     transition: 600ms ease;
     transform: translateY(-0.5rem);
