@@ -7,11 +7,16 @@ import style from '../style.module.css';
 function Active() {
     const { answers, setAnswers } = useAnswers();
 
-    const handleEventSelect = (choice) => {
-        setAnswers({ ...answers, active: [...answers.active, choice] })
+    const [selectedOptions, handleToggle] = useSelection(answers.active || []);
+
+    const handleActiveSelect = (choice) => {
+        const updatedActive = selectedOptions.includes(choice)
+            ? selectedOptions.filter(item => item !== choice)
+            : [...selectedOptions, choice];
+
+        setAnswers({ ...answers, active: updatedActive });
     };
 
-    const [selectedOption, handleSel] = useSelection();
 
     return (
         <div className={style.mainContainer}>
@@ -29,15 +34,17 @@ function Active() {
                         <Toggle
                             key={choice}
                             value={choice}
-                            selected={selectedOption === choice}
-                            handleSel={handleSel}
-                            handleChoice={handleEventSelect}
+                            selected={selectedOptions.includes(choice)}
+                            handleToggle={(value) => {
+                                handleToggle(value);
+                                handleActiveSelect(value);
+                            }}
                         />
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/events"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/summary"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/events"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/summary"><button className={style.desButton2} type="button">Submit</button></Link>
                 </div>
             </div>
         </div>

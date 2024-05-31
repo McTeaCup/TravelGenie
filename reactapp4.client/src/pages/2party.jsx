@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
-import { useSelection, Toggle } from '../components/button.jsx';
-import style from '../style.module.css'
+import { useSelection, Toggle } from '../components/button';
+import style from '../style.module.css';
 
 const Party = () => {
     const { answers, setAnswers } = useAnswers();
+    const [selectedOptions, handleToggle] = useSelection(answers.party || []);
 
     const handlePartySelect = (choice) => {
-        setAnswers({ ...answers, party: [...answers.party, choice] })
-    }
+        const updatedParty = selectedOptions.includes(choice)
+            ? selectedOptions.filter(item => item !== choice)
+            : [...selectedOptions, choice];
 
-
-    const [selectedOption, handleSel] = useSelection();
+        setAnswers({ ...answers, party: updatedParty });
+    };
 
     return (
         <div className={style.mainContainer}>
@@ -31,19 +33,22 @@ const Party = () => {
                         <Toggle
                             key={choice}
                             value={choice}
-                            selected={selectedOption === choice}
-                            handleSel={handleSel}
-                            handleChoice={handlePartySelect}
+                            selected={selectedOptions.includes(choice)}
+                            handleToggle={(value) => {
+                                handleToggle(value);
+                                handlePartySelect(value);
+                            }}
                         />
                     ))}
                 </div>
 
                 <div className={style.btnContainer}>
-                    <div><Link to="/destination"><button className={style.desButton}>Back</button></Link></div>
-                    <div><Link to="/budget"><button className={style.desButton} type="submit">Submit</button></Link></div>
+                    <div><Link to="/destination"><button className={style.desButton1}>Back</button></Link></div>
+                    <div><Link to="/budget"><button className={style.desButton2} type="submit">Next</button></Link></div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default Party;

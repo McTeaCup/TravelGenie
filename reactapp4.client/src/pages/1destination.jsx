@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import CustomDate from '../components/CustomDate';
 import style from '../style.module.css'
+import { useAnswers } from '../components/AnswerContext';
 
 
 const Destination = () => {
     const navigate = useNavigate();
+    const { answers, setAnswers } = useAnswers();
     const [countries, setCountries] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState(answers.country || "")
     const [cities, setCities] = useState([]);
-    const [selectedCity, setSelectedCity] = useState("");
-    const [arrivalDate, setArrivalDate] = useState("");
-    const [departureDate, setDepartureDate] = useState("");
+    const [selectedCity, setSelectedCity] = useState(answers.city || "");
+    const [arrivalDate, setArrivalDate] = useState(answers.arrivalDate || "");
+    const [departureDate, setDepartureDate] = useState(answers.departureDate || "");
     const [numberOfDays, setNumberOfDays] = useState(0); // State to hold the number of days
 
     useEffect(() => {
@@ -51,11 +54,29 @@ const Destination = () => {
     };
 
     const handleDateChange = (event) => {
-        if (event.target.name === 'start') {
-            setArrivalDate(event.target.value);
-        } else if (event.target.name === 'end') {
-            setDepartureDate(event.target.value);
+        const { name, value } = event.target;
+        let newNumberOfDays = numberOfDays;
+
+        if (name === 'arrivalDate') {
+            setArrivalDate(value);
+            if (departureDate) {
+                newNumberOfDays = Math.floor((new Date(departureDate) - new Date(value)) / (1000 * 60 * 60 * 24));
+                setNumberOfDays(newNumberOfDays);
+            }
+        } else if (name === 'departureDate') {
+            setDepartureDate(value);
+            if (arrivalDate) {
+                newNumberOfDays = Math.floor((new Date(value) - new Date(arrivalDate)) / (1000 * 60 * 60 * 24));
+                setNumberOfDays(newNumberOfDays);
+            }
         }
+
+        setAnswers(prev => ({
+            ...prev,
+            [name]: value,
+            numberOfDays: newNumberOfDays // Update the context with the new number of days
+        }));
+        console.log("Updated Dates and Days:", name, value, newNumberOfDays);
     };
 
     const handleNextButtonClick = () => {
@@ -63,8 +84,17 @@ const Destination = () => {
             const arrival = new Date(arrivalDate);
             const departure = new Date(departureDate);
             const numberOfDays = Math.floor((departure - arrival) / (1000 * 60 * 60 * 24));
-            setNumberOfDays(numberOfDays);
-            navigate(`/second-page/${selectedCountry}/${selectedCity}/${arrivalDate}/${departureDate}/${numberOfDays}`);
+
+            setAnswers({
+                ...answers,
+                country: selectedCountry,
+                city: selectedCity,
+                arrivalDate,
+                departureDate,
+                numberOfDays
+            });
+
+            navigate('/party')
         } else {
             alert("Please fill in all fields.");
         }
@@ -84,7 +114,7 @@ const Destination = () => {
                 </div>
                 <div className={style.inputs}>
                     <label htmlFor="country">Select a country:</label>
-                    <select className={style.select} id="country" value={selectedCountry} onChange={handleCountryChange}>
+                    <select className={style.locationLabel} id="country" value={selectedCountry} onChange={handleCountryChange}>
                         <option value="">Select a country</option>
                         {countries.map((country, index) => (
                             <option key={index} value={country}>
@@ -93,7 +123,7 @@ const Destination = () => {
                         ))}
                     </select>
                     <label htmlFor="city">Select a city:</label>
-                    <select className={style.select} id="city" value={selectedCity} onChange={handleCityChange}>
+                    <select className={style.locationLabel} id="city" value={selectedCity} onChange={handleCityChange}>
                         <option value="">Select a city</option>
                         {cities.map((city, index) => (
                             <option key={index} value={city}>
@@ -102,18 +132,23 @@ const Destination = () => {
                         ))}
                     </select>
                 </div>
-                <div className={style.inputs}>
-                    <label htmlFor="start">Arrival Date:</label>
-                    <input type="date" id="start" name="start" onChange={handleDateChange} />
-                    <label htmlFor="end">Departure Date:</label>
-                    <input type="date" id="end" name="end" onChange={handleDateChange} />
+                <div className={style.inputsDate}>
+                    <div className={style.arrivalContainer}>
+                        <p>{arrivalDate ? `${arrivalDate}` : 'Arrival Date'}</p>
+                        <CustomDate name="arrivalDate" value={arrivalDate} onChange={handleDateChange} />
+                    </div>
+                    <div className={style.departureContainer}>
+                        <p>{departureDate ? `${departureDate}` : 'Departure Date'}</p>
+                        <CustomDate name="departureDate" value={departureDate} onChange={handleDateChange} />
+                    </div>
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to={'/'}><button className={style.desButton}>Back</button></Link>
-                    <Link to="/party"><button className={style.desButton} type="submit">Next</button></Link>
+                    <Link to={'/'}><button className={style.desButton1}>Back</button></Link>
+                    <Link to="/party"><button className={style.desButton2} type="submit">Next</button></Link>
                 </div>
             </div>
         </div>
     );
 }
+
 export default Destination;

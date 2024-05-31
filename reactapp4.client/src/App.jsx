@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import BootNavbar from './components/BootNavbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -17,6 +17,7 @@ import Landing from './pages/0landing';
 import ManResult from './pages/result-manual';
 import AiResult from './pages/result-ai';
 import Active from './pages/7howactive';
+import style from './style.module.css';
 
 
 function App() {
@@ -47,12 +48,21 @@ function App() {
 }
 
 function Layout() {
+
+    const location = useLocation();
+    const isLanding = location.pathname === '/';
+    const styling = `${style.maincontainer} ${isLanding ? style.specialBackground : ''}`;
+
+
+
     return (
         <>
-            {/* <BootNavbar /> */}
-            <Header />
-            <Outlet />
-            <Footer />
+            <div className={styling}>
+                {/* <BootNavbar /> */}
+                <Header />
+                <Outlet />
+                <Footer />
+            </div>
         </>
     )
 }

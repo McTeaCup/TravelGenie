@@ -2,14 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
 import style from '../style.module.css';
-
 import { useSelection, Toggle } from '../components/button';
+
+
 function Budget() {
     const { answers, setAnswers } = useAnswers();
 
+    const [selectedOptions, handleToggle] = useSelection(answers.budget || []);
+
     const handleBudgetSelect = (choice) => {
-        setAnswers({ ...answers, budget: [...answers.budget, choice] })
+        const updatedBudget = selectedOptions.includes(choice)
+            ? selectedOptions.filter(item => item !== choice)
+            : [...selectedOptions, choice];
+
+        setAnswers({ ...answers, budget: updatedBudget });
     };
+
 
 
     const [selectedOption, handleSel] = useSelection();
@@ -30,15 +38,17 @@ function Budget() {
                         <Toggle
                             key={choice}
                             value={choice}
-                            selected={selectedOption === choice}
-                            handleSel={handleSel}
-                            handleChoice={handleBudgetSelect}
+                            selected={selectedOptions.includes(choice)}
+                            handleToggle={(value) => {
+                                handleToggle(value);
+                                handleBudgetSelect(value);
+                            }}
                         />
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/party"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/activites"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/party"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/activites"><button className={style.desButton2} type="button">Next</button></Link>
                 </div>
             </div>
         </div>

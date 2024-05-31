@@ -2,39 +2,81 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAnswers } from '../components/AnswerContext';
 import { useChoice } from '../components/landingchoice-logic';
+import { useSelection } from '../components/button';
+import style from '../style.module.css';
+import Accordion from '../components/Accordion';
 
-function Result() {
-    const { answers } = useAnswers();
+function Summary() {
+    const { answers, resetAnswers } = useAnswers();
     const { aiHelp } = useChoice();
+    const [selected, handleToggle, reset] = useSelection();
 
     const categories = [
-        { title: 'You plan to travel with...', key: 'party' },
-        { title: 'Your budget is...', key: 'budget' },
-        { title: 'You want to explore...', key: 'activities' },
-        { title: 'You want to eat...', key: 'food' },
-        { title: 'aojdfj', key: 'active'},
-        { title: 'The events you want to see are...', key: 'events' }
+        { id: 1, title: 'You are traveling to...', content: renderTravelTo() },
+        { id: 2, title: 'Your trip will be...', content: renderTravelDates() },
+        { id: 3, title: 'Activities on a day...', content: renderContent('active') },
+        { id: 4, title: 'Who you are traveling with...', content: renderContent('party') },
+        { id: 5, title: 'Your budget is...', content: renderContent('budget') },
+        { id: 6, title: 'You want to explore...', content: renderContent('activities') },
+        { id: 7, title: 'You want to eat...', content: renderContent('food') },
+        { id: 8, title: 'Events to explore...', content: renderContent('events') }
     ];
 
-    return (
-        <div>
-            <div>Edit</div>
+    function renderTravelTo() {
+        return (
+            <div className={style.content}>
+                <button className={style.sumBtn}>{answers.city}</button>
+                <button className={style.sumBtn}>{answers.country}</button>
+            </div>
+        );
+    }
 
-            {categories.map(category => (
-                <div>
-                    <h1>{category.title}</h1>
-                    {answers[category.key].map(item => <button key={item}>{item}</button>)}
+    function renderTravelDates() {
+        return (
+            <div className={style.triangleContainer}>
+                <button className={`${style.sumBtn} ${style.topBtn}`}>{answers.numberOfDays} days</button>
+                <div className={style.triangleBottomBtns}>
+                    <button className={style.sumBtn}>From: {answers.arrivalDate}</button>
+                    <button className={style.sumBtn}>To: {answers.departureDate}</button>
                 </div>
-            ))}
+            </div>
+        );
+    }
 
-            <div>
-                <div><Link to="/"><button>Exit</button></Link></div>
-                {aiHelp !== null && (
-                    <Link to={aiHelp ? "/airesult" : "/manresult"}><button>CBA</button></Link>
+    function renderContent(key) {
+        return (
+
+            <div className={style.content}>
+                {Array.isArray(answers[key]) ? (
+                    answers[key].map(item => <button key={item} className={style.sumBtn}>{item}</button>)
+                ) : (
+                    <p>{answers[key]}</p>
                 )}
+            </div>
+
+        );
+    }
+
+    return (
+        <div className={style.summaryParent}>
+            <div className={style.summaryTop}>
+                <h1 className={style.summaryTitle}>AMAZING!</h1>
+                <h2 className={style.summaryText}>Here is a summary of all your choices</h2>
+            </div>
+            <p>Arrival Date: {answers.arrivalDate}</p>
+            <p>Departure Date: {answers.departureDate}</p>
+            <div className={style.summary}>
+                <Accordion items={categories} containerClass={style.accContainer} itemClass={style.accItem} contentClass={style.accContent} />
+                <div className={style.aiBtn}>
+                    {aiHelp !== null && (
+                        <Link to={aiHelp ? "/airesult" : "/manresult"}>
+                            <button className={style.aiButton}>AI generate it for me!</button>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     );
 }
 
-export default Result;
+export default Summary;

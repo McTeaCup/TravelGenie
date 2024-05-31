@@ -6,12 +6,16 @@ import style from '../style.module.css';
 
 function Activities() {
     const { answers, setAnswers } = useAnswers();
+    const [selectedOptions, handleToggle] = useSelection(answers.activities || []);
 
     const handleActivitiesSelect = (choice) => {
-        setAnswers({ ...answers, activities: [...answers.activities, choice] })
+        const updatedActivity = selectedOptions.includes(choice)
+            ? selectedOptions.filter(item => item !== choice)
+            : [...selectedOptions, choice];
+
+        setAnswers({ ...answers, activities: updatedActivity });
     };
 
-    const [selectedOption, handleSel] = useSelection();
 
 
     return (
@@ -30,15 +34,17 @@ function Activities() {
                         <Toggle
                             key={choice}
                             value={choice}
-                            selected={selectedOption === choice}
-                            handleSel={handleSel}
-                            handleChoice={handleActivitiesSelect}
+                            selected={selectedOptions.includes(choice)}
+                            handleToggle={(value) => {
+                                handleToggle(value);
+                                handleActivitiesSelect(value);
+                            }}
                         />
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/budget"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/food"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/budget"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/food"><button className={style.desButton2} type="button">Next</button></Link>
                 </div>
             </div>
         </div>

@@ -11,22 +11,25 @@ function AiResult() {
     const [loading, setLoading] = useState(true); // State to track loading status
 
     const {
+        country,
         city,
-        date,
+        arrivalDate,
+        departureDate,
+        numberOfDays,
         party,
         budget,
         activities,
         food,
         active,
-        events
+        events,
     } = answers;
 
-    const prompt = `Generate a trip plan for ${party.length} people in ${city} from ${date} with a budget of ${budget.join(", ")}. Interests include: ${[...activities, ...food, ...active, ...events].join(", ")}.`;
+    const prompt = `Generate a trip plan for ${party} people in ${city} from ${arrivalDate} with a ${budget} budget. Interests include: ${[...activities, ...food, ...active, ...events].join(", ")}.`;
 
     useEffect(() => {
         const fetchTripPlan = async () => {
             try {
-                const response = await axios.post('/api/TravelApp/AItripplan?prompt=' + encodeURIComponent(prompt));
+                const response = await axios.get('/api/TravelApp/tripplan?prompt=' + encodeURIComponent(prompt));
                 setTripPlan(response.data.plan);
                 setError('');
                 setLoading(false); // Update loading state after fetching data
@@ -37,7 +40,7 @@ function AiResult() {
         };
 
         fetchTripPlan();
-    }, [city, date, party, budget, activities, food, active, events, prompt]);
+    }, [city, arrivalDate, departureDate, party, budget, activities, food, active, events, prompt]);
 
     return (
         <div>
@@ -45,10 +48,10 @@ function AiResult() {
             {loading && (
                 <Accordion items={[{ id: 1, title: 'Loading...', content: 'Loading...' }]} />
             )}
-            
+
             {/* Display error message if there's an error */}
             {error && <p className={style.error}>{error}</p>}
-            
+
             {/* Render Accordion component with trip plan data */}
             <Accordion
                 items={tripPlan.map((item) => ({
@@ -58,7 +61,7 @@ function AiResult() {
                 }))}
             />
 
-            {/* Additional Accordions */}   
+            {/* Additional Accordions */}
             <Accordion items={[
                 { id: 1, title: 'Accordion 1', content: 'Content 1' },
                 { id: 2, title: 'Accordion 2', content: 'Content 2' }

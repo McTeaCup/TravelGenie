@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 import ReactDOM from 'react-dom'
 import style from '../style.module.css'
 import { AuthContext } from './Auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const OverlayContext = createContext();
 export const useOverlay = () => useContext(OverlayContext);
@@ -10,19 +10,19 @@ export const useOverlay = () => useContext(OverlayContext);
 export const OverlayProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const openOverlay = () => setIsOpen(true);
-    const closeOverlay = () => setIsOpen(false);
+    const toggleOverlay = () => setIsOpen(prev => !prev);
 
     return (
-        <OverlayContext.Provider value={{ isOpen, openOverlay, closeOverlay }}>
+        <OverlayContext.Provider value={{ isOpen, toggleOverlay }}>
             {children}
-            <Overlay isOpen={isOpen} onclose={closeOverlay} />
+            <Overlay isOpen={isOpen} toggleOverlay={toggleOverlay} />
         </OverlayContext.Provider>
     );
 };
 
-const Overlay = ({ isOpen, onClose }) => {
+const Overlay = ({ isOpen, toggleOverlay }) => {
     const { isSignedIn, setSignedIn } = useContext(AuthContext);
+    const navigate = useNavigate();
     if (!isOpen) return null;
 
     const handleSignOut = () => {
@@ -30,25 +30,25 @@ const Overlay = ({ isOpen, onClose }) => {
         onClose();
     }
 
-    const closeOverlay = (e) => {
-        if (e.target === e.currentTarget) {
-            onClose();
-        }
+    const handleNavigate = (path) => {
+        toggleOverlay();
+        navigate(path)
     }
 
     return ReactDOM.createPortal(
-        <div className={style.overlay} onClick={closeOverlay}>
+        <div className={style.overlay}>
             <div className={style.overlayContent} onClick={(e) => e.stopPropagation()}>
-                <h1>{isSignedIn ? 'Profile' : 'Login'}</h1>
+                <h1 className={style.overlayTitle}>{isSignedIn ? 'Profile' : 'Welcome'}</h1>
                 {isSignedIn ? (
                     <>
                         <p>Welcome, User!</p>
-                        <button onClick={handleSignOut}>Logout</button>
+                        <button className={style.overlayBtn}>Saved Trips</button>
+                        <button className={style.overlayBtn} onClick={handleSignOut}>Logout</button>
                     </>
                 ) : (
                     <>
-                        <Link to="/login"><button>Login</button></Link>
-                        <Link to="/signup"><button>Sign up</button></Link>
+                        <button onClick={() => handleNavigate('/signup')} className={style.overlayBtn}>Sign up</button>
+                        <button onClick={() => handleNavigate('/login')} className={style.overlayBtn}>Login</button>
                     </>
                 )}
             </div>

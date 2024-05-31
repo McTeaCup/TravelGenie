@@ -1,24 +1,32 @@
-import React, {createContext, useContext, useState } from 'react';
-import Activities from '../pages/4activites';
+import React, { createContext, useContext, useState } from 'react';
 
 export const AnswerContext = createContext();
 
 export const useAnswers = () => useContext(AnswerContext);
 
 export const AnswerProvider = ({ children }) => {
-    const [answers, setAnswers] = useState({
+    const initialAnswers = {
+        country: '',
         city: '',
-        date: '',
+        arrivalDate: '',
+        departureDate: '',
+        numberOfDays: '',
         party: [],
         budget: [],
         activities: [],
         food: [],
         active: [],
-        events: []
-    });
+        events: [],
+    };
+
+    const [answers, setAnswers] = useState(initialAnswers);
+
+    const resetAnswers = () => {
+        setAnswers(initialAnswers);
+    }
 
     return (
-        <AnswerContext.Provider value={{answers, setAnswers}}>
+        <AnswerContext.Provider value={{ answers, setAnswers, resetAnswers }}>
             {children}
         </AnswerContext.Provider>
     );

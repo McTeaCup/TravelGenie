@@ -15,7 +15,7 @@ function Login() {
 
     const loginHandler = async (e) => {
         e.preventDefault();
-        
+
         const dataToSend = {
             Email: email,
             Password: password
@@ -53,18 +53,21 @@ function Login() {
 
     return (
         <div className={style.AccAlign}>
-        <form onSubmit={loginHandler} className={style.AccForm}>
-            <h3>Sign In</h3>
-            <input className={style.accountInputs} id="email" name='email' type='text' placeholder='Email'value={email} onChange={(e) => setEmail(e.target.value)} required  />
-            <input className={style.accountInputs} type="password" name='password' id='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-         
-            <div className={style.accountContainer}>
-                <button className={style.accountBtn} type='submit'>Submit</button>
-                <Link to="/signup">Dont have an account? Sign up here</Link>
-            </div>
-        </form>
-    </div>
-           
+            <button className={style.closeBtn} aria-label="Close">
+                &times;
+            </button>
+            <form onSubmit={loginHandler} className={style.AccForm}>
+                <h3>Sign In</h3>
+                <input className={style.accountInputs} id="email" name='email' type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input className={style.accountInputs} type="password" name='password' id='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+
+                <div className={style.accountContainer}>
+                    <button className={style.accountBtn} type='submit'>Submit</button>
+                    <Link to="/signup">Dont have an account? Sign up here</Link>
+                </div>
+            </form>
+        </div>
+
     );
 }
 

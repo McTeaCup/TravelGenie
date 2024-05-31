@@ -17,7 +17,6 @@ function Landing() {
                         <Link to={'/destination'}><button className={style.landButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                     </div>
                 </div>
-                <div className={style.formImg}><img alt="Snygg bild test" /></div>
             </div>
             <div className={style.article}>
                 <article className={style.art}>
