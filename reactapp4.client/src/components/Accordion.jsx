@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import style from '../style.module.css';
-
-function Accordion({ items }) {
+function Accordion({ items, containerClass, itemClass, contentClass }) {
   const [expandedItems, setExpandedItems] = useState(new Array(items.length).fill(false));
 
   const handleClick = (index) => {
@@ -23,19 +22,19 @@ function Accordion({ items }) {
     return (
       <div key={item.id}>
         <div
-          className={style.accordionItem}
+          className={itemClass || style.accordionItem}
           onClick={() => handleClick(index)}
         >
           {item.title}
           {icon}
         </div>
-        {isExpanded && <div className={style.accordionContent}>{item.content}</div>}
+        {isExpanded && <div className={contentClass || style.accordionContent}>{item.content}</div>}
       </div>
     );
   });
 
   return (
-    <div className={style.accordionContainer}>
+    <div className={containerClass || style.accordionContainer}>
       {renderedItems}
     </div>
   );

@@ -6,19 +6,22 @@ import style from '../style.module.css';
 
 function Food() {
     const { answers, setAnswers } = useAnswers();
+    const [selectedOptions, handleToggle] = useSelection(answers.food || []);
 
     const handleFoodSelect = (choice) => {
-        setAnswers({ ...answers, food: [...answers.food, choice] })
-    };
+        const updatedFood = selectedOptions.includes(choice)
+            ? selectedOptions.filter(item => item !== choice)
+            : [...selectedOptions, choice];
 
-    const [selectedOption, handleSel] = useSelection();
+        setAnswers({ ...answers, food: updatedFood });
+    };
 
     return (
         <div className={style.mainContainer}>
             <div className={style.imgBox}></div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
-                <p className={style.progressText}>5 of 7</p>
+                    <p className={style.progressText}>5 of 7</p>
                     <div className={style.progress}>
                         <div className={style.line5} />
                     </div>
@@ -29,9 +32,11 @@ function Food() {
                         <Toggle
                             key={choice}
                             value={choice}
-                            selected={selectedOption === choice}
-                            handleSel={handleSel}
-                            handleChoice={handleFoodSelect}
+                            selected={selectedOptions.includes(choice)}
+                            handleToggle={(value) => {
+                                handleToggle(value);
+                                handleFoodSelect(value);
+                            }}
                         />
                     ))}
                 </div>

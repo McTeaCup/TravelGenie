@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomDate from '../components/CustomDate';
 import style from '../style.module.css'
+import { useAnswers } from '../components/AnswerContext';
 
 
 const Destination = () => {
     const navigate = useNavigate();
+    const { answers, setAnswers } = useAnswers();
     const [countries, setCountries] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState(answers.country || "")
     const [cities, setCities] = useState([]);
-    const [selectedCity, setSelectedCity] = useState("");
-    const [arrivalDate, setArrivalDate] = useState("");
-    const [departureDate, setDepartureDate] = useState("");
+    const [selectedCity, setSelectedCity] = useState(answers.city || "");
+    const [arrivalDate, setArrivalDate] = useState(answers.arrivalDate || "");
+    const [departureDate, setDepartureDate] = useState(answers.departureDate || "");
     const [numberOfDays, setNumberOfDays] = useState(0); // State to hold the number of days
 
     useEffect(() => {
@@ -65,8 +67,17 @@ const Destination = () => {
             const arrival = new Date(arrivalDate);
             const departure = new Date(departureDate);
             const numberOfDays = Math.floor((departure - arrival) / (1000 * 60 * 60 * 24));
-            setNumberOfDays(numberOfDays);
-            navigate(`/second-page/${selectedCountry}/${selectedCity}/${arrivalDate}/${departureDate}/${numberOfDays}`);
+
+            setAnswers({
+                ...answers,
+                country: selectedCountry,
+                city: selectedCity,
+                arrivalDate,
+                departureDate,
+                numberOfDays
+            });
+
+            navigate('/party')
         } else {
             alert("Please fill in all fields.");
         }
