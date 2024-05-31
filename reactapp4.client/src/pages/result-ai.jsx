@@ -2,72 +2,86 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAnswers } from '../components/AnswerContext';
 import style from '../style.module.css';
-import Accordion from '../components/Accordion'; // Importing the Accordion component
+import Accordion from '../components/Accordion';
+
 
 function AiResult() {
     const { answers } = useAnswers();
     const [tripPlan, setTripPlan] = useState([]);
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(true); // State to track loading status
+    const [loading, setLoading] = useState(true);
+
 
     const {
-        country,
         city,
-        arrivalDate,
-        departureDate,
-        numberOfDays,
+        date,
         party,
         budget,
         activities,
         food,
         active,
-        events,
+        events
     } = answers;
 
-    const prompt = `Generate a trip plan for ${party} people in ${city} from ${arrivalDate} with a ${budget} budget. Interests include: ${[...activities, ...food, ...active, ...events].join(", ")}.`;
 
     useEffect(() => {
         const fetchTripPlan = async () => {
             try {
-                const response = await axios.get('/api/TravelApp/tripplan?prompt=' + encodeURIComponent(prompt));
-                setTripPlan(response.data.plan);
-                setError('');
-                setLoading(false); // Update loading state after fetching data
+                setLoading(true); // Set loading state to true before making the request
+                const response = await axios.get(`/api/TravelApp/tripplan`, {
+                    params: {
+                        day: events[0], // Number of days (integer)
+                        city: city,
+                        activities: activities.join(','), // Activities as a comma-separated string
+                        numberofppl: party.length, // Number of people
+                        budget: budget.length > 0 ? budget[0] : 0, // Budget (first element if exists)
+                        companions: party.join(',') // Party as a comma-separated string
+                    }
+                });
+                // Handle the response
+                setTripPlan(response.data.plan); // Assuming response.data contains the plan
+                setLoading(false); // Set loading state to false after receiving the response
+                setError(''); // Clear any previous error messages
             } catch (err) {
-                setError('Error retrieving trip plan: ' + err.message);
-                setLoading(false); // Update loading state in case of error
+                // Handle errors
+                setError('Error fetching trip plan');
+                setLoading(false); // Set loading state to false in case of an error
             }
         };
 
+
         fetchTripPlan();
-    }, [city, arrivalDate, departureDate, party, budget, activities, food, active, events, prompt]);
+    }, [city, date, party, budget, activities, food, active, events]);
+
 
     return (
-        <div>
-            {/* Display loading message if loading */}
-            {loading && (
-                <Accordion items={[{ id: 1, title: 'Loading...', content: 'Loading...' }]} />
-            )}
-
-            {/* Display error message if there's an error */}
+        <div className={style.result__container}>
+            {loading && <p>Loading...</p>}
             {error && <p className={style.error}>{error}</p>}
-
-            {/* Render Accordion component with trip plan data */}
-            <Accordion
-                items={tripPlan.map((item) => ({
-                    id: item.day,
-                    title: loading ? 'Loading...' : `Day ${item.day}`,
-                    content: loading ? 'Loading...' : item.activities
-                }))}
-            />
-
-            {/* Additional Accordions */}
-            <Accordion items={[
-                { id: 1, title: 'Accordion 1', content: 'Content 1' },
-                { id: 2, title: 'Accordion 2', content: 'Content 2' }
-            ]} />
+            {!loading && !error && (
+                <Accordion
+                    items={tripPlan.map((item, index) => ({
+                        id: index, // Use index as the key
+                        title: `Day ${item.day}`,
+                        content: item.activities.map((activity, activityIndex) => (
+                            <div key={activityIndex}>
+                                <p><strong>{activity.time}</strong>: {activity.description}</p>
+                            </div>
+                        ))
+                    }))}
+                />
+            )}
+            <div className={style.button__container}>
+                <button className={style.button_r1} >Save the trip!</button>
+                <button className={style.button_r2}>Generate a new one</button>
+            </div>
         </div>
     );
 }
 
+
 export default AiResult;
+
+
+
+

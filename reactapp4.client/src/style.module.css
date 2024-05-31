@@ -502,6 +502,59 @@ input[type="date"] {
     padding: 20px;
 }
 
+.result__container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+
+.button__container {
+    margin: 2rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    height: 100%;
+}
+
+
+.button_r1 {
+    background-color: #f29f8d;
+    color: rgba(245, 245, 245, 0.781);
+    border: solid 2px rgba(245, 245, 245, 0.781);
+    width: 27rem;
+    height: 3.5rem;
+    border-radius: 10px;
+}
+.button_r1:hover{
+    border: 0;
+    background-color: #e68c78;
+    color: rgba(245, 245, 245, 0.781);
+    transition: 600ms ease;
+    transform: translateY(-0.5rem);
+}
+
+
+.button_r2 {
+    margin: 1.2rem 0 0 0;
+    color: #333;
+    background-color:transparent;
+    border: solid 2px #33333349;
+    width: 27rem;
+    height: 3.5rem;
+    border-radius: 10px;
+}
+
+
+.button_r2:hover {
+    border: solid 2px #333;
+    background-color: transparent;
+    transition: 600ms ease;
+    transform: translateY(-0.5rem);
+}
+
+
 .summary {
     display: flex;
     flex-direction: column;
