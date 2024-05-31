@@ -10,6 +10,7 @@
     flex-direction: column;
     row-gap: 12px;
     margin-top: 50px;
+    font-family: Geneva, Tahoma, sans-serif;
 }
 
 .imgBox,
@@ -24,6 +25,9 @@
 
 .imgBox {
     background-color: #F3E6E6;
+    background-image: url('./assets/form-img-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .textBox {
