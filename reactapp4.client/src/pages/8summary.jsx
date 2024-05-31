@@ -63,6 +63,8 @@ function Summary() {
                 <h1 className={style.summaryTitle}>AMAZING!</h1>
                 <h2 className={style.summaryText}>Here is a summary of all your choices</h2>
             </div>
+            <p>Arrival Date: {answers.arrivalDate}</p>
+            <p>Departure Date: {answers.departureDate}</p>
             <div className={style.summary}>
                 <Accordion items={categories} containerClass={style.accContainer} itemClass={style.accItem} contentClass={style.accContent} />
                 <div className={style.aiBtn}>
