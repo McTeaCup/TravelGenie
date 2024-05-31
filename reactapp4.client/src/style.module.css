@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 370px;
+    width: 95vw;
     height: 229px;
     border-radius: 8px;
 }
@@ -198,7 +198,6 @@ input[type="date"] {
     font-size: 0.9rem;
     width: 97px;
     height: 45px;
-    border: solid 1px black;
     position: absolute;
     bottom: 15px;
 }
@@ -206,13 +205,15 @@ input[type="date"] {
 .desButton1 {
     left: 10px;
     background-color: transparent;
-    color: #000000;
+    color: #FFFFFF;
+    border: 0.5px solid rgba(255, 255, 255, 1)
 }
 
 .desButton2 {
     right: 10px;
-    background-color: #1E2341;
-    color: #FFFFFF;
+    background-color: #F29F8D;
+    color: #000000;
+    border: 0.5px solid rgba(255, 255, 255, 1)
 }
 
 .arrivalContainer, .departureContainer {
