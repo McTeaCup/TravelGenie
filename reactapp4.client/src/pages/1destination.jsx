@@ -74,31 +74,32 @@ const Destination = () => {
         setAnswers(prev => ({
             ...prev,
             [name]: value,
-            numberOfDays: newNumberOfDays // Update the context with the new number of days
+            numberOfDays: newNumberOfDays, // Update the context with the new number of days
+            country: selectedCountry,
+            city: selectedCity,
         }));
         console.log("Updated Dates and Days:", name, value, newNumberOfDays);
     };
 
-    const handleNextButtonClick = () => {
-        if (selectedCountry && selectedCity && arrivalDate && departureDate) {
-            const arrival = new Date(arrivalDate);
-            const departure = new Date(departureDate);
-            const numberOfDays = Math.floor((departure - arrival) / (1000 * 60 * 60 * 24));
+    // const handleNextButtonClick = () => {
+    //     if (selectedCountry && selectedCity && arrivalDate && departureDate) {
+    //         const arrival = new Date(arrivalDate);
+    //         const departure = new Date(departureDate);
+    //         const numberOfDays = Math.floor((departure - arrival) / (1000 * 60 * 60 * 24));
 
-            setAnswers({
-                ...answers,
-                country: selectedCountry,
-                city: selectedCity,
-                arrivalDate,
-                departureDate,
-                numberOfDays
-            });
+    //         setAnswers({
+    //             ...answers,
 
-            navigate('/party')
-        } else {
-            alert("Please fill in all fields.");
-        }
-    };
+    //             arrivalDate,
+    //             departureDate,
+    //             numberOfDays
+    //         });
+
+    //         navigate('/party')
+    //     } else {
+    //         alert("Please fill in all fields.");
+    //     }
+    // };
 
     return (
         <div className={style.mainContainer}>
