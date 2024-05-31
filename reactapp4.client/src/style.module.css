@@ -385,10 +385,12 @@ input[type="date"] {
     .boxTest {
         flex-direction: row;
         justify-content: center;
+        align-items: end;
     }
 
     .form {
         width: 100vw;
+        padding: 50px;
     }
 
     .step,
