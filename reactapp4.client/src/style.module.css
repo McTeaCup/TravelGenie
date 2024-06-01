@@ -46,6 +46,7 @@
     flex-direction: column;
     background-color: #B6D9F0;
     position: relative;
+    margin: 0 0 10vh 0;
 }
 
 .formTitle {
@@ -94,7 +95,7 @@
 .line6,
 .line7 {
     height: 100%;
-    background-color: #00FF00;
+    background-color: #F29F8D;
     border-radius: 5px;
 }
 
@@ -204,15 +205,15 @@ input[type="date"] {
 .desButton1 {
     left: 10px;
     background-color: transparent;
-    color: #FFFFFF;
-    border: 0.5px solid rgba(255, 255, 255, 1)
+    color: #000000;
+    border: 2px solid #000000;
 }
 
 .desButton2 {
     right: 10px;
     background-color: #F29F8D;
     color: #000000;
-    border: 0.5px solid rgba(255, 255, 255, 1)
+    border: 2px solid #000000;
 }
 
 .arrivalContainer, .departureContainer {
@@ -763,3 +764,73 @@ input[type="date"] {
     justify-content: center;
     gap: 40px;
 }
+
+@media screen and (min-width: 800px) {
+    .mainContainer {
+        flex-direction: row;
+        height: 90vh;
+        column-gap: 2vw;
+        align-items: flex-start;
+    }
+
+    .imgBox,
+    .textBox {
+        width: 35vw;
+        height: 60vh;
+        margin: 10vh 0 0 5vw;
+    }
+
+    .textBox h1 {
+        font-size: 3rem;
+    }
+
+    .box {
+        width: 55vw;
+        height: 60vh;
+        margin: 10vh 5vw 0 0;
+        justify-content: center;
+    }
+
+    .inputs {
+        left: 10vw;
+    }
+
+    .locationLabel {
+        width: 30vw;
+        height: 7vh;
+    }
+
+    .inputsDate {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        row-gap: 10px;
+    }
+
+
+    .select {
+        width: 20px;
+    }
+
+    .formContainer {
+        margin: 5vh 0 5vh 0;
+        max-height: 50vh;
+        width: 40vw;
+    }
+
+    .formText {
+        font-size: 1.5rem;
+    }
+
+    .formButton {
+        font-size: 1rem;
+        flex: 1 1 auto;
+        width: 20vh;
+        height: 7vh;
+    }
+
+    .desButton1, .desButton2 {
+        width: 10vw;
+    }
+}
+

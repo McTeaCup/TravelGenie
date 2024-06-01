@@ -103,7 +103,7 @@ const Destination = () => {
     return (
         <div className={style.mainContainer}>
             <div className={style.textBox}>
-                <h1>Lets start with some questions to help you find your best<br /> activites just for your trip!</h1>
+                <h1>Lets start with some questions to help you find the best<br /> activites just for your trip!</h1>
             </div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
@@ -113,7 +113,6 @@ const Destination = () => {
                     </div>
                 </div>
                 <div className={style.inputs}>
-                    <label htmlFor="country">Select a country:</label>
                     <select className={style.locationLabel} id="country" value={selectedCountry} onChange={handleCountryChange}>
                         <option value="">Select a country</option>
                         {countries.map((country, index) => (
@@ -122,7 +121,6 @@ const Destination = () => {
                             </option>
                         ))}
                     </select>
-                    <label htmlFor="city">Select a city:</label>
                     <select className={style.locationLabel} id="city" value={selectedCity} onChange={handleCityChange}>
                         <option value="">Select a city</option>
                         {cities.map((city, index) => (
