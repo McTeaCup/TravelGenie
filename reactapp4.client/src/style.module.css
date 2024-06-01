@@ -818,7 +818,7 @@ input[type="date"] {
 @media screen and (min-width: 800px) {
 
     .profileIcon, .hamburgerIcon {
-        font-size: 2.3rem;    
+        font-size: 2rem;    
     }
 
     .logo {
@@ -865,7 +865,7 @@ input[type="date"] {
     }
 
     .arrivalContainer, .departureContainer {
-        width: 10vw;
+        width: 15vw;
         font-size: 1.1rem;
     }
 
