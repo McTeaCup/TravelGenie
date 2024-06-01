@@ -13,8 +13,8 @@
     font-family: Geneva, Tahoma, sans-serif;
 }
 
-.imgBox,
-.textBox {
+.textBox,
+.imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,11 +23,34 @@
     border-radius: 8px;
 }
 
-.imgBox {
+.imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
     background-color: #F3E6E6;
-    background-image: url('./assets/form-img-1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.imgBox2 {
+    background-image: url('./assets/2-img.avif');
+}
+
+.imgBox3 {
+    background-image: url('./assets/3-img.avif');
+}
+
+.imgBox4 {
+    background-image: url('./assets/4-img.avif');
+}
+
+.imgBox5 {
+    background-image: url('./assets/5-img.avif');
+}
+
+.imgBox6 {
+    background-image: url('./assets/6-img.avif');
+}
+
+.imgBox7 {
+    background-image: url('./assets/7-img.avif');
 }
 
 .textBox {
@@ -813,8 +836,8 @@ input[type="date"] {
         align-items: flex-start;
     }
 
-    .imgBox,
-    .textBox {
+    .textBox,
+    .imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
         width: 35vw;
         height: 60vh;
         margin: 10vh 0 0 5vw;
