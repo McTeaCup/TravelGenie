@@ -112,6 +112,7 @@ const Destination = () => {
                         <div className={style.line1} />
                     </div>
                 </div>
+                <h2 className={style.formText}>Where and when do you plan to travel?</h2>
                 <div className={style.inputs}>
                     <select className={style.locationLabel} id="country" value={selectedCountry} onChange={handleCountryChange}>
                         <option value="">Select a country</option>

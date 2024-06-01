@@ -61,7 +61,7 @@
     top: 90px;
     text-align: center;
     font-size: 1rem;
-    /* width: 90vw; */
+    text-shadow: 0 0 5px #000000;
     color: white;
 }
 
@@ -133,6 +133,7 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    margin-top: 10vh;
 }
 
 .select, .locationLabel {
@@ -185,7 +186,7 @@ input[type="date"] {
     border-radius: 15px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin: 0 auto;
-    width: 100%;
+    width: 95vw;
     position: absolute;
     top: 125px;
 }
@@ -273,6 +274,7 @@ input[type="date"] {
 }
 
 .formButton {
+    flex: 1 1 auto;
     padding: 10px 20px;
     font-size: 16px;
     background-color: #ffffff;
@@ -327,6 +329,31 @@ input[type="date"] {
     justify-content: space-between;
     width: 95vw;
     margin-top: 10px;
+}
+
+.hamburgerMenu {
+    position: absolute;
+    width: 25vw;
+}
+
+.hamburgerMenu ul {
+    padding: 10px 0 0 0;
+}
+
+.hamburgerMenu li {
+    list-style: none;
+    padding: 0 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.hamburgerMenu a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.hamburgerMenu li:hover {
+    color: #F29F8D;
+    text-decoration: underline;
 }
 
 .logo {
@@ -766,6 +793,19 @@ input[type="date"] {
 }
 
 @media screen and (min-width: 800px) {
+
+    .profileIcon, .hamburgerIcon {
+        font-size: 2.3rem;    
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .overlayContent {
+        margin-top: 2vh;
+    }
+
     .mainContainer {
         flex-direction: row;
         height: 90vh;
@@ -798,6 +838,12 @@ input[type="date"] {
     .locationLabel {
         width: 30vw;
         height: 7vh;
+        font-size: 1.1rem;
+    }
+
+    .arrivalContainer, .departureContainer {
+        width: 10vw;
+        font-size: 1.1rem;
     }
 
     .inputsDate {
@@ -806,7 +852,6 @@ input[type="date"] {
         width: 30vw;
         row-gap: 10px;
     }
-
 
     .select {
         width: 20px;
@@ -823,7 +868,7 @@ input[type="date"] {
     }
 
     .formButton {
-        font-size: 1rem;
+        font-size: 1.1rem;
         flex: 1 1 auto;
         width: 20vh;
         height: 7vh;

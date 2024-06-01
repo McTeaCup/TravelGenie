@@ -20,14 +20,16 @@ function Header() {
             <div className={style.header}>
                 <div className="hamburger">
                     <FontAwesomeIcon icon={faBars} className={style.hamburgerIcon} onClick={toggleMenu} />
-                    {isOpen && (
-                        <ul>
-                            <li>Home</li>
-                            <li>About</li>
-                            <li>Services</li>
-                            <li>Contact</li>
-                        </ul>
-                    )}
+                    <div className={style.hamburgerMenu}>
+                        {isOpen && (
+                            <ul>
+                                <Link to="/"><li>Home</li></Link>
+                                <Link to="/"><li>About</li></Link>
+                                <Link to="/"><li>Services</li></Link>
+                                <Link to="/"><li>Contact</li></Link>
+                            </ul>
+                        )}
+                    </div>
                 </div>
                 <Link to="/">
                     <img src={logo} className={style.logo} alt="TravelGenie" />
