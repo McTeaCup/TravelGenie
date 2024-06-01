@@ -55,11 +55,14 @@ function AiResult() {
 
 
     return (
-        <div className={style.result__container}>
+        <div className={style.summary}>
             {loading && <p>Loading...</p>}
             {error && <p className={style.error}>{error}</p>}
             {!loading && !error && (
                 <Accordion
+                    containerClass={style.accContainer} 
+                    itemClass={style.accItem} 
+                    contentClass={style.accContent}
                     items={tripPlan.map((item, index) => ({
                         id: index, // Use index as the key
                         title: `Day ${item.day}`,

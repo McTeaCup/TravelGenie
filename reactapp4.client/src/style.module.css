@@ -569,12 +569,6 @@ input[type="date"] {
     padding: 20px;
 }
 
-.result__container {
-    width: 85%;
-    margin: 0 auto;
-}
-
-
 .button__container {
     margin: 2rem 0 2rem 0;
     display: flex;
