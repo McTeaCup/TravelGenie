@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-import style from '../style.module.css'; // Ensure your styles are defined here
+import style from '../style.module.css';
 
 const CustomDate = ({ name, value, onChange }) => {
     const hiddenDateInput = useRef(null);

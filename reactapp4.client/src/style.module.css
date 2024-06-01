@@ -282,13 +282,6 @@ input[type="date"] {
     transition: background-color 0.3s ease;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    width: 95vw;
-    margin-top: 10px;
-}
-
 .AccAlign {
     display: flex;
     justify-content: center;
@@ -317,13 +310,31 @@ input[type="date"] {
     margin-top: 10px;
 }
 
+
+/* Header Styling */
 .headerAlign {
     display: flex;
     justify-content: center;
     width: 100%;
     background-color: rgba(226, 205, 202, 0.038);
     padding-bottom: 5px;
+    padding-top: 25px;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    margin-top: 10px;
+}
+
+.profileIcon, .hamburgerIcon {
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 0 10px 0 10px;
+}
+
+/* ------------------- */
 
 .selected {
     border: solid black 2px;

@@ -2,6 +2,9 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useOverlay } from './overlay';
 import style from '../style.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +18,7 @@ function Header() {
         <div className={style.headerAlign}>
             <div className={style.header}>
                 <div className="hamburger">
-                    <button onClick={toggleMenu}>
-                        {isOpen ? 'Close' : 'Menu'}
-                    </button>
+                    <FontAwesomeIcon icon={faBars} className={style.hamburgerIcon} onClick={toggleMenu} />
                     {isOpen && (
                         <ul>
                             <li>Home</li>
@@ -27,10 +28,11 @@ function Header() {
                         </ul>
                     )}
                 </div>
-                <Link to="/"><img src="" alt="TravelGenie" /></Link>
-                <div onClick={toggleOverlay} style={{ cursor: 'pointer' }}>
-                    <img src="profile-pic.jpg" alt="Profile" className={style.profileImage} />
-                    <p>Profile</p>
+                <Link to="/">
+                    <img src="../assets/logo.png" alt="TravelGenie" />
+                </Link>
+                <div onClick={toggleOverlay}>
+                    <FontAwesomeIcon icon={faUser} className={style.profileIcon} />
                 </div>
             </div>
         </div>
