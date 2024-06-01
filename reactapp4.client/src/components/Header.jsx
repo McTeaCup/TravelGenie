@@ -5,6 +5,7 @@ import style from '../style.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import logo from '../assets/logo.png';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,7 @@ function Header() {
                     )}
                 </div>
                 <Link to="/">
-                    <img src="../assets/logo.png" alt="TravelGenie" />
+                    <img src={logo} className={style.logo} alt="TravelGenie" />
                 </Link>
                 <div onClick={toggleOverlay}>
                     <FontAwesomeIcon icon={faUser} className={style.profileIcon} />
