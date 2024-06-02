@@ -4777,11 +4777,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+      "projectUniqueName": "c:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
       "projectName": "ReactApp4.Server",
-      "projectPath": "C:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+      "projectPath": "c:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
       "packagesPath": "C:\\Users\\janss\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\obj\\",
+      "outputPath": "c:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\janss\\AppData\\Roaming\\NuGet\\NuGet.Config"

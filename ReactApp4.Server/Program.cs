@@ -3,7 +3,7 @@ using System.Reflection;
 using Travel_Ginie_App.Server.DATA;
 using Travel_Ginie_App.Server.Models;
 using Travel_Ginie_App.Server.Services;
-using Travel_Ginie_App.Server.Services.YelpAPI;
+// using Travel_Ginie_App.Server.Services.YelpAPI;
 
 namespace Travel_Ginie_App.Server
 {
@@ -16,7 +16,7 @@ namespace Travel_Ginie_App.Server
 			builder.Services.AddScoped<ITravelApp, TravelApp>();
 
 			builder.Services.AddHttpClient();
-			builder.Services.AddScoped<IYelpApiReader, YelpApiReader>();
+			// builder.Services.AddScoped<IYelpApiReader, YelpApiReader>();
 
 
 

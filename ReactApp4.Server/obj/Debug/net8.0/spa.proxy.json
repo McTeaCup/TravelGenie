@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:5173",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\..\\reactapp4.client",
+"WorkingDirectory": "c:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\..\\reactapp4.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
