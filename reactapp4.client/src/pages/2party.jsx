@@ -18,7 +18,7 @@ const Party = () => {
 
     return (
         <div className={style.mainContainer}>
-            <div className={style.imgBox}></div>
+            <div className={style.imgBox2}></div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
                     <p className={style.progressText}>2 of 7</p>
@@ -43,8 +43,8 @@ const Party = () => {
                 </div>
 
                 <div className={style.btnContainer}>
-                    <div><Link to="/destination"><button className={style.desButton}>Back</button></Link></div>
-                    <div><Link to="/budget"><button className={style.desButton} type="submit">Submit</button></Link></div>
+                    <div><Link to="/destination"><button className={style.desButton1}>Back</button></Link></div>
+                    <div><Link to="/budget"><button className={style.desButton2} type="submit">Next</button></Link></div>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ function Active() {
 
     return (
         <div className={style.mainContainer}>
-            <div className={style.imgBox}></div>
+            <div className={style.imgBox7}></div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
                     <p className={style.progressText}>7 of 7</p>
@@ -43,8 +43,8 @@ function Active() {
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/events"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/summary"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/events"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/summary"><button className={style.desButton2} type="button">Submit</button></Link>
                 </div>
             </div>
         </div>

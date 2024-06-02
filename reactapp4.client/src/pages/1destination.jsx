@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import CustomDate from '../components/CustomDate';
 import style from '../style.module.css'
 import { useAnswers } from '../components/AnswerContext';
 
@@ -53,11 +54,29 @@ const Destination = () => {
     };
 
     const handleDateChange = (event) => {
-        if (event.target.name === 'start') {
-            setArrivalDate(event.target.value);
-        } else if (event.target.name === 'end') {
-            setDepartureDate(event.target.value);
+        const { name, value } = event.target;
+        let newNumberOfDays = numberOfDays;
+
+        if (name === 'arrivalDate') {
+            setArrivalDate(value);
+            if (departureDate) {
+                newNumberOfDays = Math.floor((new Date(departureDate) - new Date(value)) / (1000 * 60 * 60 * 24));
+                setNumberOfDays(newNumberOfDays);
+            }
+        } else if (name === 'departureDate') {
+            setDepartureDate(value);
+            if (arrivalDate) {
+                newNumberOfDays = Math.floor((new Date(value) - new Date(arrivalDate)) / (1000 * 60 * 60 * 24));
+                setNumberOfDays(newNumberOfDays);
+            }
         }
+
+        setAnswers(prev => ({
+            ...prev,
+            [name]: value,
+            numberOfDays: newNumberOfDays // Update the context with the new number of days
+        }));
+        console.log("Updated Dates and Days:", name, value, newNumberOfDays);
     };
 
     const handleNextButtonClick = () => {
@@ -84,7 +103,7 @@ const Destination = () => {
     return (
         <div className={style.mainContainer}>
             <div className={style.textBox}>
-                <h1>Lets start with some questions to help you find your best<br /> activites just for your trip!</h1>
+                <h1>Lets start with some questions to help you find the best<br /> activites just for your trip!</h1>
             </div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
@@ -93,9 +112,9 @@ const Destination = () => {
                         <div className={style.line1} />
                     </div>
                 </div>
+                <h2 className={style.formText}>Where and when do you plan to travel?</h2>
                 <div className={style.inputs}>
-                    <label htmlFor="country">Select a country:</label>
-                    <select className={style.select} id="country" value={selectedCountry} onChange={handleCountryChange}>
+                    <select className={style.locationLabel} id="country" value={selectedCountry} onChange={handleCountryChange}>
                         <option value="">Select a country</option>
                         {countries.map((country, index) => (
                             <option key={index} value={country}>
@@ -103,8 +122,7 @@ const Destination = () => {
                             </option>
                         ))}
                     </select>
-                    <label htmlFor="city">Select a city:</label>
-                    <select className={style.select} id="city" value={selectedCity} onChange={handleCityChange}>
+                    <select className={style.locationLabel} id="city" value={selectedCity} onChange={handleCityChange}>
                         <option value="">Select a city</option>
                         {cities.map((city, index) => (
                             <option key={index} value={city}>
@@ -113,15 +131,19 @@ const Destination = () => {
                         ))}
                     </select>
                 </div>
-                <div className={style.inputs}>
-                    <label htmlFor="start">Arrival Date:</label>
-                    <input type="date" id="start" name="start" onChange={handleDateChange} />
-                    <label htmlFor="end">Departure Date:</label>
-                    <input type="date" id="end" name="end" onChange={handleDateChange} />
+                <div className={style.inputsDate}>
+                    <div className={style.arrivalContainer}>
+                        <p>{arrivalDate ? `${arrivalDate}` : 'Arrival Date'}</p>
+                        <CustomDate name="arrivalDate" value={arrivalDate} onChange={handleDateChange} />
+                    </div>
+                    <div className={style.departureContainer}>
+                        <p>{departureDate ? `${departureDate}` : 'Departure Date'}</p>
+                        <CustomDate name="departureDate" value={departureDate} onChange={handleDateChange} />
+                    </div>
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to={'/'}><button className={style.desButton}>Back</button></Link>
-                    <button className={style.desButton} onClick={handleNextButtonClick} type="submit">Next</button>
+                    <Link to={'/'}><button className={style.desButton1}>Back</button></Link>
+                    <Link to="/party"><button className={style.desButton2} type="submit">Next</button></Link>
                 </div>
             </div>
         </div>

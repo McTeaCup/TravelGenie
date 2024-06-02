@@ -10,20 +10,47 @@
     flex-direction: column;
     row-gap: 12px;
     margin-top: 50px;
+    font-family: Geneva, Tahoma, sans-serif;
 }
 
-.imgBox,
-.textBox {
+.textBox,
+.imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 370px;
+    width: 95vw;
     height: 229px;
     border-radius: 8px;
 }
 
-.imgBox {
+.imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
     background-color: #F3E6E6;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imgBox2 {
+    background-image: url('./assets/2-img.avif');
+}
+
+.imgBox3 {
+    background-image: url('./assets/3-img.avif');
+}
+
+.imgBox4 {
+    background-image: url('./assets/4-img.avif');
+}
+
+.imgBox5 {
+    background-image: url('./assets/5-img.avif');
+}
+
+.imgBox6 {
+    background-image: url('./assets/6-img.avif');
+}
+
+.imgBox7 {
+    background-image: url('./assets/7-img.avif');
 }
 
 .textBox {
@@ -35,11 +62,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 370px;
+    /* width: 370px; */
+    width: 95vw;
     height: 413px;
     border-radius: 8px;
     flex-direction: column;
     background-color: #B6D9F0;
+    position: relative;
+    margin: 0 0 10vh 0;
 }
 
 .formTitle {
@@ -50,15 +80,18 @@
 }
 
 .formText {
+    position: absolute;
+    top: 90px;
     text-align: center;
     font-size: 1rem;
-    /* width: 90vw; */
+    text-shadow: 0 0 5px #000000;
     color: white;
 }
 
 .progressContainer {
     width: 80%;
-    position: relative;
+    position: absolute;
+    top: 25px;
     margin-bottom: 20px;
 }
 
@@ -85,7 +118,7 @@
 .line6,
 .line7 {
     height: 100%;
-    background-color: #00FF00;
+    background-color: #F29F8D;
     border-radius: 5px;
 }
 
@@ -123,13 +156,18 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    margin-top: 10vh;
 }
 
-.select {
+.select, .locationLabel {
     padding: 15px;
     border: none;
-    background-color: #eee;
+    background-color: #FFFFFF;
     border-radius: 10px;
+}
+
+.locationLabel {
+    width: 90vw;
 }
 
 .input,
@@ -146,9 +184,8 @@ input[type="date"] {
 
 .btnContainer {
     display: flex;
-    justify-content: space-between;
     padding: 20px 0;
-    width: 90%;
+    width: 100%;
 }
 
 .landingContainer {
@@ -172,11 +209,12 @@ input[type="date"] {
     border-radius: 15px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin: 0 auto;
-    width: 90%;
+    width: 95vw;
+    position: absolute;
+    top: 125px;
 }
 
-.desButton {
-    background-color: #1E2341;
+.desButton1, .desButton2 {
     padding: 5px;
     padding-left: 25px;
     padding-right: 25px;
@@ -184,8 +222,68 @@ input[type="date"] {
     font-size: 0.9rem;
     width: 97px;
     height: 45px;
-    border: solid 1px black;
-    color: #ffffff;
+    position: absolute;
+    bottom: 15px;
+}
+
+.desButton1 {
+    left: 10px;
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.desButton2 {
+    right: 10px;
+    background-color: #F29F8D;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.arrivalContainer, .departureContainer {
+    position: relative;
+    display: flex;
+    background-color: #FFFFFF;
+    width: 170px;
+    border-radius: 10px;
+}
+
+.arrivalContainer p, .departureContainer p {
+    padding: 10px 0 0 10px;
+}
+
+
+.datePickerContainer {
+    position: absolute;
+    right: 50px;
+    top: 0;
+}
+
+.hiddenInputStyle {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+}
+
+.calendarIcon {
+    color: #000000;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+}
+
+/* ----------------------------------------------------------------------- */
+
+.inputsDate {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    column-gap: 20px;
 }
 
 .landButton {
@@ -199,6 +297,7 @@ input[type="date"] {
 }
 
 .formButton {
+    flex: 1 1 auto;
     padding: 10px 20px;
     font-size: 16px;
     background-color: #ffffff;
@@ -207,13 +306,6 @@ input[type="date"] {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    width: 95vw;
-    margin-top: 10px;
 }
 
 .AccAlign {
@@ -244,13 +336,61 @@ input[type="date"] {
     margin-top: 10px;
 }
 
+
+/* Header Styling */
 .headerAlign {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgba(226, 205, 202, 0.038);
+    background-color: transparent;
     padding-bottom: 5px;
+    padding-top: 25px;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    margin-top: 10px;
+}
+
+.hamburgerMenu {
+    position: absolute;
+    width: 25vw;
+}
+
+.hamburgerMenu ul {
+    padding: 10px 0 0 0;
+}
+
+.hamburgerMenu li {
+    list-style: none;
+    padding: 0 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.hamburgerMenu a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.hamburgerMenu li:hover {
+    color: #F29F8D;
+    text-decoration: underline;
+}
+
+.logo {
+    width: 65px;
+    height: auto;
+}
+
+.profileIcon, .hamburgerIcon {
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 15px 10px 0 10px;
+}
+
+/* ------------------- */
 
 .selected {
     border: solid black 2px;
@@ -404,10 +544,6 @@ input[type="date"] {
     }
 }
 
-.btnContainer {
-    width: 40%;
-}
-
 .step,
 .stepRev {
     flex-direction: row;
@@ -434,6 +570,53 @@ input[type="date"] {
     border-top: solid 1px rgb(184, 184, 184);
     padding: 20px;
 }
+
+.button__container {
+    margin: 2rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    height: 100%;
+}
+
+
+.button_r1 {
+    background-color: #f29f8d;
+    color: rgba(245, 245, 245, 0.781);
+    border: solid 2px rgba(245, 245, 245, 0.781);
+    width: 27rem;
+    height: 3.5rem;
+    border-radius: 10px;
+}
+.button_r1:hover{
+    border: 0;
+    background-color: #e68c78;
+    color: rgba(245, 245, 245, 0.781);
+    transition: 600ms ease;
+    transform: translateY(-0.5rem);
+}
+
+
+.button_r2 {
+    margin: 1.2rem 0 0 0;
+    color: #333;
+    background-color:transparent;
+    border: solid 2px #33333349;
+    width: 27rem;
+    height: 3.5rem;
+    border-radius: 10px;
+}
+
+
+.button_r2:hover {
+    border: solid 2px #333;
+    background-color: transparent;
+    transition: 600ms ease;
+    transform: translateY(-0.5rem);
+}
+
 
 .summary {
     display: flex;
@@ -627,3 +810,91 @@ input[type="date"] {
     justify-content: center;
     gap: 40px;
 }
+
+@media screen and (min-width: 800px) {
+
+    .profileIcon, .hamburgerIcon {
+        font-size: 2rem;    
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .overlayContent {
+        margin-top: 2vh;
+    }
+
+    .mainContainer {
+        flex-direction: row;
+        height: 90vh;
+        column-gap: 2vw;
+        align-items: flex-start;
+    }
+
+    .textBox,
+    .imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
+        width: 35vw;
+        height: 60vh;
+        margin: 10vh 0 0 5vw;
+    }
+
+    .textBox h1 {
+        font-size: 3rem;
+    }
+
+    .box {
+        width: 55vw;
+        height: 60vh;
+        margin: 10vh 5vw 0 0;
+        justify-content: center;
+    }
+
+    .inputs {
+        left: 10vw;
+    }
+
+    .locationLabel {
+        width: 30vw;
+        height: 7vh;
+        font-size: 1.1rem;
+    }
+
+    .arrivalContainer, .departureContainer {
+        width: 15vw;
+        font-size: 1.1rem;
+    }
+
+    .inputsDate {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        row-gap: 10px;
+    }
+
+    .select {
+        width: 20px;
+    }
+
+    .formContainer {
+        margin: 5vh 0 5vh 0;
+        max-height: 50vh;
+        width: 40vw;
+    }
+
+    .formText {
+        font-size: 1.5rem;
+    }
+
+    .formButton {
+        font-size: 1.1rem;
+        flex: 1 1 auto;
+        width: 20vh;
+        height: 7vh;
+    }
+
+    .desButton1, .desButton2 {
+        width: 10vw;
+    }
+}
+

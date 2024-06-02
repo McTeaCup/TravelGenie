@@ -19,7 +19,7 @@ function Events() {
 
     return (
         <div className={style.mainContainer}>
-            <div className={style.imgBox}></div>
+            <div className={style.imgBox6}></div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
                     <p className={style.progressText}>6 of 7</p>
@@ -42,8 +42,8 @@ function Events() {
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/food"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/active"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/food"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/active"><button className={style.desButton2} type="button">Next</button></Link>
                 </div>
             </div>
         </div>

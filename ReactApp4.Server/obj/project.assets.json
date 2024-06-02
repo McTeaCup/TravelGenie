@@ -4772,19 +4772,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\charl\\.nuget\\packages\\": {}
+    "C:\\Users\\Lifbo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
       "projectName": "ReactApp4.Server",
-      "projectPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
-      "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\obj\\",
+      "projectPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+      "packagesPath": "C:\\Users\\Lifbo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Lifbo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

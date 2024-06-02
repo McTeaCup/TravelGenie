@@ -2,6 +2,10 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useOverlay } from './overlay';
 import style from '../style.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
+import logo from '../assets/logo.png';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,22 +19,23 @@ function Header() {
         <div className={style.headerAlign}>
             <div className={style.header}>
                 <div className="hamburger">
-                    <button onClick={toggleMenu}>
-                        {isOpen ? 'Close' : 'Menu'}
-                    </button>
-                    {isOpen && (
-                        <ul>
-                            <li>Home</li>
-                            <li>About</li>
-                            <li>Services</li>
-                            <li>Contact</li>
-                        </ul>
-                    )}
+                    <FontAwesomeIcon icon={faBars} className={style.hamburgerIcon} onClick={toggleMenu} />
+                    <div className={style.hamburgerMenu}>
+                        {isOpen && (
+                            <ul>
+                                <Link to="/"><li>Home</li></Link>
+                                <Link to="/"><li>About</li></Link>
+                                <Link to="/"><li>Services</li></Link>
+                                <Link to="/"><li>Contact</li></Link>
+                            </ul>
+                        )}
+                    </div>
                 </div>
-                <Link to="/"><img src="" alt="TravelGenie" /></Link>
-                <div onClick={toggleOverlay} style={{ cursor: 'pointer' }}>
-                    <img src="profile-pic.jpg" alt="Profile" className={style.profileImage} />
-                    <p>Profile</p>
+                <Link to="/">
+                    <img src={logo} className={style.logo} alt="TravelGenie" />
+                </Link>
+                <div onClick={toggleOverlay}>
+                    <FontAwesomeIcon icon={faUser} className={style.profileIcon} />
                 </div>
             </div>
         </div>

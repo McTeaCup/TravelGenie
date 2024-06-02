@@ -24,7 +24,7 @@ function Budget() {
 
     return (
         <div className={style.mainContainer}>
-            <div className={style.imgBox}></div>
+            <div className={style.imgBox3}></div>
             <div className={style.box}>
                 <div className={style.progressContainer}>
                     <p className={style.progressText}>3 of 7</p>
@@ -47,8 +47,8 @@ function Budget() {
                     ))}
                 </div>
                 <div className={style.btnContainer}>
-                    <Link to="/party"><button className={style.desButton} type="button">Back</button></Link>
-                    <Link to="/activites"><button className={style.desButton} type="button">Next</button></Link>
+                    <Link to="/party"><button className={style.desButton1} type="button">Back</button></Link>
+                    <Link to="/activites"><button className={style.desButton2} type="button">Next</button></Link>
                 </div>
             </div>
         </div>

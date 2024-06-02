@@ -1,33 +1,31 @@
 import React, { createContext, useContext, useState } from 'react';
 
+
 export const AnswerContext = createContext();
+
 
 export const useAnswers = () => useContext(AnswerContext);
 
+
 export const AnswerProvider = ({ children }) => {
-    const initialAnswers = {
-        country: '',
+    const [answers, setAnswers] = useState({
         city: '',
-        arrivalDate: '',
-        departureDate: '',
-        numberOfDays: '',
+        date: '',
         party: [],
         budget: [],
         activities: [],
         food: [],
         active: [],
-        events: [],
-    };
+        events: [] // This will store the number of days
+    });
 
-    const [answers, setAnswers] = useState(initialAnswers);
-
-    const resetAnswers = () => {
-        setAnswers(initialAnswers);
-    }
 
     return (
-        <AnswerContext.Provider value={{ answers, setAnswers, resetAnswers }}>
+        <AnswerContext.Provider value={{ answers, setAnswers }}>
             {children}
         </AnswerContext.Provider>
     );
-}
+};
+
+
+
