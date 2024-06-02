@@ -4,13 +4,11 @@ import { useAnswers } from '../components/AnswerContext';
 import style from '../style.module.css';
 import Accordion from '../components/Accordion';
 
-
 function AiResult() {
     const { answers } = useAnswers();
     const [tripPlan, setTripPlan] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
-
 
     const {
         city,
@@ -22,7 +20,6 @@ function AiResult() {
         active,
         events
     } = answers;
-
 
     useEffect(() => {
         const fetchTripPlan = async () => {
@@ -49,20 +46,15 @@ function AiResult() {
             }
         };
 
-
         fetchTripPlan();
     }, [city, date, party, budget, activities, food, active, events]);
 
-
     return (
-        <div className={style.summary}>
+        <div className={style.result__container}>
             {loading && <p>Loading...</p>}
             {error && <p className={style.error}>{error}</p>}
             {!loading && !error && (
                 <Accordion
-                    containerClass={style.accContainer} 
-                    itemClass={style.accItem} 
-                    contentClass={style.accContent}
                     items={tripPlan.map((item, index) => ({
                         id: index, // Use index as the key
                         title: `Day ${item.day}`,
@@ -82,9 +74,4 @@ function AiResult() {
     );
 }
 
-
 export default AiResult;
-
-
-
-

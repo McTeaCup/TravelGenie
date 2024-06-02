@@ -4772,19 +4772,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lifbo\\.nuget\\packages\\": {}
+    "C:\\Users\\janss\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+      "projectUniqueName": "C:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
       "projectName": "ReactApp4.Server",
-      "projectPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
-      "packagesPath": "C:\\Users\\Lifbo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\obj\\",
+      "projectPath": "C:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+      "packagesPath": "C:\\Users\\janss\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\ReactApp4.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lifbo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\janss\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -4863,7 +4863,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
