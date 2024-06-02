@@ -322,6 +322,23 @@ input[type="date"] {
     color: white;
 }
 
+.altLandButton {
+    background-color: #d2cccc00;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    /* font-size: 0.7rem; */
+    border: solid 1px black;
+    color: black;
+}
+
+.landButton:hover,
+.altLandButton:hover {
+    background-color: #f29f8d;
+    border: solid black 2px;
+    color: black;
+}
+
 .formButton {
     flex: 1 1 auto;
     padding: 10px 20px;
@@ -437,6 +454,8 @@ input[type="date"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 
@@ -451,8 +470,7 @@ input[type="date"] {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* filter: contrast(50%);
-    filter: brightness(110%); */
+    filter: brightness(110%);
     padding: 20px;
 }
 
@@ -523,12 +541,7 @@ input[type="date"] {
     background-color: #d9d9d9;
 }
 
-.step {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: white;
-}
+
 
 .form {
     display: flex;
@@ -543,16 +556,38 @@ input[type="date"] {
 
 }
 
+.step,
 .stepRev {
-    /*Step Reverse */
     display: flex;
     flex-direction: column-reverse;
-    padding: 10px;
-    background-color: white;
+    padding: 0px;
+    background-color: transparent;
+    gap: 10px;
+    align-items: center;
+    width: 60vw;
+}
+
+.step p,
+.stepRev p {
+    width: 80vw;
+    text-align: center;
+}
+
+.stepRev {
+    flex-direction: column;
+}
+
+.stepRev img,
+.step img {
+    width: 7rem;
+    height: 7rem;
 }
 
 .stepTitle {
     text-align: center;
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 /* Test för bilder över/brevid form */
@@ -566,14 +601,27 @@ input[type="date"] {
 
     .form {
         width: 100vw;
-        padding: 50px;
+        padding: 30px;
     }
 
     .step,
     .stepRev {
         flex-direction: row;
-        padding: 0px;
-        background-color: transparent;
+        padding: 10px 20px;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .stepRev img,
+    .step img {
+        width: 20rem;
+        height: 15rem;
+        border-radius: 10px;
+    }
+
+    .step p,
+    .stepRev p {
+        width: 40vw;
     }
 
     .footerContent {
@@ -584,11 +632,6 @@ input[type="date"] {
     .landingContainer {
         width: 40vw;
     }
-}
-
-.step,
-.stepRev {
-    flex-direction: row;
 }
 
 /* style.module.css */
@@ -757,6 +800,10 @@ input[type="date"] {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+}
+
+.About {
+    font-weight: 700;
 }
 
 .sumBtn {

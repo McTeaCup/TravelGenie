@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj": {}
+    "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj": {}
   },
   "projects": {
-    "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj": {
+    "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
+        "projectUniqueName": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
         "projectName": "ReactApp4.Server",
-        "projectPath": "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
+        "projectPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
         "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\obj\\",
+        "outputPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config"

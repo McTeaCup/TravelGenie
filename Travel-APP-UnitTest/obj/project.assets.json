@@ -8660,19 +8660,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lifbo\\.nuget\\packages\\": {}
+    "C:\\Users\\charl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\Travel-APP-UnitTest\\Travel-APP-UnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\Travel-APP-UnitTest\\Travel-APP-UnitTest.csproj",
       "projectName": "Travel-APP-UnitTest",
-      "projectPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\Travel-APP-UnitTest\\Travel-APP-UnitTest.csproj",
-      "packagesPath": "C:\\Users\\Lifbo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\Travel-APP-UnitTest\\obj\\",
+      "projectPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\Travel-APP-UnitTest\\Travel-APP-UnitTest.csproj",
+      "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\Travel-APP-UnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lifbo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8684,8 +8684,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj": {
-              "projectPath": "C:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj"
+            "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj": {
+              "projectPath": "C:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj"
             }
           }
         }
