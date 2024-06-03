@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "7OU2EYhp2cJuhOnNyDohXGfJliXzuM82qnHFXelQ54k=",
+  "Hash": "ZIHSpP5Qmg/wnJmOqdXj+ASL3yrwJX/RZwhqSCvggJs=",
   "Source": "ReactApp4.Server",
   "BasePath": "_content/ReactApp4.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "c:\\Users\\janss\\OneDrive\\Desktop\\BACKEND\\TravelGenie\\reactapp4.client\\reactapp4.client.esproj",
+      "Identity": "c:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\reactapp4.client\\reactapp4.client.esproj",
       "Version": 2,
       "Source": "reactapp4.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
