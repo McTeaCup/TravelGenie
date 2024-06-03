@@ -14,7 +14,12 @@
 }
 
 .textBox,
-.imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
+.imgBox2,
+.imgBox3,
+.imgBox4,
+.imgBox5,
+.imgBox6,
+.imgBox7 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +28,12 @@
     border-radius: 8px;
 }
 
-.imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
+.imgBox2,
+.imgBox3,
+.imgBox4,
+.imgBox5,
+.imgBox6,
+.imgBox7 {
     background-color: #F3E6E6;
     background-size: cover;
     background-repeat: no-repeat;
@@ -75,8 +85,9 @@
 .formTitle {
     text-align: center;
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 900;
     color: white;
+    letter-spacing: 1.5px;
 }
 
 .formText {
@@ -87,6 +98,17 @@
     text-shadow: 0 0 5px #000000;
     color: white;
 }
+
+.landText {
+    text-align: center;
+    font-size: 1.6rem;
+    /* text-shadow: 0 0 5px #000000; */
+    color: white;
+    width: 90vw;
+    padding: 10px;
+    letter-spacing: 2.5px;
+}
+
 
 .progressContainer {
     width: 80%;
@@ -159,7 +181,8 @@
     margin-top: 10vh;
 }
 
-.select, .locationLabel {
+.select,
+.locationLabel {
     padding: 15px;
     border: none;
     background-color: #FFFFFF;
@@ -191,7 +214,7 @@ input[type="date"] {
 .landingContainer {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    /* align-items: stretch; */
     margin-top: 30px;
     margin-bottom: 5px;
     gap: 15px;
@@ -214,7 +237,8 @@ input[type="date"] {
     top: 125px;
 }
 
-.desButton1, .desButton2 {
+.desButton1,
+.desButton2 {
     padding: 5px;
     padding-left: 25px;
     padding-right: 25px;
@@ -240,7 +264,8 @@ input[type="date"] {
     border: 2px solid #000000;
 }
 
-.arrivalContainer, .departureContainer {
+.arrivalContainer,
+.departureContainer {
     position: relative;
     display: flex;
     background-color: #FFFFFF;
@@ -248,7 +273,8 @@ input[type="date"] {
     border-radius: 10px;
 }
 
-.arrivalContainer p, .departureContainer p {
+.arrivalContainer p,
+.departureContainer p {
     padding: 10px 0 0 10px;
 }
 
@@ -294,6 +320,23 @@ input[type="date"] {
     /* font-size: 0.7rem; */
     border: solid 1px white;
     color: white;
+}
+
+.altLandButton {
+    background-color: #d2cccc00;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    /* font-size: 0.7rem; */
+    border: solid 1px black;
+    color: black;
+}
+
+.landButton:hover,
+.altLandButton:hover {
+    background-color: #f29f8d;
+    border: solid black 2px;
+    color: black;
 }
 
 .formButton {
@@ -384,7 +427,8 @@ input[type="date"] {
     height: auto;
 }
 
-.profileIcon, .hamburgerIcon {
+.profileIcon,
+.hamburgerIcon {
     cursor: pointer;
     font-size: 1.6rem;
     padding: 15px 10px 0 10px;
@@ -410,6 +454,8 @@ input[type="date"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 
@@ -420,7 +466,11 @@ input[type="date"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-image: url("../public/images/paperbackground.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(110%);
     padding: 20px;
 }
 
@@ -491,10 +541,7 @@ input[type="date"] {
     background-color: #d9d9d9;
 }
 
-.step {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .form {
     display: flex;
@@ -509,14 +556,38 @@ input[type="date"] {
 
 }
 
+.step,
 .stepRev {
-    /*Step Reverse */
     display: flex;
     flex-direction: column-reverse;
+    padding: 0px;
+    background-color: transparent;
+    gap: 10px;
+    align-items: center;
+    width: 60vw;
+}
+
+.step p,
+.stepRev p {
+    width: 80vw;
+    text-align: center;
+}
+
+.stepRev {
+    flex-direction: column;
+}
+
+.stepRev img,
+.step img {
+    width: 7rem;
+    height: 7rem;
 }
 
 .stepTitle {
     text-align: center;
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 /* Test för bilder över/brevid form */
@@ -525,26 +596,42 @@ input[type="date"] {
     .boxTest {
         flex-direction: row;
         justify-content: center;
+        align-items: end;
     }
 
     .form {
         width: 100vw;
+        padding: 30px;
     }
 
     .step,
     .stepRev {
         flex-direction: row;
+        padding: 10px 20px;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .stepRev img,
+    .step img {
+        width: 20rem;
+        height: 15rem;
+        border-radius: 10px;
+    }
+
+    .step p,
+    .stepRev p {
+        width: 40vw;
     }
 
     .footerContent {
         flex-direction: row;
         justify-content: space-between;
     }
-}
 
-.step,
-.stepRev {
-    flex-direction: row;
+    .landingContainer {
+        width: 40vw;
+    }
 }
 
 /* style.module.css */
@@ -588,7 +675,8 @@ input[type="date"] {
     height: 3.5rem;
     border-radius: 10px;
 }
-.button_r1:hover{
+
+.button_r1:hover {
     border: 0;
     background-color: #e68c78;
     color: rgba(245, 245, 245, 0.781);
@@ -600,7 +688,7 @@ input[type="date"] {
 .button_r2 {
     margin: 1.2rem 0 0 0;
     color: #333;
-    background-color:transparent;
+    background-color: transparent;
     border: solid 2px #33333349;
     width: 27rem;
     height: 3.5rem;
@@ -714,6 +802,10 @@ input[type="date"] {
     justify-content: center;
 }
 
+.About {
+    font-weight: 700;
+}
+
 .sumBtn {
     background: #b6d9f0;
     padding: 8px 25px;
@@ -811,8 +903,9 @@ input[type="date"] {
 
 @media screen and (min-width: 800px) {
 
-    .profileIcon, .hamburgerIcon {
-        font-size: 2rem;    
+    .profileIcon,
+    .hamburgerIcon {
+        font-size: 2rem;
     }
 
     .logo {
@@ -831,7 +924,12 @@ input[type="date"] {
     }
 
     .textBox,
-    .imgBox2, .imgBox3, .imgBox4, .imgBox5,.imgBox6, .imgBox7 {
+    .imgBox2,
+    .imgBox3,
+    .imgBox4,
+    .imgBox5,
+    .imgBox6,
+    .imgBox7 {
         width: 35vw;
         height: 60vh;
         margin: 10vh 0 0 5vw;
@@ -858,7 +956,8 @@ input[type="date"] {
         font-size: 1.1rem;
     }
 
-    .arrivalContainer, .departureContainer {
+    .arrivalContainer,
+    .departureContainer {
         width: 15vw;
         font-size: 1.1rem;
     }
@@ -891,8 +990,8 @@ input[type="date"] {
         height: 7vh;
     }
 
-    .desButton1, .desButton2 {
+    .desButton1,
+    .desButton2 {
         width: 10vw;
     }
 }
-

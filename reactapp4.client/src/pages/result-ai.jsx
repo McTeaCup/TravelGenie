@@ -18,8 +18,10 @@ function AiResult() {
         activities,
         food,
         active,
-        events
+        events,
+        numberOfDays
     } = answers;
+
 
     useEffect(() => {
         const fetchTripPlan = async () => {
@@ -27,7 +29,7 @@ function AiResult() {
                 setLoading(true); // Set loading state to true before making the request
                 const response = await axios.get(`/api/TravelApp/tripplan`, {
                     params: {
-                        day: events[0], // Number of days (integer)
+                        day: numberOfDays, // Use the calculated number of days
                         city: city,
                         activities: activities.join(','), // Activities as a comma-separated string
                         numberofppl: party.length, // Number of people
@@ -47,7 +49,7 @@ function AiResult() {
         };
 
         fetchTripPlan();
-    }, [city, date, party, budget, activities, food, active, events]);
+    }, [city, date, party, budget, activities, food, active, events, numberOfDays]);
 
     return (
         <div className={style.result__container}>

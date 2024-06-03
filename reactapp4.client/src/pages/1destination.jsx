@@ -53,23 +53,34 @@ const Destination = () => {
         setSelectedCity(event.target.value);
     };
 
+
+
     const handleDateChange = (event) => {
         const { name, value } = event.target;
         let newNumberOfDays = numberOfDays;
 
+
+
         if (name === 'arrivalDate') {
             setArrivalDate(value);
+
             if (departureDate) {
                 newNumberOfDays = Math.floor((new Date(departureDate) - new Date(value)) / (1000 * 60 * 60 * 24));
                 setNumberOfDays(newNumberOfDays);
+
             }
+
         } else if (name === 'departureDate') {
             setDepartureDate(value);
             if (arrivalDate) {
                 newNumberOfDays = Math.floor((new Date(value) - new Date(arrivalDate)) / (1000 * 60 * 60 * 24));
                 setNumberOfDays(newNumberOfDays);
+
             }
+
         }
+
+
 
         setAnswers(prev => ({
             ...prev,
@@ -77,9 +88,11 @@ const Destination = () => {
             numberOfDays: newNumberOfDays,
             country: selectedCountry,
             city: selectedCity,
+
         }));
+
         console.log("Updated Dates and Days:", name, value, newNumberOfDays);
-    };
+    }
 
     const handleNextButtonClick = () => {
         if (selectedCountry && selectedCity && arrivalDate && departureDate) {
@@ -149,4 +162,5 @@ const Destination = () => {
         </div>
     );
 }
+
 export default Destination;
