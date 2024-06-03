@@ -6,10 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import logo from '../assets/logo.png';
+import { useAnswers } from './AnswerContext';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const { toggleOverlay } = useOverlay();
+    const { resetAnswers } = useAnswers();
 
     const toggleMenu = () => {
         setIsOpen(prev => !prev);
@@ -32,7 +34,7 @@ function Header() {
                     </div>
                 </div>
                 <Link to="/">
-                    <img src={logo} className={style.logo} alt="TravelGenie" />
+                    <img src={logo} className={style.logo} alt="TravelGenie" onClick={resetAnswers} />
                 </Link>
                 <div onClick={toggleOverlay}>
                     <FontAwesomeIcon icon={faUser} className={style.profileIcon} />

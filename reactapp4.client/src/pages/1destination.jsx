@@ -74,7 +74,9 @@ const Destination = () => {
         setAnswers(prev => ({
             ...prev,
             [name]: value,
-            numberOfDays: newNumberOfDays // Update the context with the new number of days
+            numberOfDays: newNumberOfDays, // Update the context with the new number of days     
+            country: selectedCountry,
+            city: selectedCity,
         }));
         console.log("Updated Dates and Days:", name, value, newNumberOfDays);
     };
