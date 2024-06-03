@@ -95,8 +95,8 @@
     top: 90px;
     text-align: center;
     font-size: 1rem;
-    text-shadow: 0 0 5px #000000;
-    color: white;
+    /* text-shadow: 0 0 5px #000000; */
+    color: #000000;
 }
 
 .landText {
