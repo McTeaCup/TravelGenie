@@ -11,6 +11,10 @@ function Signup() {
 
     document.title = "Signup";
 
+    const back = () => {
+        navigate(-1);
+    }
+
     const signupHandler = async (e) => {
         e.preventDefault();
 
@@ -52,7 +56,7 @@ function Signup() {
     return (
         <div className={style.AccAlign}>
             <form className={style.AccForm} onSubmit={signupHandler}>
-                <button className={style.closeBtn} aria-label="Close">
+                <button className={style.closeBtn} aria-label="Close" onClick={back}>
                     &times;
                 </button>
                 <h3>Sign Up</h3>

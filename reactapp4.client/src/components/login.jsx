@@ -13,6 +13,10 @@ function Login() {
 
     document.title = "Login";
 
+    const back = () => {
+        navigate(-1);
+    }
+
     const loginHandler = async (e) => {
         e.preventDefault();
 
@@ -20,6 +24,7 @@ function Login() {
             Email: email,
             Password: password
         };
+
 
         try {
             const response = await fetch("api/UserAccount/login", {
@@ -53,7 +58,7 @@ function Login() {
 
     return (
         <div className={style.AccAlign}>
-            <button className={style.closeBtn} aria-label="Close">
+            <button className={style.closeBtn} aria-label="Close" onClick={back}>
                 &times;
             </button>
             <form onSubmit={loginHandler} className={style.AccForm}>
