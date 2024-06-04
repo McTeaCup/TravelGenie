@@ -21,9 +21,10 @@ const Destination = () => {
             try {
                 const response = await fetch("api/TravelApp/countries");
                 const data = await response.json();
-                setCountries(data);
+                setCountries(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error('Error fetching countries:', error);
+                setCountries([]); // Ensure countries is set to an empty array on error
             }
         }
         fetchCountries();
