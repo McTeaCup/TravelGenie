@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj": {}
+    "c:\\Users\\Lifbo\\Documents\\GitHub\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj": {
+    "c:\\Users\\Lifbo\\Documents\\GitHub\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+        "projectUniqueName": "c:\\Users\\Lifbo\\Documents\\GitHub\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
         "projectName": "ReactApp4.Server",
-        "projectPath": "c:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+        "projectPath": "c:\\Users\\Lifbo\\Documents\\GitHub\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
         "packagesPath": "C:\\Users\\Lifbo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Lifbo\\Documents\\Github\\TravelGenie\\ReactApp4.Server\\obj\\",
+        "outputPath": "c:\\Users\\Lifbo\\Documents\\GitHub\\TravelGenie\\ReactApp4.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lifbo\\AppData\\Roaming\\NuGet\\NuGet.Config"
