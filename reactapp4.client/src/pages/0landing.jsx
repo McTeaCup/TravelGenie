@@ -31,8 +31,8 @@ function Landing() {
                     <h1 className={style.formTitle}>Welcome!</h1>
                     <h4 className={style.landText}>Plan your trip today!</h4>
                     <div className={style.landingContainer}>
+                        <Link to={'/destination'}><button className={style.primaryBtn} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                         <Link to={'/destination'}><button disabled className={style.landButton} onClick={() => setAiHelp(false)}>I want to decide for myself</button></Link>
-                        <Link to={'/destination'}><button className={style.landButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                     </div>
                 </div>
             </div>
@@ -62,8 +62,8 @@ function Landing() {
                             }
                         </div>
                         <div className={style.landingContainer}>
+                            <Link to={'/destination'}><button className={style.primaryBtn} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                             <Link to={'/destination'}><button disabled className={style.altLandButton} onClick={() => setAiHelp(false)}>I want to decide for myself</button></Link>
-                            <Link to={'/destination'}><button className={style.altLandButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                         </div>
                     </div>
                 </article>
