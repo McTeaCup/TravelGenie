@@ -110,7 +110,7 @@ namespace Travel_Ginie_App.Server.Services
 
 				string apiUrl = $"https://city-list.p.rapidapi.com/api/getCountryList";
 
-				client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "591bd945f4mshbfb84bf3770c328p1c3121jsn63dbf14028d2");
+				client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "b4a65d04fdmsh5dc7ef9d3497b39p1d4fd3jsnad5112cf0d23");
 				client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "city-list.p.rapidapi.com");
 
 				var response = await client.GetAsync(apiUrl);
