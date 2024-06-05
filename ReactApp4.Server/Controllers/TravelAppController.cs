@@ -2,7 +2,7 @@
 using System.Net;
 using Travel_Ginie_App.Server.Dtos;
 using Travel_Ginie_App.Server.Services;
-using Travel_Ginie_App.Server.Services.YelpAPI;
+// using Travel_Ginie_App.Server.Services.YelpAPI;
 using Travel_Ginie_App.Server.ViewModels.Hotel;
 
 namespace Travel_Ginie_App.Server.Controllers
@@ -15,12 +15,13 @@ namespace Travel_Ginie_App.Server.Controllers
 	{
 
 		private readonly ITravelApp _travelApp;
-		private readonly IYelpApiReader _yelpApiReader;
+		// private readonly IYelpApiReader _yelpApiReader;
 
-		public TravelAppController(ITravelApp travelApp, IYelpApiReader yelpApiReader)
+		public TravelAppController(ITravelApp travelApp)  
+		// IYelpApiReader yelpApiReader
 		{
 			_travelApp = travelApp;
-			_yelpApiReader = yelpApiReader;
+			// _yelpApiReader = yelpApiReader;
 
 		}
 
@@ -208,67 +209,67 @@ namespace Travel_Ginie_App.Server.Controllers
 		/// <param name="currencyCode">Code for currency</param>
 		/// <param name="maxBudget">Max budget</param>
 		/// <returns></returns>
-		[HttpGet("HotelByBudget")]
-		[Tags("Hotels")]
-		[ProducesResponseType(typeof(List<HotelBudgetViewModel>), 200)]
-		[ProducesResponseType(500)]
-		public async Task<ActionResult<List<HotelBudgetViewModel>>> GetAllHotelByBudget(
-			string location,
-			DateTime checkIn,
-			DateTime checkOut,
-			string currencyCode,
-			string maxBudget)
-		{
-			try
-			{
-				var hotel = await _travelApp.HotelsByBudget(location, checkIn, checkOut, currencyCode, maxBudget);
+		// [HttpGet("HotelByBudget")]
+		// [Tags("Hotels")]
+		// [ProducesResponseType(typeof(List<HotelBudgetViewModel>), 200)]
+		// [ProducesResponseType(500)]
+		// public async Task<ActionResult<List<HotelBudgetViewModel>>> GetAllHotelByBudget(
+		// 	string location,
+		// 	DateTime checkIn,
+		// 	DateTime checkOut,
+		// 	string currencyCode,
+		// 	string maxBudget)
+		// {
+		// 	try
+		// 	{
+		// 		var hotel = await _travelApp.HotelsByBudget(location, checkIn, checkOut, currencyCode, maxBudget);
 
-				return Ok(hotel);
-			}
-			catch (Exception)
-			{
+		// 		return Ok(hotel);
+		// 	}
+		// 	catch (Exception)
+		// 	{
 
-				throw;
-			}
-		}
+		// 		throw;
+		// 	}
+		// }
 
 
-		/// <summary>
-		/// Get restaurant by location and max budget
-		/// </summary>
-		/// <param name="location">Location for the restaurant</param>
-		/// <param name="price">Price range ($ = 1, $$ = 2, $$$ = 3, $$$$ = 4) </param>
-		/// <param name="numberResultPage">Number of result</param>
-		/// <returns></returns>
-		[HttpGet("RestaurantByCityAndBudget")]
-		[Tags("Restaurants")]
-		[ProducesResponseType(typeof(List<HotelBudgetViewModel>), 200)]
-		[ProducesResponseType(500)]
-		[ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-		[ProducesDefaultResponseType]
-		public async Task<ActionResult<List<HotelBudgetViewModel>>> GetByRestaurantByCityAndBudget(
-			string location,
-			int price,
-			int numberResultPage)
-		{
+		// /// <summary>
+		// /// Get restaurant by location and max budget
+		// /// </summary>
+		// /// <param name="location">Location for the restaurant</param>
+		// /// <param name="price">Price range ($ = 1, $$ = 2, $$$ = 3, $$$$ = 4) </param>
+		// /// <param name="numberResultPage">Number of result</param>
+		// /// <returns></returns>
+		// [HttpGet("RestaurantByCityAndBudget")]
+		// [Tags("Restaurants")]
+		// [ProducesResponseType(typeof(List<HotelBudgetViewModel>), 200)]
+		// [ProducesResponseType(500)]
+		// [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+		// [ProducesDefaultResponseType]
+		// public async Task<ActionResult<List<HotelBudgetViewModel>>> GetByRestaurantByCityAndBudget(
+		// 	string location,
+		// 	int price,
+		// 	int numberResultPage)
+		// {
 
-			try
-			{
-				var hotel = await _yelpApiReader.RestaurantsByCityAndBudget(location, price, numberResultPage);
+		// 	try
+		// 	{
+		// 		var hotel = await _yelpApiReader.RestaurantsByCityAndBudget(location, price, numberResultPage);
 
-				return Ok(hotel);
-			}
-			catch (HttpRequestException ex)
-			{
+		// 		return Ok(hotel);
+		// 	}
+		// 	catch (HttpRequestException ex)
+		// 	{
 
-				if (ex.StatusCode == HttpStatusCode.BadRequest)
-				{
-					return BadRequest("No location with that name");
-				}
+		// 		if (ex.StatusCode == HttpStatusCode.BadRequest)
+		// 		{
+		// 			return BadRequest("No location with that name");
+		// 		}
 
-				throw;
-			}
-		}
+		// 		throw;
+		// 	}
+		// }
 
 
 		[HttpGet]

@@ -21,9 +21,10 @@ const Destination = () => {
             try {
                 const response = await fetch("api/TravelApp/countries");
                 const data = await response.json();
-                setCountries(data);
+                setCountries(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error('Error fetching countries:', error);
+                setCountries([]); // Ensure countries is set to an empty array on error
             }
         }
         fetchCountries();
@@ -53,33 +54,46 @@ const Destination = () => {
         setSelectedCity(event.target.value);
     };
 
+
+
     const handleDateChange = (event) => {
         const { name, value } = event.target;
         let newNumberOfDays = numberOfDays;
 
+
+
         if (name === 'arrivalDate') {
             setArrivalDate(value);
+
             if (departureDate) {
                 newNumberOfDays = Math.floor((new Date(departureDate) - new Date(value)) / (1000 * 60 * 60 * 24));
                 setNumberOfDays(newNumberOfDays);
+
             }
+
         } else if (name === 'departureDate') {
             setDepartureDate(value);
             if (arrivalDate) {
                 newNumberOfDays = Math.floor((new Date(value) - new Date(arrivalDate)) / (1000 * 60 * 60 * 24));
                 setNumberOfDays(newNumberOfDays);
+
             }
+
         }
+
+
 
         setAnswers(prev => ({
             ...prev,
             [name]: value,
-            numberOfDays: newNumberOfDays, // Update the context with the new number of days     
+            numberOfDays: newNumberOfDays,
             country: selectedCountry,
             city: selectedCity,
+
         }));
+
         console.log("Updated Dates and Days:", name, value, newNumberOfDays);
-    };
+    }
 
     const handleNextButtonClick = () => {
         if (selectedCountry && selectedCity && arrivalDate && departureDate) {
@@ -89,8 +103,6 @@ const Destination = () => {
 
             setAnswers({
                 ...answers,
-                country: selectedCountry,
-                city: selectedCity,
                 arrivalDate,
                 departureDate,
                 numberOfDays
@@ -151,4 +163,5 @@ const Destination = () => {
         </div>
     );
 }
+
 export default Destination;

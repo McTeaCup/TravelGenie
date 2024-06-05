@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react"
 import { Link } from 'react-router-dom';
 import { useChoice } from "../components/landingchoice-logic";
 import style from '../style.module.css'
-import Desktop1 from '../../public/images/planeView.jpg'
-import Mobile1 from '../../public/images/bike.png'
-import Desktop2 from '../../public/images/airBalloon.jpg'
-import Mobile2 from '../../public/images/smile.png'
-import Desktop3 from '../../public/images/pizza.jpg'
-import Mobile3 from '../../public/images/discover.png'
-import Desktop4 from '../../public/images/fjord.jpg'
-import Mobile4 from '../../public/images/about-us.png'
+import Desktop1 from '/images/planeView.jpg'
+import Mobile1 from '/images/bike.png'
+import Desktop2 from '/images/airBalloon.jpg'
+import Mobile2 from '/images/smile.png'
+import Desktop3 from '/images/pizza.jpg'
+import Mobile3 from '/images/discover.png'
+import Desktop4 from '/images/fjord.jpg'
+import Mobile4 from '/images/about-us.png'
 
 function Landing() {
     const { setAiHelp } = useChoice();
@@ -31,8 +31,8 @@ function Landing() {
                     <h1 className={style.formTitle}>Welcome!</h1>
                     <h4 className={style.landText}>Plan your trip today!</h4>
                     <div className={style.landingContainer}>
+                        <Link to={'/destination'}><button className={style.primaryBtn} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                         <Link to={'/destination'}><button disabled className={style.landButton} onClick={() => setAiHelp(false)}>I want to decide for myself</button></Link>
-                        <Link to={'/destination'}><button className={style.landButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                     </div>
                 </div>
             </div>
@@ -62,8 +62,8 @@ function Landing() {
                             }
                         </div>
                         <div className={style.landingContainer}>
+                            <Link to={'/destination'}><button className={style.primaryBtn} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                             <Link to={'/destination'}><button disabled className={style.altLandButton} onClick={() => setAiHelp(false)}>I want to decide for myself</button></Link>
-                            <Link to={'/destination'}><button className={style.altLandButton} onClick={() => setAiHelp(true)}>AI generate for me!</button></Link>
                         </div>
                     </div>
                 </article>

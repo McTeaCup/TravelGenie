@@ -95,8 +95,8 @@
     top: 90px;
     text-align: center;
     font-size: 1rem;
-    text-shadow: 0 0 5px #000000;
-    color: white;
+    /* text-shadow: 0 0 5px #000000; */
+    color: #000000;
 }
 
 .landText {
@@ -312,7 +312,8 @@ input[type="date"] {
     column-gap: 20px;
 }
 
-.landButton {
+.landButton,
+.primaryBtn {
     background-color: #d2cccc00;
     width: 100%;
     padding: 8px;
@@ -322,6 +323,12 @@ input[type="date"] {
     color: white;
 }
 
+.primaryBtn {
+    background-color: #f29f8d;
+    border: solid black 2px;
+    color: black;
+}
+
 .altLandButton {
     background-color: #d2cccc00;
     width: 100%;
@@ -329,13 +336,6 @@ input[type="date"] {
     border-radius: 5px;
     /* font-size: 0.7rem; */
     border: solid 1px black;
-    color: black;
-}
-
-.landButton:hover,
-.altLandButton:hover {
-    background-color: #f29f8d;
-    border: solid black 2px;
     color: black;
 }
 
