@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bfd3/cKvb2PgM724UqZy42r86pwu9H+SLaEhaD/MIWux/jxdMGI0ldo+pihSkO56BD6HtmQExn5vjkzmNdQp5w==",
+  "dgSpecHash": "U3lZL6Qt94woBBTDKoBoIep6sSDVBF5bksFkjvrmWyd97YrSE6PSlmGHSzFdNvQ/ES0liFTuUpOZUNpNkZ8hoA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Lifbo\\Documents\\GitHub\\TravelGenie\\ReactApp4.Server\\ReactApp4.Server.csproj",
+  "projectFilePath": "c:\\Users\\charl\\OneDrive\\Desktop\\Travelenie\\TravelGenie-1\\ReactApp4.Server\\ReactApp4.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

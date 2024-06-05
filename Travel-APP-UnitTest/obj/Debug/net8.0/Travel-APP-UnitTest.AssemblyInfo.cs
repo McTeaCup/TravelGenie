@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Travel-APP-UnitTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c185dd2211b90faa1cbb985d34c2ba034a09dd9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bdefe90cb111686b0cb2902e28e883650dec3e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Travel-APP-UnitTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Travel-APP-UnitTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
